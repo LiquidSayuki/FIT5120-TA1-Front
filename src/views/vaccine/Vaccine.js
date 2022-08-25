@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Vaccines = () => {
+const Vaccine = () => {
     return (
         <div>
-            Vaccine Page
+            Vaccine Content
         </div>
     );
 };
 
-export default Vaccines;
+export default Vaccine;
