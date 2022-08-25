@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 import Disease from "../disease/Disease";
 import Vaccine from "../vaccine/Vaccine";
 import LocationIdentifier from "../../components/indexRouter/LocationIdentifier";
