@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import IndexRouter from "./router/IndexRouter";
 
 function App() {
   return (
     <div >
-      Hello
+      <IndexRouter></IndexRouter>
     </div>
   );
 }
