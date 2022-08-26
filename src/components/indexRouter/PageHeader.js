@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
+import { Avatar, Layout, Menu, Col, Row } from 'antd';
 import style from "./PageHeader.module.css"
 import {withRouter} from "react-router-dom";
 
@@ -28,19 +28,24 @@ const items = [
 
 const PageHeader = (props) => {
     const onClick = (e) =>{
-        console.log(props);
+        //console.log(props);
         props.history.push(e.key)
     };
     return (
             <Header>
-                <div className={style.logo}> LOGO </div>
-                <span className={style.username} style={{float:"right"}}>Welcome,User</span>
-                <Menu
-                    theme="dark"
-                    mode="horizontal"
-                    onClick = {onClick}
-                    items={items}
-                />
+                <Row>
+                    <Col span={1}><Avatar size={40}>P</Avatar></Col>
+                    <Col span={3}><h2 className={style.logo}>Pediroo</h2></Col>
+                    <Col span={16}>
+                        <Menu
+                        theme="dark"
+                        mode="horizontal"
+                        onClick = {onClick}
+                        items={items}
+                        />
+                    </Col>
+                    <Col span={4}><span className={style.username} style={{float:"right"}}>Welcome,User</span></Col>
+                </Row>
             </Header>
     );
 };
