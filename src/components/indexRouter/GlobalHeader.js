@@ -1,6 +1,6 @@
 import React from 'react';
 import { Avatar, Layout, Menu, Col, Row } from 'antd';
-import style from "./PageHeader.module.css"
+import style from "./GlobalHeader.module.css"
 import {withRouter} from "react-router-dom";
 
 const { Header } = Layout;
@@ -26,7 +26,7 @@ const items = [
         }]
     }]
 
-const PageHeader = (props) => {
+const GlobalHeader = (props) => {
     const onClick = (e) =>{
         //console.log(props);
         props.history.push(e.key)
@@ -50,4 +50,4 @@ const PageHeader = (props) => {
     );
 };
 
-export default withRouter(PageHeader);
+export default withRouter(GlobalHeader);
