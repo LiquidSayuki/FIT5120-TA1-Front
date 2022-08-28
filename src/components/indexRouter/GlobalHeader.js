@@ -12,15 +12,20 @@ const items = [
         label:"Home"
     },
     {
-        key:"/vaccine",
+        key:"/vaccines",
         label:"Vaccines",
     },{
-        key:"/disease",
+        key:"/undefined",
         label:"Diseases",
         children: [{
+            key:"/diseases",
+            label:"Common diseases"
+            },
+            {
             key:"/disease01",
             label:"disease 01"
-        },{
+            },
+            {
             key:"/disease02",
             label:"disease 02"
         }]
@@ -31,6 +36,9 @@ const GlobalHeader = (props) => {
         //console.log(props);
         props.history.push(e.key)
     };
+
+    const selectedKey = [props.location.pathname]
+
     return (
             <Header>
                 <Row>
@@ -42,6 +50,7 @@ const GlobalHeader = (props) => {
                         mode="horizontal"
                         onClick = {onClick}
                         items={items}
+                        defaultSelectedKeys = {selectedKey}
                         />
                     </Col>
                     <Col span={4}><span className={style.username} style={{float:"right"}}>Welcome,User</span></Col>
