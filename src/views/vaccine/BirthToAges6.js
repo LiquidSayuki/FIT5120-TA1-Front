@@ -53,7 +53,7 @@ const BirthToAges6 = () => {
                         </Paragraph>
                     </Col>
                 </Row>
-                <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: "30px" }}>
+                <div className='vaccineContent' style={{ display: 'flex', justifyContent: 'space-between', paddingTop: "0.5rem" }}>
                     <div className='vaccinations' style={{ justifyContent: 'center' }}>
                         <div className='vaccinesData'>
                             {data.map((vaccine, index) => {
@@ -74,7 +74,7 @@ const BirthToAges6 = () => {
                                         <h2>{vaccine.category}</h2>
                                         <Card
                                             title={vaccine.name}
-                                            extra={<a href="#">More</a>}
+                                            // extra={<a href="#">More</a>}
                                             style={{
                                                 width: 300,
                                             }}>
