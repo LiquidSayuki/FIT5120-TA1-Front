@@ -8,6 +8,7 @@ const { Title, Paragraph } = Typography;
 
 const title = "Disease"
 const subtitle = "Know more about common diseases spread between children"
+
 // const data = [{
 //     name:"This is title1",
 //     content:"This is content",
