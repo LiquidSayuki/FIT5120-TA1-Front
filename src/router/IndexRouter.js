@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { Layout } from 'antd';
 import Home from "../views/home/Home";
 import PageHeader from "../components/indexRouter/GlobalHeader";
@@ -12,7 +12,6 @@ const { Footer } = Layout;
 
 export default function () {
     return (
-        <BrowserRouter>
             <Layout className="layout">
                 <PageHeader />
                 <Switch>
@@ -23,9 +22,6 @@ export default function () {
                     <Route path="/disease/:id" component={SingleDisease}></Route>
                     <Route path="/home" component={Home} />
                     <Redirect from="/" to="/home" />
-                    {/*<Route path="/" render={()=>*/}
-                    {/*"条件"?true:<Redirect to=""/>*/}
-                    {/*}/>*/}
                 </Switch>
                 <Footer
                     style={{
@@ -35,6 +31,5 @@ export default function () {
                     Hello
                 </Footer>
             </Layout>
-        </BrowserRouter>
     );
 };

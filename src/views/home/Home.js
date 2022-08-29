@@ -1,44 +1,76 @@
 import React from 'react';
 import style from "./Home.module.css";
-import { Col, Row } from 'antd';
+import {Card, Col, Layout, Row} from 'antd';
 import { Typography, Button } from 'antd';
 
 const { Title,Text } = Typography;
+const { Content } = Layout;
 
-const Home = () => {
+const Home = (props) => {
+    const redirect = (destination) => {
+      props.history.push(destination)
+    }
     return (
-        <div className={style.background}>
-            <Row className={style.title}>
-                <Col span={8}></Col>
-                <Col span={8}><Title >Home Page</Title></Col>
-                <Col span={8}></Col>
-            </Row>
-            <Row className={style.text}>
-                <Col span={6}></Col>
-                <Col span={12}><Text>Description about</Text></Col>
-                <Col span={6}></Col>
-            </Row>
-            <Row className={style.text}>
-                <Col span={6}></Col>
-                <Col span={12}><Text>Our website</Text></Col>
-                <Col span={6}></Col>
-            </Row>
-            <Row className={style.text}>
-                <Col span={6}></Col>
-                <Col span={12}><Text>Sayuki Sayuki Sayuki Super Sayuki Sayuki Super Super Sayuki</Text></Col>
-                <Col span={6}></Col>
-            </Row>
-            <Row className={style.button}>
-                <Col span={9}></Col>
-                <Col span={6}><Button type="primary" block="true">Primary Operation</Button></Col>
-                <Col span={9}></Col>
-            </Row>
-            <Row className={style.button}>
-                <Col span={9}></Col>
-                <Col span={6}><Button block="true">Secondary Operation</Button></Col>
-                <Col span={9}></Col>
-            </Row>
+        <div>
+            <div className={style.background}>
+                <Row className={style.title}>
+                    <Col span={8}></Col>
+                    <Col span={8}><h1 >Pediroo</h1></Col>
+                    <Col span={8}></Col>
+                </Row>
+                <Row className={style.text}>
+                    <Col span={4}></Col>
+                    <Col span={16}><Text>An encyclopedia for new parents </Text></Col>
+                    <Col span={4}></Col>
+                </Row>
+                {/*<Row className={style.text}>*/}
+                {/*    <Col span={4}></Col>*/}
+                {/*    <Col span={16}><Text>We provide help for new parents parenting knowledge</Text></Col>*/}
+                {/*    <Col span={4}></Col>*/}
+                {/*</Row>*/}
+                {/*<Row className={style.text}>*/}
+                {/*    <Col span={4}></Col>*/}
+                {/*    <Col span={16}><Text>Learn about common childhood diseases and their prevention</Text></Col>*/}
+                {/*    <Col span={4}></Col>*/}
+                {/*</Row>*/}
+                <Row className={style.button}>
+                    <Col span={9}></Col>
+                    <Col span={6}><Button type="primary"
+                                          block="true"
+                                          onClick={()=>{redirect("/diseases")}}>Common childhood illnesses</Button></Col>
+                    <Col span={9}></Col>
+                </Row>
+                <Row className={style.button}>
+                    <Col span={9}></Col>
+                    <Col span={6}><Button block="true"
+                                          onClick={()=>{redirect("/BirthToAges6")}}>Vaccines children need</Button></Col>
+                    <Col span={9}></Col>
+                </Row>
+            </div>
+            <Content
+                style={{
+                    padding: '0 0px',
+                }}
+            >
+                <div className="site-layout-content">
+                    <Row>
+                        <Col span={3}></Col>
+                        <Col span={9}>
+                            <Card style={{width:"95%"}}>
+                                Some text content
+                            </Card>
+                        </Col>
+                        <Col span={9}>
+                            <Card style={{width:"95%"}}>
+                                Maybe some image
+                            </Card>
+                        </Col>
+                        <Col span={3}></Col>
+                    </Row>
+                </div>
+            </Content>
         </div>
+
     );
 };
 
