@@ -23,20 +23,8 @@ const items = [
             label: "Ages 7 to Ages 18"
         }]
     }, {
-        key: "/undefined",
+        key: "/diseases",
         label: "Diseases",
-        children: [{
-            key: "/diseases",
-            label: "Common diseases"
-        },
-        {
-            key: "/disease01",
-            label: "disease 01"
-        },
-        {
-            key: "/disease02",
-            label: "disease 02"
-        }]
     }]
 
 const GlobalHeader = (props) => {
