@@ -32,7 +32,12 @@ const SingleDisease = (props) => {
                 padding: '0 60px',
             }}
         >
-            <LocationIdentifier title={data.name}/>
+            <Row>
+                <Col span={3}></Col>
+                <Col>
+                    <LocationIdentifier title={data.name}/>
+                </Col>
+            </Row>
             <div className="site-layout-content">
                 <Row style={{paddingTop:"50px"}}>
                     <Col span={3}></Col>

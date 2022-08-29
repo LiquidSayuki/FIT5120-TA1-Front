@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Col, Layout, Row, List,Button, Typography, Divider} from 'antd';
+import {Col, Layout, Row, List, Button, Typography, Divider, Card} from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import axios from "axios";
 
@@ -37,17 +37,25 @@ const Disease = () => {
                 padding: '0 60px',
             }}
         >
-            <LocationIdentifier title={title} subtitle={subtitle}/>
+            <Row>
+                <Col span={3}></Col>
+                <Col>
+                    <LocationIdentifier title={title} subtitle={subtitle}/>
+                </Col>
+            </Row>
+
             <div className="site-layout-content">
                 <Row style={{paddingTop:"30px"}}>
                     <Col span={3}></Col>
                     <Col span={18}>
-                        <Paragraph>
-                            <Title>Common Diseases</Title>
-                            <Divider/>
-                            <blockquote style={{fontSize:"16px"}}>Children's immunity is weaker than adults, and some diseases are more likely to infect children, causing damage to children's health. Learn more about infectious diseases among children, so that you can better protect your children.</blockquote>
-                            <Divider/>
-                        </Paragraph>
+                        <Card
+                        >
+                            <Paragraph>
+                                <Title>Common Diseases</Title>
+                                <Divider/>
+                                <blockquote style={{fontSize:"16px"}}>Children's immunity is weaker than adults, and some diseases are more likely to infect children, causing damage to children's health. Learn more about infectious diseases among children, so that you can better protect your children.</blockquote>
+                            </Paragraph>
+                        </Card>
                     </Col>
                 </Row>
                 <Row style={{padding:"20px"}}>
