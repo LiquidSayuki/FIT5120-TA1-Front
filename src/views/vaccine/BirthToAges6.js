@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Timeline, Card, Col, Row, Divider, Typography } from 'antd';
+import { Layout, Timeline, Card, Col, Row, Divider, Typography, Checkbox } from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import './BirthToAges6.css'
 import { list } from 'postcss';
@@ -48,7 +48,7 @@ const BirthToAges6 = () => {
                         <Paragraph>
                             <Title>Vaccine Schedules Birth to Ages 6</Title>
                             <Divider />
-                            <blockquote style={{ fontSize: "16px" }}>asdasd</blockquote>
+                            <blockquote style={{ fontSize: "16px" }}>Free vaccinations are available to protect children against various diseases.</blockquote>
                             <Divider />
                         </Paragraph>
                     </Col>
@@ -65,8 +65,12 @@ const BirthToAges6 = () => {
                                 //     console.log(listCategory)
 
 
+                                const onChange = (e) => {
+                                    console.log(`checked = ${e.target.checked}`);
+                                };
+
                                 return (
-                                    <div className='vaccineData' key={index} style={{ paddingTop: "40px" }}>
+                                    <div className='vaccineData' key={index} style={{ paddingTop: "30px" }}>
                                         <h2>{vaccine.category}</h2>
                                         <Card
                                             title={vaccine.name}
@@ -80,6 +84,7 @@ const BirthToAges6 = () => {
                                                 alt="logo"
                                                 src={vaccine.imgSrc}
                                             /> */}
+                                            <Checkbox onChange={onChange}>Inoculated</Checkbox>
                                         </Card>
                                     </div>
                                 )
@@ -101,19 +106,6 @@ const BirthToAges6 = () => {
                     </div>
                 </div>
             </div>
-
-
-            {/* <div className='vaccinesData'>
-                {data.map((vaccine, index) => {
-                    return (
-                        <div className='vaccineData' key={index}>
-                            {vaccine.name}
-                        </div>
-                    )
-                })}
-            </div> */}
-
-
         </Content >
     );
 };

@@ -12,24 +12,24 @@ const { Footer } = Layout;
 
 export default function () {
     return (
-            <Layout className="layout">
-                <PageHeader />
-                <Switch>
-                    <Route path="/BirthToAges6" component={BirthToAges6} />
-                    <Route path="/Ages7ToAges18" component={Ages7ToAges18} />
-                    <Route path="/vaccine/:id" component={BirthToAges6}></Route>
-                    <Route path="/diseases" component={Disease} />
-                    <Route path="/disease/:id" component={SingleDisease}></Route>
-                    <Route path="/home" component={Home} />
-                    <Redirect from="/" to="/home" />
-                </Switch>
-                <Footer
-                    style={{
-                        textAlign: 'center',
-                    }}
-                >
-                    Hello
-                </Footer>
-            </Layout>
+        <Layout className="layout">
+            <PageHeader />
+            <Switch>
+                <Route path="/BirthToAges6" component={BirthToAges6} />
+                {/* <Route path="/Ages7ToAges18" component={Ages7ToAges18} /> */}
+                <Route path="/vaccine/:id" component={BirthToAges6}></Route>
+                <Route path="/diseases" component={Disease} />
+                <Route path="/disease/:id" component={SingleDisease}></Route>
+                <Route path="/home" component={Home} />
+                <Redirect from="/" to="/home" />
+            </Switch>
+            <Footer
+                style={{
+                    textAlign: 'center',
+                }}
+            >
+                Hello
+            </Footer>
+        </Layout>
     );
 };
