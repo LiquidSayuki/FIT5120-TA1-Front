@@ -38,7 +38,12 @@ const GlobalHeader = (props) => {
     const selectedKey = [props.location.pathname]
 
     return (
-        <Header>
+        <Header
+            style={{
+                position: 'fixed',
+                zIndex: 1,
+                width: '100%',
+            }}>
             <Row>
                 <Col span={1}><Avatar size={40}>P</Avatar></Col>
                 <Col span={3}><h2 className={style.logo}>Pediroo</h2></Col>

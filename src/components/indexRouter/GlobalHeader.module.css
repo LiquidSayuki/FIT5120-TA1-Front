@@ -6,10 +6,17 @@
     color: white;
     text-align: center;
 }
-.username{
+
+.username {
     color: white;
 }
+
 .ant-row-rtl .logo {
     float: right;
     margin: 16px 0 16px 24px;
+}
+
+.navbar {
+    position: sticky;
+    top: 0
 }
