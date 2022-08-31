@@ -1,13 +1,10 @@
 import React from 'react';
 import { Button, Result } from 'antd';
 
-const Login = (props) => {
+const Login = () => {
 
     const cognitalURL = "https://ie-ta01.auth.ap-southeast-2.amazoncognito.com/login?client_id=7k2qpqrk7eg5ujru3dlobl9b11&response_type=code&scope=openid+profile&redirect_uri=https://pediroo.me/loginSuccess"
 
-    const onClick = () => {
-        props.history.push("/home")
-    }
     return (
         <Result
             status="warning"

@@ -1,11 +1,10 @@
 import React from 'react';
 import style from "./Home.module.css";
-import {Card, Col, Layout, Row, Affix, Steps} from 'antd';
+import {Card, Col, Layout, Row} from 'antd';
 import { Typography, Button } from 'antd';
 
 const { Text } = Typography;
 const { Content } = Layout;
-const { Step } = Steps;
 
 const Home = (props) => {
     const redirect = (destination) => {

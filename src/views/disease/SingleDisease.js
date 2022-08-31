@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Col, Layout, Row, Image,Button, Typography, Divider, Card} from 'antd';
+import {Col, Layout, Row, Image, Typography, Divider, Card} from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import axios from "axios";
 

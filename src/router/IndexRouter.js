@@ -6,11 +6,10 @@ import GlobalHeader from "../components/indexRouter/GlobalHeader";
 import Disease from "../views/disease/Disease";
 import BirthToAges6 from "../views/vaccine/BirthToAges6";
 import SingleDisease from "../views/disease/SingleDisease";
-import LocationIdentifier from "../components/basicPageFrame/LocationIdentifier";
 
 const { Footer } = Layout;
 
-export default function () {
+export default function IndexRouter () {
     return (
         <Layout className="layout">
             <GlobalHeader />
