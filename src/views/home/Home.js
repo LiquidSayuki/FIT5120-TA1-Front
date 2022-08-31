@@ -1,10 +1,11 @@
 import React from 'react';
 import style from "./Home.module.css";
-import {Card, Col, Layout, Row} from 'antd';
+import {Card, Col, Layout, Row, Affix, Steps} from 'antd';
 import { Typography, Button } from 'antd';
 
-const { Title,Text } = Typography;
+const { Text } = Typography;
 const { Content } = Layout;
+const { Step } = Steps;
 
 const Home = (props) => {
     const redirect = (destination) => {
@@ -53,20 +54,28 @@ const Home = (props) => {
                 }}
             >
                 <div className="site-layout-content">
-                    <Row>
-                        <Col span={3}></Col>
-                        <Col span={9}>
-                            <Card style={{width:"95%"}}>
-                                Some text content
-                            </Card>
-                        </Col>
-                        <Col span={9}>
-                            <Card style={{width:"95%"}}>
-                                Maybe some image
-                            </Card>
-                        </Col>
-                        <Col span={3}></Col>
-                    </Row>
+
+                    <div style={{width:"70%", margin: "auto"}}>
+                        <Row >
+                            <Col span={8}>
+                                <Card style={{width:"95%"}}>
+                                    Some text content
+                                </Card>
+                            </Col>
+                            <Col span={8}>
+                                <Card style={{width:"95%"}}>
+                                    Maybe some image
+                                </Card>
+                            </Col>
+                            <Col span={8}>
+                                <Card style={{width:"95%"}}>
+                                    Some text content
+                                </Card>
+                            </Col>
+                        </Row>
+
+
+                    </div>
                 </div>
             </Content>
         </div>
