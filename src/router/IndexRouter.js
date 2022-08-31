@@ -2,18 +2,18 @@ import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { Layout } from 'antd';
 import Home from "../views/home/Home";
-import PageHeader from "../components/indexRouter/GlobalHeader";
-import Ages7ToAges18 from "../views/vaccine/Ages7ToAges18";
+import GlobalHeader from "../components/indexRouter/GlobalHeader";
 import Disease from "../views/disease/Disease";
 import BirthToAges6 from "../views/vaccine/BirthToAges6";
 import SingleDisease from "../views/disease/SingleDisease";
+import LocationIdentifier from "../components/basicPageFrame/LocationIdentifier";
 
 const { Footer } = Layout;
 
 export default function () {
     return (
         <Layout className="layout">
-            <PageHeader />
+            <GlobalHeader />
             <Switch>
                 <Route path="/BirthToAges6" component={BirthToAges6} />
                 {/* <Route path="/Ages7ToAges18" component={Ages7ToAges18} /> */}

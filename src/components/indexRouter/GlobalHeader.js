@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Layout, Menu, Col, Row } from 'antd';
+import { Avatar, Layout, Menu, Col, Row, Affix } from 'antd';
 import style from "./GlobalHeader.module.css"
 import { withRouter } from "react-router-dom";
 
@@ -38,9 +38,10 @@ const GlobalHeader = (props) => {
     const selectedKey = [props.location.pathname]
 
     return (
+        <Affix offsetTop={0}>
         <Header
             style={{
-                position: 'fixed',
+                // position: 'fixed',
                 zIndex: 1,
                 width: '100%',
             }}>
@@ -59,6 +60,7 @@ const GlobalHeader = (props) => {
                 <Col span={4}><span className={style.username} style={{ float: "right" }}>Welcome,User</span></Col>
             </Row>
         </Header>
+        </Affix>
     );
 };
 
