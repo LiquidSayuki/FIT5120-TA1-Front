@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Result } from 'antd';
 
 const Login = (props) => {
-    const onClick = () =>{
+    const onClick = () => {
         props.history.push("/home")
     }
     return (
