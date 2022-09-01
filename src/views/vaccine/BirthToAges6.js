@@ -4,7 +4,7 @@ import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifi
 import './BirthToAges6.css'
 import { list } from 'postcss';
 import axios from "axios";
-import VaccineDataTimeline from './VaccineDataTimeline';
+// import VaccineDataTimeline from './VaccineDataTimeline';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
