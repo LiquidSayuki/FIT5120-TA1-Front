@@ -18,12 +18,14 @@ const LoginSuccess = (props) => {
     console.log(window.location.href);
 
     try{
-        let tokenSplit = tokenHash.split("#id_token=")[1].split('&access_token=');
-        let idToken = tokenSplit[0].replace('#id_token=', '');
-        let accessToken = tokenSplit[1].split('&expires')[0];
+        // let tokenSplit = tokenHash.split("#id_token=")[1].split('&access_token=');
+        // let idToken = tokenSplit[0].replace('#id_token=', '');
+        // let accessToken = tokenSplit[1].split('&expires')[0];
+        let code = tokenHash.split("code=")[1];
 
-        localStorage.setItem('id-token', idToken);
-        localStorage.setItem('access-token', accessToken);
+        // localStorage.setItem('id-token', idToken);
+        // localStorage.setItem('access-token', accessToken);
+        localStorage.setItem("access-token", code);
     }
     catch (err) {
         console.log(err)
