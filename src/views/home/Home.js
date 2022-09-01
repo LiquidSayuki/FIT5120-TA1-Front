@@ -1,14 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import style from "./Home.module.css";
-import { Card, Col, Layout, Row } from 'antd';
+import {Card, Col, Image, Layout, Row, PageHeader, Divider} from 'antd';
 import { Typography, Button } from 'antd';
+import axios from "axios";
 
 const { Text } = Typography;
 const { Content } = Layout;
+const { Meta } = Card;
 
 const Home = (props) => {
+    const [disease,setDisease] = useState([])
+    useEffect(()=>{
+        axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/items").then(res => {
+            let data = res.data.Items;
+            console.log(typeof (data))
+            setDisease(data.slice(0,3));
+            console.log(disease);
+        })
+    },[])
+
+
+
     const redirect = (destination) => {
-        props.history.push(destination)
+      props.history.push(destination)
     }
     return (
         <div>
@@ -36,14 +50,14 @@ const Home = (props) => {
                 <Row className={style.button}>
                     <Col span={9}></Col>
                     <Col span={6}><Button type="primary"
-                        block="true"
-                        onClick={() => { redirect("/diseases") }}>Common childhood illnesses</Button></Col>
+                                          block="true"
+                                          onClick={()=>{redirect("/diseases")}}>Common childhood illnesses</Button></Col>
                     <Col span={9}></Col>
                 </Row>
                 <Row className={style.button}>
                     <Col span={9}></Col>
                     <Col span={6}><Button block="true"
-                        onClick={() => { redirect("/BirthToAges6") }}>Vaccines children need</Button></Col>
+                                          onClick={()=>{redirect("/BirthToAges6")}}>Vaccines children need</Button></Col>
                     <Col span={9}></Col>
                 </Row>
             </div>
@@ -53,31 +67,39 @@ const Home = (props) => {
                 }}
             >
                 <div className="site-layout-content">
+                    <div style={{width:"80%", margin: "auto"}}>
 
-                    <div style={{ width: "70%", margin: "auto" }}>
-                        <Row >
-                            <Col span={8}>
-                                <Card style={{ width: "95%" }}>
-                                    Some text content
-                                </Card>
-                            </Col>
-                            <Col span={8}>
-                                <Card style={{ width: "95%" }}>
-                                    Maybe some image
-                                </Card>
-                            </Col>
-                            <Col span={8}>
-                                <Card style={{ width: "95%" }}>
-                                    Some text content
-                                </Card>
-                            </Col>
+                        <PageHeader title="Infectious Diseases"
+                                    subTitle="Some common infectious diseases spread among children"/>
+
+                        <Divider/>
+                        {/* Dynamic create disease cards*/}
+                        <Row gutter={30}>
+                            {
+                                disease.map( item =>
+                                    <Col span={8}>
+                                        <Card hoverable={true}
+                                              cover={<Image height={180}
+                                                            alt="chicken pox"
+                                                            src={item.imgSrc}
+                                                    />}
+                                        >
+                                            <Meta title={item.name}
+                                                  description="click to read more"
+                                                  onClick={()=>{redirect("disease/"+item.id)}}
+                                            />
+                                        </Card>
+                                    </Col>
+                                )
+                            }
                         </Row>
-
 
                     </div>
                 </div>
+
             </Content>
         </div>
+
     );
 };
 
