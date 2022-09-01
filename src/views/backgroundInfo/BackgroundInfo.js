@@ -1,6 +1,6 @@
 import React from 'react';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
-import { Col, Layout, Row, List, Button, Typography, Divider, Card } from 'antd';
+import {Col, Layout, Row, List, Button, Typography, Divider, Card, Image} from 'antd';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -43,6 +43,43 @@ const BackgroundInfo = () => {
 
                     </Col>
                 </Row>
+                <br/>
+                <div style={{width:"75%", margin: "auto"}}>
+                    <Row gutter={[35,35]}>
+                        <Col span={24}>
+                            <Card>
+                                <Paragraph>
+                                    <Title>Title</Title>
+                                    <Divider/>
+                                    <blockquote>Description</blockquote>
+                                </Paragraph>
+                                <Image src="https://s1.imagehub.cc/images/2022/09/02/Picture1.png"></Image>
+                            </Card>
+                        </Col>
+                        <Col span={24}>
+                            <Card>
+                                <Paragraph>
+                                    <Title>Title</Title>
+                                    <Divider/>
+                                    <blockquote>Description</blockquote>
+                                </Paragraph>
+                                <Image src="https://s1.imagehub.cc/images/2022/09/02/Picture2.png"></Image>
+                            </Card>
+                        </Col>
+                        <Col span={24}>
+                            <Card>
+                                <Paragraph>
+                                    <Title>Title</Title>
+                                    <Divider/>
+                                    <blockquote>Description</blockquote>
+                                </Paragraph>
+                                <Image src="https://s1.imagehub.cc/images/2022/09/02/Picture3.png"></Image>
+                            </Card>
+                        </Col>
+                    </Row>
+
+                </div>
+
 
 
             </div>
