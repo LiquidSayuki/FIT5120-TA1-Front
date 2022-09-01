@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Layout, Timeline, Card, Col, Row, Divider, Typography, Checkbox } from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import './BirthToAges6.css'
 import { list } from 'postcss';
+import axios from "axios";
+import VaccineDataTimeline from './VaccineDataTimeline';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -33,6 +35,32 @@ const data = [{
 
 
 const BirthToAges6 = () => {
+    // const url = 'https://9k7q2u4jp2.execute-api.ap-southeast-2.amazonaws.com/vaccine-data/retrieve-vaccine-data';
+
+
+    // const [vaccines, getVaccines] = useState('');
+
+    // useEffect(() => {
+    //     getAllVaccines();
+    // }, []);
+
+    // const getAllVaccines = () => {
+    //     axios.get('https://9k7q2u4jp2.execute-api.ap-southeast-2.amazonaws.com/vaccine-data', {
+    //         method: "POST",
+    //         body: JSON.stringify(data),
+    //         mode: 'cors',
+    //         headers: {
+    //             'Access-Control-Allow-Origin': '*'
+    //         }
+    //     })
+    //         .then(response => response.json())
+    //         .then((response) => {
+    //             const allVaccines = response.data.body;
+    //             getVaccines(allVaccines);
+    //         })
+    //         .catch(error => console.error('Error:$(error)'));
+    // }
+
     return (
         <Content
             style={{
@@ -42,13 +70,18 @@ const BirthToAges6 = () => {
             <LocationIdentifier title={title} subtitle={subtitle} />
             <div className="site-layout-content">
                 {/* Vaccine Content Test */}
+
+
+                {/* <VaccineDataTimeline vaccines={vaccines}></VaccineDataTimeline> */}
+
+
                 <Row style={{ paddingTop: "30px" }}>
                     <Col span={3}></Col>
                     <Col span={18}>
                         <Paragraph>
                             <Title>Vaccine Schedules Birth to Ages 6</Title>
                             <Divider />
-                            <blockquote style={{ fontSize: "16px" }}>Free vaccinations are available to protect children against various diseases.</blockquote>
+                            <blockquote style={{ fontSize: "16px" }}>Free vaccinations and recommended vaccine schedules are available to protect children against various diseases.</blockquote>
                             <Divider />
                         </Paragraph>
                     </Col>
