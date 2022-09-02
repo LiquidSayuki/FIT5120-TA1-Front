@@ -12,6 +12,10 @@ const items = [
         label: "Home"
     },
     {
+        key: "/backgroundInfo",
+        label: "Background Info"
+    },
+    {
         key: "/vaccines",
         label: "Vaccines",
         children: [{
@@ -39,27 +43,27 @@ const GlobalHeader = (props) => {
 
     return (
         <Affix offsetTop={0}>
-        <Header
-            style={{
-                // position: 'fixed',
-                zIndex: 1,
-                width: '100%',
-            }}>
-            <Row>
-                <Col span={1}><Avatar size={40} src="https://s3.bmp.ovh/imgs/2022/09/01/c53ecacabc1dfcaf.png"/>P</Col>
-                <Col span={3}><h2 className={style.logo}>Pediroo</h2></Col>
-                <Col span={16}>
-                    <Menu
-                        theme="dark"
-                        mode="horizontal"
-                        onClick={onClick}
-                        items={items}
-                        defaultSelectedKeys={selectedKey}
-                    />
-                </Col>
-                <Col span={4}><span className={style.username} style={{ float: "right" }}>Welcome,User</span></Col>
-            </Row>
-        </Header>
+            <Header
+                style={{
+                    // position: 'fixed',
+                    zIndex: 1,
+                    width: '100%',
+                }}>
+                <Row>
+                    <Col span={1}><Avatar size={40} src="https://s3.bmp.ovh/imgs/2022/09/01/c53ecacabc1dfcaf.png" />P</Col>
+                    <Col span={3}><h2 className={style.logo}>Pediroo</h2></Col>
+                    <Col span={16}>
+                        <Menu
+                            theme="dark"
+                            mode="horizontal"
+                            onClick={onClick}
+                            items={items}
+                            defaultSelectedKeys={selectedKey}
+                        />
+                    </Col>
+                    <Col span={4}><span className={style.username} style={{ float: "right" }}>Welcome,User</span></Col>
+                </Row>
+            </Header>
         </Affix>
     );
 };
