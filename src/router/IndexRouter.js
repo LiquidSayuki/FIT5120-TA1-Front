@@ -7,6 +7,8 @@ import Disease from "../views/disease/Disease";
 import BirthToAges6 from "../views/vaccine/BirthToAges6";
 import SingleDisease from "../views/disease/SingleDisease";
 import BackgroundInfo from "../views/backgroundInfo/BackgroundInfo";
+import DataDisplay from "../views/dataDisplay/DataDisplay";
+
 
 const { Footer } = Layout;
 
@@ -22,6 +24,7 @@ export default function IndexRouter() {
                 <Route path="/diseases" component={Disease} />
                 <Route path="/disease/:id" component={SingleDisease}></Route>
                 <Route path="/home" component={Home} />
+                <Route path="/data" component={DataDisplay}/>
                 <Redirect from="/" to="/home" />
             </Switch>
             <Footer
