@@ -104,7 +104,7 @@ const Disease = () => {
                                         title={<a href={'/disease/'+ item.id}>{item.name}</a>}
                                         //description={item.description}
                                     />
-                                    {item.content}
+                                    {item.description}
                                     <div>
                                         <Button href={'/disease/'+ item.id} type="primary" style={{float:"right"}}>Read More</Button>
                                     </div>

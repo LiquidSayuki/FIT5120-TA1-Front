@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import RichTextEditor from "../../components/richTextEditor/RichTextEditor";
-import {Button, Input, Form, InputNumber} from "antd";
+import {Button, Input, Form} from "antd";
+import axios from "axios";
 
 const { TextArea } = Input;
 
@@ -8,8 +9,17 @@ const DiseaseManage = () => {
     const [html,setHtml] = useState("");
 
     const onFinish = (values) => {
-      values.content = html;
-      console.log(values)
+      console.log(values);
+      console.log(html);
+        axios.put("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/items", {
+            id:values.id,
+            name:values.name,
+            imgSrc:values.imgSrc,
+            description:values.description,
+            content:html,
+        })
+            .then(res=> {console.log(res)})
+            .catch(reason => {console.log(reason)})
     }
 
     return (

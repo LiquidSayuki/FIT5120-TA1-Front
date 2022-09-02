@@ -47,7 +47,7 @@ const SingleDisease = (props) => {
                                 <Title>{data.name}</Title>
                                 <Divider/>
                                 <Paragraph style={{fontSize:"18px"}}>
-                                    {data.content}
+                                    {data.description}
                                 </Paragraph>
                             </Typography>
                         </Card>
@@ -55,40 +55,9 @@ const SingleDisease = (props) => {
 
                 </Row>
                 <Row style={{paddingTop:"50px"}}>
-                    <Col span={3}></Col>
-                    <Col span={10}>
-                        <Card
-                            title="Symptom"
-                            style={{
-                                width: "95%",
-                            }}
-                        >
-                            <blockquote>{data.symptom}</blockquote>
-                        </Card>
-                    </Col>
-                    <Col span={8}>
-                        <Card
-                            hoverable
-                            cover={<Image alt={data.name + "Image"} src={data.imgSrc}/>}
-                        >
-                            <Meta description="Pediroo" />
-                        </Card>
-                    </Col>
-                    <Col span={3}></Col>
-                </Row>
-                <Row style={{paddingTop:"50px"}}>
-                    <Col span={3}></Col>
-                    <Col span={18}>
-                        <Card
-                            title="Prevention"
-                            style={{
-                                width: "100%",
-                            }}
-                        >
-                            <blockquote>{data.prevention}</blockquote>
-                        </Card>
-                    </Col>
-                    <Col span={3}></Col>
+                    <Card>
+                        {data.content}
+                    </Card>
                 </Row>
             </div>
         </Content>
