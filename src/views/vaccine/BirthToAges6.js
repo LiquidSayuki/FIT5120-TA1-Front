@@ -35,31 +35,32 @@ const data = [{
 
 
 const BirthToAges6 = () => {
-    // const url = 'https://9k7q2u4jp2.execute-api.ap-southeast-2.amazonaws.com/vaccine-data/retrieve-vaccine-data';
+    // const url = 'https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/vaccines';
 
+    const [vaccines, getVaccines] = useState('');
 
-    // const [vaccines, getVaccines] = useState('');
+    useEffect(() => {
+        getAllVaccines();
+    }, []);
 
-    // useEffect(() => {
-    //     getAllVaccines();
-    // }, []);
-
-    // const getAllVaccines = () => {
-    //     axios.get('https://9k7q2u4jp2.execute-api.ap-southeast-2.amazonaws.com/vaccine-data', {
-    //         method: "POST",
-    //         body: JSON.stringify(data),
-    //         mode: 'cors',
-    //         headers: {
-    //             'Access-Control-Allow-Origin': '*'
-    //         }
-    //     })
-    //         .then(response => response.json())
-    //         .then((response) => {
-    //             const allVaccines = response.data.body;
-    //             getVaccines(allVaccines);
-    //         })
-    //         .catch(error => console.error('Error:$(error)'));
-    // }
+    const getAllVaccines = () => {
+        axios.get('https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/vaccines'
+            // , {
+            //     method: "POST",
+            //     body: JSON.stringify(data),
+            //     mode: 'cors',
+            //     headers: {
+            //         'Access-Control-Allow-Origin': '*'
+            //     }}
+        )
+            // .then(response => response.json())
+            .then((response) => {
+                const allVaccines = response.data.Items;
+                getVaccines(allVaccines);
+                console.log(response.data);
+            })
+            .catch(error => console.error('Error:$(error)'));
+    }
 
     return (
         <Content
@@ -69,12 +70,6 @@ const BirthToAges6 = () => {
         >
             <LocationIdentifier title={title} subtitle={subtitle} />
             <div className="site-layout-content">
-                {/* Vaccine Content Test */}
-
-
-                {/* <VaccineDataTimeline vaccines={vaccines}></VaccineDataTimeline> */}
-
-
                 <Row style={{ paddingTop: "30px" }}>
                     <Col span={3}></Col>
                     <Col span={18}>
@@ -86,25 +81,10 @@ const BirthToAges6 = () => {
                         </Paragraph>
                     </Col>
                 </Row>
-
-
-                {/* <button><a href='https://9k7q2u4jp2.execute-api.ap-southeast-2.amazonaws.com/vaccine-data/retrieve-vaccine-data'>click</a></button> */}
-
-
-
-
                 <div className='vaccineContent' style={{ display: 'flex', justifyContent: 'space-between', paddingTop: "0.5rem" }}>
                     <div className='vaccinations' style={{ justifyContent: 'center' }}>
                         <div className='vaccinesData'>
                             {data.map((vaccine, index) => {
-
-                                // const listCategory = [];
-                                // if (!vaccine.category in listCategory) {
-                                //     listCategory.append(vaccine.category)
-                                //     // listCategory(vaccine.category);
-                                //     console.log(listCategory)
-
-
                                 const onChange = (e) => {
                                     console.log(`checked = ${e.target.checked}`);
                                 };

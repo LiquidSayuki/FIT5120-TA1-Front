@@ -20,11 +20,11 @@ export default function IndexRouter() {
                 <Route path="/BirthToAges6" component={BirthToAges6} />
                 <Route path="/BackgroundInfo" component={BackgroundInfo} />
                 {/* <Route path="/Ages7ToAges18" component={Ages7ToAges18} /> */}
-                <Route path="/vaccine/:id" component={BirthToAges6}></Route>
+                {/* <Route path="/vaccine/:id" component={BirthToAges6}></Route> */}
                 <Route path="/diseases" component={Disease} />
                 <Route path="/disease/:id" component={SingleDisease}></Route>
                 <Route path="/home" component={Home} />
-                <Route path="/data" component={DataDisplay}/>
+                <Route path="/data" component={DataDisplay} />
                 <Redirect from="/" to="/home" />
             </Switch>
             <Footer

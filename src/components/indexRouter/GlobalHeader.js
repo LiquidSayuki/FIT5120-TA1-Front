@@ -16,18 +16,18 @@ const items = [
         label: "Background Info"
     },
     {
-        key: "/vaccines",
+        key: "/BirthToAges6",
         label: "Vaccines",
-        children: [{
-            key: "/BirthToAges6",
-            label: "Birth to Ages 6"
-        }
-            // ,
-            // {
-            //     key: "/Ages7ToAges18",
-            //     label: "Ages 7 to Ages 18"
-            // }
-        ]
+        // children: [{
+        //     key: "/BirthToAges6",
+        //     label: "Birth to Ages 6"
+        // }
+        // ,
+        // {
+        //     key: "/Ages7ToAges18",
+        //     label: "Ages 7 to Ages 18"
+        // }
+        // ]
     }, {
         key: "/diseases",
         label: "Diseases",
