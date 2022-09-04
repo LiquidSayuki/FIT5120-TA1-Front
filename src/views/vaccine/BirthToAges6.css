@@ -10,3 +10,13 @@
     padding-top: 6rem;
     position: relative;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1rem;
+}
+
+.grid-container>div {
+    text-align: left;
+}

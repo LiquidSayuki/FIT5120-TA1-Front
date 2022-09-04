@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Layout, Timeline, Card, Col, Row, Divider, Typography, Checkbox, Space } from 'antd';
+import { Layout, Timeline, Card, Col, Row, Divider, Typography, Checkbox } from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import './BirthToAges6.css'
-import { list } from 'postcss';
 import axios from "axios";
 
 const { Content } = Layout;
@@ -31,11 +30,7 @@ const BirthToAges6 = () => {
 
     return (
         <div>
-            <Content
-                style={{
-                    padding: '0 50px',
-                }}
-            >
+            <Content style={{ padding: '0 50px' }}>
                 <LocationIdentifier title={title} subtitle={subtitle} />
                 <div className="site-layout-content">
                     <Row style={{ paddingTop: "30px" }}>
@@ -50,14 +45,15 @@ const BirthToAges6 = () => {
                         </Col>
                     </Row>
 
-                    {/* vaccine data for children once birth */}
+
                     <div className='vaccineContent' style={{ display: 'flex', justifyContent: 'space-between', paddingTop: "0.5rem" }}>
                         <div className='vaccinations' style={{ justifyContent: 'center' }}>
 
+                            {/* vaccine data for children once birth */}
                             <div style={{ paddingTop: "30px" }}>
                                 <h2>Birth</h2>
-                                {vaccines.map(item => item.childrenAge === 'Birth' ? //<--HERE                                       
-                                    <div>
+                                <div className='grid-container'>
+                                    {vaccines.map(item => item.childrenAge === 'Birth' ? //<--HERE  
                                         <Card
                                             key={item.id}
                                             title={item.name}
@@ -68,41 +64,32 @@ const BirthToAges6 = () => {
                                             <p>{item.content}</p>
                                             {/* <Checkbox onChange={onChange}>Inoculated</Checkbox> */}
                                         </Card>
-                                    </div>
-                                    : null)}
+                                        : null)}
+                                </div>
                             </div>
 
                             {/* vaccine data for children at 2 months */}
                             <div style={{ paddingTop: "30px" }}>
                                 <h2>2 months</h2>
-                                <div >
-                                    <Space
-                                        direction="horizontal"
-                                        size="middle"
-                                        style={{
-                                            display: 'flex'
-                                        }}>
-                                        {vaccines.map(item => item.childrenAge === '2 months' ? //<--HERE  
-                                            <Card
-                                                key={item.id}
-                                                title={item.name}
-                                                // extra={<a href="#">More</a>}
-                                                style={{
-                                                    width: 300,
-                                                }}>
-                                                <p>{item.content}</p>
-                                                {/* <Checkbox onChange={onChange}>Inoculated</Checkbox> */}
-                                            </Card>
-
-                                            : null)}
-                                    </Space>
+                                <div className='grid-container'>
+                                    {vaccines.map(item => item.childrenAge === '2 months' ? //<--HERE  
+                                        <Card
+                                            key={item.id}
+                                            title={item.name}
+                                            // extra={<a href="#">More</a>}
+                                            style={{
+                                                width: 300,
+                                            }}>
+                                            <p>{item.content}</p>
+                                            {/* <Checkbox onChange={onChange}>Inoculated</Checkbox> */}
+                                        </Card>
+                                        : null)}
                                 </div>
                             </div>
 
-
-
-
                         </div>
+
+
                         <div className="timelines" style={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <Timeline>
                                 <Timeline.Item>Birth</Timeline.Item>
