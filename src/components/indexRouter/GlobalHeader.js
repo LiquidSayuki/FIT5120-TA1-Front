@@ -17,7 +17,7 @@ const items = [
     },
     {
         key: "/BirthToAges6",
-        label: "Vaccines",
+        label: "Vaccines"
         // children: [{
         //     key: "/BirthToAges6",
         //     label: "Birth to Ages 6"
@@ -50,7 +50,7 @@ const GlobalHeader = (props) => {
                     width: '100%',
                 }}>
                 <Row>
-                    <Col span={1}><Avatar size={40} src="https://s3.bmp.ovh/imgs/2022/09/01/c53ecacabc1dfcaf.png" />P</Col>
+                    <Col span={1}><Avatar size={40} src="https://s3.bmp.ovh/imgs/2022/09/01/c53ecacabc1dfcaf.png" /></Col>
                     <Col span={3}><h2 className={style.logo}>Pediroo</h2></Col>
                     <Col span={16}>
                         <Menu
