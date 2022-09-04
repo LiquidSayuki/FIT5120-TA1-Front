@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Layout, Timeline, Card, Col, Row, Divider, Typography, Checkbox } from 'antd';
+import { Layout, Timeline, Card, Col, Row, Divider, Typography, Checkbox, Space } from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import './BirthToAges6.css'
 import { list } from 'postcss';
@@ -50,42 +50,58 @@ const BirthToAges6 = () => {
                         </Col>
                     </Row>
 
+                    {/* vaccine data for children once birth */}
                     <div className='vaccineContent' style={{ display: 'flex', justifyContent: 'space-between', paddingTop: "0.5rem" }}>
                         <div className='vaccinations' style={{ justifyContent: 'center' }}>
-                            <div className='vaccinesData'>
-                                {vaccines.map((vaccine, index) => {
-                                    const onChange = (e) => {
-                                        console.log(`checked = ${e.target.checked}`);
-                                    };
 
-                                    return (
-                                        <div className='vaccineData' key={index} style={{ paddingTop: "30px" }}>
-                                            {/* <h2>{vaccine.childrenAge}</h2> */}
+                            <div style={{ paddingTop: "30px" }}>
+                                <h2>Birth</h2>
+                                {vaccines.map(item => item.childrenAge === 'Birth' ? //<--HERE                                       
+                                    <div>
+                                        <Card
+                                            key={item.id}
+                                            title={item.name}
+                                            // extra={<a href="#">More</a>}
+                                            style={{
+                                                width: 300,
+                                            }}>
+                                            <p>{item.content}</p>
+                                            {/* <Checkbox onChange={onChange}>Inoculated</Checkbox> */}
+                                        </Card>
+                                    </div>
+                                    : null)}
+                            </div>
 
-                                            {/* <Card
-                                                title={vaccine.name}
+                            {/* vaccine data for children at 2 months */}
+                            <div style={{ paddingTop: "30px" }}>
+                                <h2>2 months</h2>
+                                <div >
+                                    <Space
+                                        direction="horizontal"
+                                        size="middle"
+                                        style={{
+                                            display: 'flex'
+                                        }}>
+                                        {vaccines.map(item => item.childrenAge === '2 months' ? //<--HERE  
+                                            <Card
+                                                key={item.id}
+                                                title={item.name}
                                                 // extra={<a href="#">More</a>}
                                                 style={{
                                                     width: 300,
                                                 }}>
-                                                <p>{vaccine.content}</p>
-                                                <Checkbox onChange={onChange}>Inoculated</Checkbox>
-                                            </Card> */}
+                                                <p>{item.content}</p>
+                                                {/* <Checkbox onChange={onChange}>Inoculated</Checkbox> */}
+                                            </Card>
 
-                                            {
-                                                vaccines.map(item => item.childrenAge === '2 months' ? //<--HERE
-                                                    <div>
-                                                        <h2 >{item.name}</h2>
-                                                        <h2>{item.content}</h2>
-
-                                                    </div>
-                                                    : null)
-                                            }
-
-                                        </div>
-                                    )
-                                })}
+                                            : null)}
+                                    </Space>
+                                </div>
                             </div>
+
+
+
+
                         </div>
                         <div className="timelines" style={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <Timeline>
