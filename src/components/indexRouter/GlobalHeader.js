@@ -19,6 +19,7 @@ const items = [
         key: "/diseases",
         label: "Diseases",
     },
+    {
         key: "/BirthToAges6",
         label: "Vaccines"
         // children: [{
@@ -31,7 +32,6 @@ const items = [
         //     label: "Ages 7 to Ages 18"
         // }
         // ]
-    }
     }]
 
 const GlobalHeader = (props) => {
