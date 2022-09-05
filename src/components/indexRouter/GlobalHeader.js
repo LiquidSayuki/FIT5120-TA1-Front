@@ -18,7 +18,6 @@ const items = [
     {
         key: "/diseases",
         label: "Diseases",
-    }
     },
     {
         key: "/BirthToAges4",
