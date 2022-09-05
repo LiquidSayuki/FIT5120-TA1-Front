@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Avatar, Layout, Menu, Col, Row, Affix } from 'antd';
 import style from "./GlobalHeader.module.css"
 import { withRouter } from "react-router-dom";
@@ -18,7 +18,7 @@ const items = [
     {
         key: "/diseases",
         label: "Diseases",
-    },
+    },{
         key: "/BirthToAges6",
         label: "Vaccines"
         // children: [{
@@ -31,7 +31,6 @@ const items = [
         //     label: "Ages 7 to Ages 18"
         // }
         // ]
-    }
     }]
 
 const GlobalHeader = (props) => {
@@ -40,7 +39,13 @@ const GlobalHeader = (props) => {
         props.history.push(e.key)
     };
 
-    const selectedKey = [props.location.pathname]
+    const [selectedKey,setSelectedKey] = useState([props.location.pathname]);
+
+    useEffect(()=>{
+        setSelectedKey(props.location.pathname);
+        console.log(selectedKey);
+    },[]);
+
 
     return (
         <Affix offsetTop={0}>
@@ -59,7 +64,7 @@ const GlobalHeader = (props) => {
                             mode="horizontal"
                             onClick={onClick}
                             items={items}
-                            defaultSelectedKeys={selectedKey}
+                            selectedKeys={selectedKey}
                         />
                     </Col>
                     <Col span={4}><span className={style.username} style={{ float: "right" }}>Welcome,User</span></Col>
