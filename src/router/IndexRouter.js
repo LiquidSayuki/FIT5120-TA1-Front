@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 import Home from "../views/home/Home";
 import GlobalHeader from "../components/indexRouter/GlobalHeader";
 import Disease from "../views/disease/Disease";
-import BirthToAges6 from "../views/vaccine/BirthToAges6";
+import BirthToAges4 from "../views/vaccine/BirthToAges4";
 import SingleDisease from "../views/disease/SingleDisease";
 import BackgroundInfo from "../views/backgroundInfo/BackgroundInfo";
 import DiseaseManage from "../views/manage/DiseaseManage";
@@ -18,7 +18,7 @@ export default function IndexRouter() {
             <GlobalHeader />
             <Switch>
                 <Route path="/manage/disease" component={DiseaseManage} />
-                <Route path="/BirthToAges6" component={BirthToAges6} />
+                <Route path="/BirthToAges4" component={BirthToAges4} />
                 <Route path="/BackgroundInfo" component={BackgroundInfo} />
                 {/* <Route path="/Ages7ToAges18" component={Ages7ToAges18} /> */}
                 {/* <Route path="/vaccine/:id" component={BirthToAges6}></Route> */}
