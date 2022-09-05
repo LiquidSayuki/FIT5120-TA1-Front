@@ -91,11 +91,12 @@ const Disease = () => {
                                         <div>
                                             <img
                                                 width={272}
-                                                alt="logo"
+                                                alt="diseaseImg"
                                                 src={item.imgSrc}
                                             />
                                         </div>
                                     }
+                                    style={{fontSize:"16px"}}
                                 >
                                     <List.Item.Meta
                                         // This part is for add an avatar
@@ -104,8 +105,8 @@ const Disease = () => {
                                         title={<a href={'/disease/'+ item.id}>{item.name}</a>}
                                         //description={item.description}
                                     />
-                                    {item.content}
-                                    <div>
+                                    {item.description}
+                                    <div style={{paddingTop:"15px"}}>
                                         <Button href={'/disease/'+ item.id} type="primary" style={{float:"right"}}>Read More</Button>
                                     </div>
                                 </List.Item>
