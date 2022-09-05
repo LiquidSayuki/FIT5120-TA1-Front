@@ -8,6 +8,10 @@ const { Text } = Typography;
 const { Content } = Layout;
 const { Meta } = Card;
 
+const data = {
+    backgroundImageSrc: "https://s1.imagehub.cc/images/2022/09/05/pediroo-notext.jpg",
+}
+
 const Home = (props) => {
     // get disease data from backend
     const [disease,setDisease] = useState([])
@@ -43,17 +47,10 @@ const Home = (props) => {
 
                 {/*Two buttons*/}
                 <Row className={style.button}>
-                    <Col span={9}></Col>
-                    <Col span={6}><Button type="primary"
-                                          block="true"
-                                          onClick={()=>{redirect("/diseases")}}>Common childhood illnesses</Button></Col>
-                    <Col span={9}></Col>
-                </Row>
-                <Row className={style.button}>
-                    <Col span={9}></Col>
-                    <Col span={6}><Button block="true"
-                                          onClick={()=>{redirect("/BirthToAges6")}}>Vaccines children need</Button></Col>
-                    <Col span={9}></Col>
+                    <Button type="primary"
+                            style={{margin:"auto"}}
+                            onClick={()=>{redirect("/diseases")}}>Learn Childhood Diseases in Australia
+                    </Button>
                 </Row>
             </div>
 
@@ -68,7 +65,10 @@ const Home = (props) => {
 
                         {/*Title of diseases*/}
                         <PageHeader title="Infectious Diseases"
-                                    subTitle="Some common infectious diseases spread among children"/>
+                                    subTitle="Some common infectious diseases spread among children"
+                                    extra={[<Button onClick={()=>{redirect("/diseases")}}>Read More</Button>]}
+                        />
+
                         <Divider/>
                         {/* Dynamic create disease cards*/}
                         <Row gutter={30}>
@@ -93,7 +93,9 @@ const Home = (props) => {
 
                         <PageHeader title="Vaccinations"
                                     subTitle="Some vaccines you should get your child"
-                        style={{paddingTop:"80px"}}/>
+                                    style={{paddingTop:"80px"}}
+                                    extra={[<Button onClick={()=>{redirect("/BirthToAges6")}}>Read More</Button>]}
+                        />
                         <Divider/>
 
                         <Row gutter={30}>

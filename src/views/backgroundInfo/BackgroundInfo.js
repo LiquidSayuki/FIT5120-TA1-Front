@@ -1,6 +1,7 @@
 import React from 'react';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import {Col, Layout, Row, List, Button, Typography, Divider, Card, Image} from 'antd';
+import TableauReport from "tableau-react";
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -48,12 +49,14 @@ const BackgroundInfo = () => {
                     <Row gutter={[35,35]}>
                         <Col span={24}>
                             <Card>
-                                <Paragraph>
-                                    <Title>Title</Title>
-                                    <Divider/>
-                                    <blockquote>Description</blockquote>
-                                </Paragraph>
-                                <Image src="https://s1.imagehub.cc/images/2022/09/02/Picture1.png"></Image>
+                                <TableauReport
+                                    url="https://public.tableau.com/views/Story_16623690891440/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link"
+                                    // options={{
+                                    //     height: 400,
+                                    //     width:800,
+                                    //     hideToolbar:true,
+                                    //     hideTabs:true}}
+                                />
                             </Card>
                         </Col>
                         <Col span={24}>
