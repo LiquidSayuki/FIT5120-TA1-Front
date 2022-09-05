@@ -59,7 +59,7 @@ const GlobalHeader = (props) => {
                             mode="horizontal"
                             onClick={onClick}
                             items={items}
-                            selectedKeys={selectedKey}
+                            defaultSelectedKeys={selectedKey}
                         />
                     </Col>
                     <Col span={4}><span className={style.username} style={{ float: "right" }}>Welcome,User</span></Col>
