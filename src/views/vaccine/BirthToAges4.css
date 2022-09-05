@@ -7,8 +7,9 @@
 }
 
 .timelines {
-    padding-top: 6rem;
+    padding-top: 4rem;
     position: relative;
+    width: 10rem
 }
 
 .grid-container {
