@@ -19,19 +19,19 @@ const items = [
         key: "/diseases",
         label: "Diseases",
     },
-    {
-        key: "/vaccines",
-        label: "Vaccines",
-        children: [{
-            key: "/BirthToAges6",
-            label: "Birth to Ages 6"
-        }
-            // ,
-            // {
-            //     key: "/Ages7ToAges18",
-            //     label: "Ages 7 to Ages 18"
-            // }
-        ]
+        key: "/BirthToAges6",
+        label: "Vaccines"
+        // children: [{
+        //     key: "/BirthToAges6",
+        //     label: "Birth to Ages 6"
+        // }
+        // ,
+        // {
+        //     key: "/Ages7ToAges18",
+        //     label: "Ages 7 to Ages 18"
+        // }
+        // ]
+    }
     }]
 
 const GlobalHeader = (props) => {
