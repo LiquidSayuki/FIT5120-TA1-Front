@@ -8,19 +8,19 @@ const { Header } = Layout;
 // Data structure of the Top navigation bar
 const items = [
     {
-        key: "/home",
+        key: "/iteration1/home",
         label: "Home"
     },
     {
-        key: "/backgroundInfo",
+        key: "/iteration1/backgroundInfo",
         label: "Background Info"
     },
     {
-        key: "/diseases",
+        key: "/iteration1/diseases",
         label: "Diseases",
     },
     {
-        key: "/BirthToAges4",
+        key: "/iteration1/BirthToAges4",
         label: "Vaccines"
         // children: [{
         //     key: "/BirthToAges6",
@@ -29,6 +29,7 @@ const items = [
     }]
 
 const GlobalHeader = (props) => {
+
     const onClick = (e) => {
         //console.log(props);
         props.history.push(e.key)

@@ -4,6 +4,7 @@ import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import React from "react";
 import Login from "./views/login/Login";
 import LoginSuccess from "./views/login/LoginSuccess";
+import Iteration1Router from "./legacy/iteration1/router/Iteration1Router";
 
 function App() {
   return (
@@ -11,10 +12,12 @@ function App() {
           <Switch>
               <Route path="/loginSuccess" component={LoginSuccess} />
               <Route path="/login" component={Login} />
+              <Route path="/iteration1" component={Iteration1Router}/>
               <Route path="/"
                      render={()=>
                          localStorage.getItem('access-token')?(<IndexRouter/>) : (<Redirect to="/login"/>)
               }/>
+
           </Switch>
       </BrowserRouter>
   );
