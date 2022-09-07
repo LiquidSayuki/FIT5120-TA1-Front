@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Avatar, Layout, Menu, Col, Row, Affix } from 'antd';
 import style from "./GlobalHeader.module.css"
 import { withRouter } from "react-router-dom";
@@ -26,6 +26,10 @@ const items = [
         //     key: "/BirthToAges6",
         //     label: "Birth to Ages 6"
         // }}]
+    },
+    {
+        key: "/Outdoors",
+        label: "Outdoors",
     }]
 
 const GlobalHeader = (props) => {
@@ -34,12 +38,12 @@ const GlobalHeader = (props) => {
         props.history.push(e.key)
     };
 
-    const [selectedKey,setSelectedKey] = useState([props.location.pathname]);
+    const [selectedKey, setSelectedKey] = useState([props.location.pathname]);
 
-    useEffect(()=>{
+    useEffect(() => {
         setSelectedKey(props.location.pathname);
         console.log(selectedKey);
-    },[]);
+    }, []);
 
 
     return (
