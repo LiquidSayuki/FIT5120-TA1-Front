@@ -72,7 +72,7 @@ body {
     /* justify-content: space-between; */
 }
 
-button {
+.quizButton {
     width: 100%;
     font-size: 16px;
     color: black;
@@ -94,15 +94,15 @@ button {
     background-color: #ff3333;
 }
 
-button:hover {
+.quizButton:hover {
     /* background-color: lightpink; */
     border-color: lightblue;
 }
 
-button:focus {
+.quizButton:focus {
     outline: none;
 }
 
-button svg {
+.quizButton svg {
     margin-right: 5px;
 }
