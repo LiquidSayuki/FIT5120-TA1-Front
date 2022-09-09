@@ -52,15 +52,20 @@ export default function Quiz() {
 
         if (isCorrect === true) {
             setScore(score + 1);
-        }
-
-        const nextQuestion = currentQuestion + 1;
-        if (nextQuestion < questions.length) {
-            setCurrentQuestion(nextQuestion);
+            alert("Correct")
         }
         else {
-            setShowScore(true);
+            alert("Incorrect")
         }
+
+
+        // const nextQuestion = currentQuestion + 1;
+        // if (nextQuestion < questions.length) {
+        //     setCurrentQuestion(nextQuestion);
+        // }
+        // else {
+        //     setShowScore(true);
+        // }
     }
 
     return (
