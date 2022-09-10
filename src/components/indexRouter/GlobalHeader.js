@@ -7,33 +7,6 @@ import intl from "react-intl-universal";
 
 const { Header } = Layout;
 
-// Data structure of the Top navigation bar
-const items = [
-    {
-        key: "/home",
-        label: "Home"
-    },
-    {
-        key: "/backgroundInfo",
-        label: "Background Info"
-    },
-    {
-        key: "/diseases",
-        label: "Diseases",
-    },
-    {
-        key: "/BirthToAges4",
-        label: "Vaccines"
-        // children: [{
-        //     key: "/BirthToAges6",
-        //     label: "Birth to Ages 6"
-        // }}]
-    },
-    {
-        key: "/Outdoors",
-        label: "Outdoors",
-    }]
-    
 const GlobalHeader = (props) => {
 
     // Data structure of the Top navigation bar
@@ -57,6 +30,9 @@ const GlobalHeader = (props) => {
             //     key: "/BirthToAges6",
             //     label: "Birth to Ages 6"
             // }}]
+        },{
+            key: "/Outdoors",
+            label: intl.get("globalHeaderOutdoors"),
         }]
 
     // Handle the language change
