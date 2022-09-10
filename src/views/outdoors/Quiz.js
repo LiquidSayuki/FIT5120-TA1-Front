@@ -1,63 +1,75 @@
 import React, { useState } from 'react';
 import './Quiz.css'
+import { Collapse } from 'antd';
+
+const { Panel } = Collapse;
 
 export default function Quiz() {
     const questions = [
         {
-            questionText: 'Can you tell where the kids ',
-            questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '70%', height: 'auto' }}></img>,
+            questionTitle: 'Happy Family Gardening Time',
+            questionText: 'Can you tell where the kids did right to avoid infections?',
+            questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '20rem', height: 'auto' }}></img>,
             answerOptions: [
                 { answerText: 'Smiling', isCorrect: false },
                 { answerText: 'Gloves', isCorrect: true },
-                { answerText: 'Paris', isCorrect: false },
-                { answerText: 'Dublin', isCorrect: false },
+                { answerText: 'Hands on planting', isCorrect: false }
             ],
         },
         {
-            questionText: 'Who is CEO of Tesla?',
+            questionTitle: 'Swimming',
+            questionText: 'What should do when kids get spite?',
+            questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '70%', height: 'auto' }}></img>,
             answerOptions: [
-                { answerText: 'Jeff Bezos', isCorrect: false },
-                { answerText: 'Elon Musk', isCorrect: true },
-                { answerText: 'Bill Gates', isCorrect: false },
-                { answerText: 'Tony Stark', isCorrect: false },
+                { answerText: 'Just wait for a sec', isCorrect: false },
+                { answerText: 'Go to beach and get rest', isCorrect: true },
+                { answerText: 'Reach to GP', isCorrect: false }
             ],
         },
         {
-            questionText: 'The iPhone was created by which company?',
+            questionTitle: 'Outdoor Sports',
+            questionText: 'Avoid infections in outdoor sports?',
+            // questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '70%', height: 'auto' }}></img>,
+            questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '70%', height: 'auto' }}></img>,
             answerOptions: [
-                { answerText: 'Apple', isCorrect: true },
-                { answerText: 'Intel', isCorrect: false },
-                { answerText: 'Amazon', isCorrect: false },
-                { answerText: 'Microsoft', isCorrect: false },
+                { answerText: 'Santisize', isCorrect: true },
+                { answerText: 'Keep going on with the play! Game first!', isCorrect: false },
+                { answerText: 'asd', isCorrect: false }
             ],
-        },
-        {
-            questionText: 'How many Harry Potter books are there?',
-            answerOptions: [
-                { answerText: '1', isCorrect: false },
-                { answerText: '4', isCorrect: false },
-                { answerText: '6', isCorrect: false },
-                { answerText: '7', isCorrect: true },
-            ],
-        },
+        }
     ];
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
-
     const [showScore, setShowScore] = useState(false);
-
     const [score, setScore] = useState(0);
+    const [displayInfectionInfo, setDisplayInfectionInfo] = useState('none');
+    const [displayAnswerBtn, setDisplayAnswerBtn] = useState('block');
 
     const handleAnswerButtonClick = (isCorrect) => {
-
+        setDisplayInfectionInfo('block')
+        setDisplayAnswerBtn('none');
         if (isCorrect === true) {
-            setScore(score + 1);
-            alert("Correct")
+            // setScore(score + 1);
+            // alert("Correct")
+            return (
+                <p>correct</p>
+                // console.log('ss')
+            )
         }
         else {
             alert("Incorrect")
         }
 
+        <div className="content" style={{ display: 'flex-left' }}>
+            <div style={{ paddingTop: "30px" }}>
+                <Collapse bordered={false} defaultActiveKey={['1']}>
+                    <Panel header=<h2>Legionella</h2> key="1">
+                        <p>Some infections info
+                        </p>
+                    </Panel>
+                </Collapse>
+            </div>
+        </div>
 
         // const nextQuestion = currentQuestion + 1;
         // if (nextQuestion < questions.length) {
@@ -69,7 +81,7 @@ export default function Quiz() {
     }
 
     return (
-        <div className='quiz-container'>
+        <div className='quiz-container' style={{ position: 'relative' }}>
             {/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
             {showScore ? (
@@ -81,16 +93,29 @@ export default function Quiz() {
                             <span>Question {currentQuestion + 1}</span>/{questions.length}
                             {/* <span>Happy Family Gardening Time</span> */}
                         </div>
-                        <div className='question-text'>
+                        <div className='question-text' style={{ position: 'relative' }}>
                             {questions[currentQuestion].questionText}
                             {questions[currentQuestion].questionImage}
                         </div>
                     </div>
-                    <div className='answer-section'>
+
+                    <div className='answer-section' style={{ display: displayAnswerBtn }}>
                         {questions[currentQuestion].answerOptions.map((answerOptions) =>
                             <button className='quizButton' onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>{answerOptions.answerText}</button>
                         )}
                     </div>
+
+                    <div>
+                        <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '25rem' }}>
+                            <Collapse bordered={false} defaultActiveKey={['1']}>
+                                <Panel header=<h2>Legionella</h2> key="1">
+                                    <p>Some infections info
+                                    </p>
+                                </Panel>
+                            </Collapse>
+                        </div>
+                    </div>
+
                 </>
             )}
         </div>
