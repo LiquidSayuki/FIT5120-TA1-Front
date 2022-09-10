@@ -1,6 +1,6 @@
 import React from 'react';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
-import {Col, Layout, Row, List, Button, Typography, Divider, Card, Image} from 'antd';
+import {Col, Layout, Row, Typography, Divider, Card, Image} from 'antd';
 import TableauReport from "tableau-react";
 
 const { Content } = Layout;
