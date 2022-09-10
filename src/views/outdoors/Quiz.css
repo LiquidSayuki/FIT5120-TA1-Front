@@ -1,21 +1,3 @@
-/* body {
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-    color: #ffffff;
-}
-
-body {
-    background-color: #7cc6fe;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-} */
-
 .quiz-container {
     background-color: whitesmoke;
     width: 900px;
