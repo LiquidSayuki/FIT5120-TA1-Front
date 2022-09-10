@@ -29,7 +29,7 @@ export default function Quiz() {
                 { answerText: 'Happy mood!', isCorrect: false }
             ],
             infectionName: 'Diarrhea',
-            infectionInfo: 'asd'
+            infectionInfo: ''
         },
         // {
         //     questionTitle: 'Swimming',
@@ -45,15 +45,15 @@ export default function Quiz() {
         // },
         {
             questionTitle: 'Outdoor Sports',
-            questionText: 'Avoid infections in outdoor sports?',
-            questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '20rem', height: 'auto' }}></img>,
+            questionText: 'What is a MUST after outdoor sports?',
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/10/sport-858206_1920.jpg" alt="sport-858206_1920.jpg" style={{ width: '20rem', height: 'auto' }} />,
             answerOptions: [
-                { answerText: 'Santisize', isCorrect: true },
-                { answerText: 'Keep going on with the play! Game first!', isCorrect: false },
-                { answerText: 'asd', isCorrect: false }
+                { answerText: 'Wash hands with soap', isCorrect: true },
+                { answerText: 'Nothing can compete games!', isCorrect: false },
+                { answerText: 'Go dinner with friends', isCorrect: false }
             ],
-            infectionName: '',
-            infectionInfo: ''
+            infectionName: 'Impetigo, HSV, Ringworm etc.',
+            infectionInfo: 'Such amount of infections can be caught by sports activities. Wash hands with soup is always a MUST. '
         }
     ];
 
@@ -63,10 +63,12 @@ export default function Quiz() {
     const [displayIfCorrect, setIfCorrect] = useState('Correct');
     const [displayInfectionInfo, setDisplayInfectionInfo] = useState('none');
     const [displayAnswerBtn, setDisplayAnswerBtn] = useState('block');
+    const [circleOpacity, setCircleOpacity] = useState(0);
 
     const handleAnswerButtonClick = (isCorrect) => {
         setDisplayInfectionInfo('block')
         setDisplayAnswerBtn('none');
+        setCircleOpacity(0.6);
         if (isCorrect === true) {
             setScore(score + 1);
             setIfCorrect('Correct');
@@ -79,6 +81,7 @@ export default function Quiz() {
     const handleClickToNextQuestion = () => {
         setDisplayInfectionInfo('none')
         setDisplayAnswerBtn('block');
+        setCircleOpacity(0);
         const nextQuestion = currentQuestion + 1;
         if (nextQuestion < questions.length) {
             setCurrentQuestion(nextQuestion);
@@ -92,6 +95,8 @@ export default function Quiz() {
 
     return (
         <div className='quiz-container' style={{ position: 'relative' }}>
+            <div className='circle' style={{ opacity: circleOpacity }}></div>
+
             {/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
             {showScore ? (
