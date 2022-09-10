@@ -1,12 +1,38 @@
 import './App.css';
 import IndexRouter from "./router/IndexRouter";
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Login from "./views/login/Login";
 import LoginSuccess from "./views/login/LoginSuccess";
 import Iteration1Router from "./legacy/iteration1/router/Iteration1Router";
+import intl from 'react-intl-universal';
+
+// Locale data
+const locales = {
+    "en-US": require('./locales/en-US.json'),
+    "zh-CN": require('./locales/zh-CN.json'),
+};
 
 function App() {
+
+    const [localesInit,setLocaleInit] = useState(false);
+
+    let currentLocale = intl.determineLocale({
+        urlLocaleKey: "lang",
+        cookieLocaleKey: "lang",
+    })
+
+    useEffect(()=>{
+        intl.init({
+            currentLocale, // TODO: determine locale here
+            locales,
+        })
+            .then(() => {
+                // After loading CLDR locale data, start to render
+                setLocaleInit(true);
+            });
+    },[])
+
   return (
       <BrowserRouter>
           <Switch>
