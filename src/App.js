@@ -6,6 +6,7 @@ import Login from "./views/login/Login";
 import LoginSuccess from "./views/login/LoginSuccess";
 import Iteration1Router from "./legacy/iteration1/router/Iteration1Router";
 import intl from 'react-intl-universal';
+import cookie from "react-cookies";
 
 // Locale data
 const locales = {
@@ -18,11 +19,22 @@ function App() {
     const [localesInit,setLocaleInit] = useState(false);
 
     let currentLocale = intl.determineLocale({
-        urlLocaleKey: "lang",
+        // urlLocaleKey: "lang"
         cookieLocaleKey: "lang",
     })
 
+    // Set the default value of language setting.
+    switch (currentLocale){
+        case "zh-CN":
+            break
+        case "en-US":
+            break
+        default:
+            cookie.save("lang","en-US",{ path: '/' })
+    }
+
     useEffect(()=>{
+
         intl.init({
             currentLocale, // TODO: determine locale here
             locales,

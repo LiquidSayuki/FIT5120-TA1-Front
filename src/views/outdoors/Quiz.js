@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Quiz.css'
-import { Collapse } from 'antd';
+import { Collapse, Button } from 'antd';
 
 const { Panel } = Collapse;
 
@@ -15,73 +15,88 @@ export default function Quiz() {
                 { answerText: 'Gloves', isCorrect: true },
                 { answerText: 'Hands on planting', isCorrect: false }
             ],
+            infectionName: 'Legionella',
+            infectionInfo: 'asd'
         },
         {
             questionTitle: 'Swimming',
-            questionText: 'What should do when kids get spite?',
-            questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '70%', height: 'auto' }}></img>,
+            questionText: 'Is there any preparation for swimming to against infections?',
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/10/girl-953414_1920.jpg" alt="girl-953414_1920.jpg" style={{ width: '20rem', height: 'auto' }} />,
+            // questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '20rem', height: 'auto' }}></img>,
             answerOptions: [
-                { answerText: 'Just wait for a sec', isCorrect: false },
-                { answerText: 'Go to beach and get rest', isCorrect: true },
-                { answerText: 'Reach to GP', isCorrect: false }
+                { answerText: 'A water-tight swim goggles', isCorrect: true },
+                { answerText: 'Swimming party', isCorrect: false },
+                { answerText: 'Happy mood!', isCorrect: false }
             ],
+            infectionName: 'Diarrhea',
+            infectionInfo: ''
         },
+        // {
+        //     questionTitle: 'Swimming',
+        //     questionText: 'What should we NOT do after a nicely swimming?',
+        //     questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '20rem', height: 'auto' }}></img>,
+        //     answerOptions: [
+        //         { answerText: 'Directly go for a dinner!', isCorrect: false },
+        //         { answerText: 'Gently wipe water from eyes', isCorrect: true },
+        //         { answerText: 'Dry ears', isCorrect: false }
+        //     ],
+        //     infectionName: 'Diarrhea',
+        //     infectionInfo: ''
+        // },
         {
             questionTitle: 'Outdoor Sports',
-            questionText: 'Avoid infections in outdoor sports?',
-            // questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '70%', height: 'auto' }}></img>,
-            questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '70%', height: 'auto' }}></img>,
+            questionText: 'What is a MUST after outdoor sports?',
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/10/sport-858206_1920.jpg" alt="sport-858206_1920.jpg" style={{ width: '20rem', height: 'auto' }} />,
             answerOptions: [
-                { answerText: 'Santisize', isCorrect: true },
-                { answerText: 'Keep going on with the play! Game first!', isCorrect: false },
-                { answerText: 'asd', isCorrect: false }
+                { answerText: 'Wash hands with soap', isCorrect: true },
+                { answerText: 'Nothing can compete games!', isCorrect: false },
+                { answerText: 'Go dinner with friends', isCorrect: false }
             ],
+            infectionName: 'Impetigo, HSV, Ringworm etc.',
+            infectionInfo: 'Such amount of infections can be caught by sports activities. Wash hands with soup is always a MUST. '
         }
     ];
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
+    const [displayIfCorrect, setIfCorrect] = useState('Correct');
     const [displayInfectionInfo, setDisplayInfectionInfo] = useState('none');
     const [displayAnswerBtn, setDisplayAnswerBtn] = useState('block');
+    const [circleOpacity, setCircleOpacity] = useState(0);
 
     const handleAnswerButtonClick = (isCorrect) => {
         setDisplayInfectionInfo('block')
         setDisplayAnswerBtn('none');
+        setCircleOpacity(0.6);
         if (isCorrect === true) {
-            // setScore(score + 1);
-            // alert("Correct")
-            return (
-                <p>correct</p>
-                // console.log('ss')
-            )
+            setScore(score + 1);
+            setIfCorrect('Correct');
         }
         else {
-            alert("Incorrect")
+            setIfCorrect('Incorrect');
         }
-
-        <div className="content" style={{ display: 'flex-left' }}>
-            <div style={{ paddingTop: "30px" }}>
-                <Collapse bordered={false} defaultActiveKey={['1']}>
-                    <Panel header=<h2>Legionella</h2> key="1">
-                        <p>Some infections info
-                        </p>
-                    </Panel>
-                </Collapse>
-            </div>
-        </div>
-
-        // const nextQuestion = currentQuestion + 1;
-        // if (nextQuestion < questions.length) {
-        //     setCurrentQuestion(nextQuestion);
-        // }
-        // else {
-        //     setShowScore(true);
-        // }
     }
+
+    const handleClickToNextQuestion = () => {
+        setDisplayInfectionInfo('none')
+        setDisplayAnswerBtn('block');
+        setCircleOpacity(0);
+        const nextQuestion = currentQuestion + 1;
+        if (nextQuestion < questions.length) {
+            setCurrentQuestion(nextQuestion);
+        }
+        else {
+            setShowScore(true);
+        }
+    }
+
+
 
     return (
         <div className='quiz-container' style={{ position: 'relative' }}>
+            <div className='circle' style={{ opacity: circleOpacity }}></div>
+
             {/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
             {showScore ? (
@@ -91,7 +106,7 @@ export default function Quiz() {
                     <div className='question-section'>
                         <div className='question-count'>
                             <span>Question {currentQuestion + 1}</span>/{questions.length}
-                            {/* <span>Happy Family Gardening Time</span> */}
+                            {/* <span>{questions[currentQuestion].questionTitle}</span> */}
                         </div>
                         <div className='question-text' style={{ position: 'relative' }}>
                             {questions[currentQuestion].questionText}
@@ -106,16 +121,20 @@ export default function Quiz() {
                     </div>
 
                     <div>
-                        <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '25rem' }}>
+                        <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '22rem' }}>
+                            <h2>{displayIfCorrect}</h2>
                             <Collapse bordered={false} defaultActiveKey={['1']}>
-                                <Panel header=<h2>Legionella</h2> key="1">
-                                    <p>Some infections info
+                                <Panel header=<h2>{questions[currentQuestion].infectionName}</h2> key="1">
+                                    <p>{questions[currentQuestion].infectionInfo}
                                     </p>
                                 </Panel>
                             </Collapse>
                         </div>
                     </div>
 
+                    <div>
+                        <Button className='nextQuestion' onClick={handleClickToNextQuestion}>Next Question</Button>
+                    </div>
                 </>
             )}
         </div>

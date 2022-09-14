@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Avatar, Layout, Menu, Col, Row, Affix, Dropdown, Button} from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Avatar, Layout, Menu, Col, Row, Affix, Dropdown, Button } from 'antd';
 import style from "./GlobalHeader.module.css"
 import { withRouter } from "react-router-dom";
 import cookie from "react-cookies";
@@ -15,10 +15,10 @@ const GlobalHeader = (props) => {
             key: "/home",
             label: intl.get("globalHeaderHome")
         },
-        {
-            key: "/backgroundInfo",
-            label: intl.get("globalHeaderBackground")
-        },
+        // {
+        //     key: "/backgroundInfo",
+        //     label: intl.get("globalHeaderBackground")
+        // },
         {
             key: "/diseases",
             label: intl.get("globalHeaderDiseases")
@@ -30,22 +30,22 @@ const GlobalHeader = (props) => {
             //     key: "/BirthToAges6",
             //     label: "Birth to Ages 6"
             // }}]
-        },{
+        }, {
             key: "/Outdoors",
             label: intl.get("globalHeaderOutdoors"),
         }]
 
     // Handle the language change
     const handelLangChange = (e) => {
-        cookie.save('lang',e.key,{path:'/'});
+        cookie.save('lang', e.key, { path: '/' });
         window.location.reload();
     }
 
     // data structure of language setting drop down list
     const languageList = (
         <Menu
-            onClick = {handelLangChange}
-            items = {[
+            onClick={handelLangChange}
+            items={[
                 {
                     key: "en-US",
                     label: "English"
@@ -65,8 +65,8 @@ const GlobalHeader = (props) => {
     };
 
     // Handle the highlighted menu item
-    const [selectedKey,setSelectedKey] = useState([props.location.pathname]);
-    useEffect(()=>{
+    const [selectedKey, setSelectedKey] = useState([props.location.pathname]);
+    useEffect(() => {
         setSelectedKey(props.location.pathname);
         console.log(selectedKey);
     }, []);
@@ -84,7 +84,7 @@ const GlobalHeader = (props) => {
                     {/*Logo*/}
                     <Col span={1}>
                         <Avatar size={40}
-                                src="https://s3.bmp.ovh/imgs/2022/09/01/c53ecacabc1dfcaf.png"
+                            src="https://s3.bmp.ovh/imgs/2022/09/01/c53ecacabc1dfcaf.png"
                         />
                     </Col>
 
