@@ -25,5 +25,7 @@
   "vaccineSubtitle": "Free vaccinations and recommended vaccine schedules are available to protect children against various diseases.",
   "vaccineBirth": "Birth",
   "vaccineMonth": "{month} months",
-  "vaccineYear": "{year} years"
+  "vaccineYear": "{year} years",
+  "outdoorTitle": "Outdoor Activities",
+  "outdoorSubtitle": "Stay Safe from Outdoor Activities Infections"
 }

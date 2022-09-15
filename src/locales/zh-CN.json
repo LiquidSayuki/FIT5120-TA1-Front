@@ -25,5 +25,7 @@
   "vaccineSubtitle": "现有的能够保护您的孩子免受多种类型的疾病侵袭的免费以及推荐接种的疫苗的时间表。",
   "vaccineBirth": "出生",
   "vaccineMonth": "{month} 月龄",
-  "vaccineYear": "{year} 岁"
+  "vaccineYear": "{year} 岁",
+  "outdoorTitle": "户外活动",
+  "outdoorSubtitle": "远离参与户外活动时的感染"
 }

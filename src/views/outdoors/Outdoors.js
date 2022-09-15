@@ -3,18 +3,17 @@ import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifi
 import { Layout, Col, Row, Divider, Typography, Collapse } from 'antd';
 import './Outdoors.css'
 import Quiz from './Quiz';
+import intl from "react-intl-universal";
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 const { Panel } = Collapse;
 
-const title = "Ourdoor Activities"
-const subtitle = "Stay Safe from Outdoor Activities Infections"
 
 const Outdoors = () => {
     return (
         <Content style={{ padding: '0 50px' }}>
-            <LocationIdentifier title={title} subtitle={subtitle} />
+            <LocationIdentifier title={intl.get("outdoorTitle")} subtitle={intl.get("outdoorSubtitle")} />
             <div className="site-layout-content">
                 <div className="site-layout-content">
                     <Row style={{ paddingTop: "30px" }}>

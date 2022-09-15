@@ -47,10 +47,22 @@ const BackgroundInfo = () => {
                 <br/>
                 <div style={{width:"75%", margin: "auto"}}>
                     <Row gutter={[35,35]}>
+                        {/*<Col span={24}>*/}
+                        {/*    <Card>*/}
+                        {/*        <TableauReport*/}
+                        {/*            url="https://public.tableau.com/views/Story_16623690891440/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link"*/}
+                        {/*            // options={{*/}
+                        {/*            //     height: 400,*/}
+                        {/*            //     width:800,*/}
+                        {/*            //     hideToolbar:true,*/}
+                        {/*            //     hideTabs:true}}*/}
+                        {/*        />*/}
+                        {/*    </Card>*/}
+                        {/*</Col>*/}
                         <Col span={24}>
                             <Card>
                                 <TableauReport
-                                    url="https://public.tableau.com/views/Story_16623690891440/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link"
+                                    url="https://public.tableau.com/app/profile/tanima8491/viz/ChildHealth_16629661592590/StateoftheWorldsChildren2021?publish=yes"
                                     // options={{
                                     //     height: 400,
                                     //     width:800,
