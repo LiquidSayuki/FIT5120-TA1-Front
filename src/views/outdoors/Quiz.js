@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Quiz.css'
-import { Collapse, Button, Tooltip, Progress, message, Steps } from 'antd';
+import './Popup.scss'
+import { Collapse, Button, Tooltip, Steps } from 'antd';
+import { CheckCircleTwoTone, SmileTwoTone } from '@ant-design/icons';
 
 const { Panel } = Collapse;
 const { Step } = Steps;
@@ -65,11 +67,18 @@ export default function Quiz() {
     const [circleDisplay1, setCircleDisplay1] = useState('none');
     const [circleDisplay2, setCircleDisplay2] = useState('none');
     const [circleDisplay3, setCircleDisplay3] = useState('none');
-
+    const [popUpDisplay, setPopupDisplay] = useState('none');
+    const [correctnessAnalysis, setCorrectnessAnalysis] = useState([]);
 
     const handleAnswerButtonClick = (isCorrect) => {
         setDisplayInfectionInfo('block')
         setDisplayAnswerBtn('none');
+
+        setCorrectnessAnalysis([...correctnessAnalysis, {
+            id: currentQuestion,
+            value: isCorrect
+        }]);
+
         if (isCorrect === true) {
             setScore(score + 1);
             setIfCorrect('Correct');
@@ -139,6 +148,17 @@ export default function Quiz() {
         }
     }
 
+    const handleAnalysis = () => {
+        console.log(correctnessAnalysis)
+    }
+
+    const openPopup = () => {
+        setPopupDisplay('block');
+    }
+
+    const closePopup = () => {
+        setPopupDisplay('none');
+    }
 
 
     return (
@@ -169,13 +189,16 @@ export default function Quiz() {
                 {/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
                 {showScore ? (
-                    <div className='score-section'>You scored {score} out of {questions.length}</div>
+                    <div className='score-section' style={{ display: 'flex', flexDirection: 'column', padding: '5%' }}>
+                        <p>You scored {score} out of {questions.length}</p>
+                        <Button onClick={openPopup}>Jump to my personal analysis</Button>
+                    </div>
+
                 ) : (
                     <>
                         <div className='question-section'>
                             <div className='question-count'>
                                 <span>Question {currentQuestion + 1}</span>/{questions.length}
-                                {/* <span>{questions[currentQuestion].questionTitle}</span> */}
                             </div>
                             <div className='question-text' style={{ position: 'relative' }}>
                                 {questions[currentQuestion].questionText}
@@ -192,6 +215,7 @@ export default function Quiz() {
                         <div>
                             <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '22rem' }}>
                                 <div style={{ marginTop: '35px' }}>
+                                    {displayIfCorrect === 'Correct' ? <CheckCircleTwoTone twoToneColor="#52c41a" /> : <SmileTwoTone />}
                                     <h2>{displayIfCorrect}</h2>
                                 </div>
                                 <div style={{ marginTop: '35px' }}>
@@ -210,15 +234,28 @@ export default function Quiz() {
                         </div>
 
 
-                        {currentQuestion < steps.length - 1 && (<Button className='nextQuestion' type="primary" onClick={handleClickToNextQuestion}>Next</Button>)}
+                        {/* {currentQuestion < steps.length - 1 && ( */}
+                        <Button className='nextQuestion' type="primary" onClick={handleClickToNextQuestion}>Next</Button>
+                        {/* // )} */}
+
                         {currentQuestion > 0 && (<Button className='prevQuestion' onClick={handleClickToPrevQuestion}>Previous</Button>)}
-                        {currentQuestion === steps.length - 1 && (
+
+                        {/* {currentQuestion === steps.length - 1 && (
                             <Button type="primary" onClick={() => message.success('Processing complete!')}>
                                 Done
-                            </Button>)}
+                            </Button>)} */}
                     </>
                 )}
             </div>
+
+            <div class="popup" id="myPopup" style={{ display: popUpDisplay }} >
+                <div class="wrapper" >
+                    <h2 id="popupTitle" style={{ textAlign: 'center' }}>Personal Analysis</h2>
+                    <p id="popupText">Doughnut chart will display</p>
+                    <Button id="closePopup" onClick={closePopup}>Close</Button>
+                </div>
+            </div>
+
         </>
     );
 }
