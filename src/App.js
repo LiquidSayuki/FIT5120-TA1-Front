@@ -33,6 +33,7 @@ function App() {
             cookie.save("lang","en-US",{ path: '/' })
     }
 
+    // Initialize the multi-language package.
     useEffect(()=>{
 
         intl.init({

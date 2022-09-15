@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {Col, Layout, Row, List, Button, Typography, Divider, Card} from 'antd';
+import {Col, Layout, Row, List, Button, Typography, Divider, Card, Select} from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import axios from "axios";
 import cookie from "react-cookies";
 import intl from "react-intl-universal";
 
-const {Content} = Layout;
+const { Option } = Select;
+const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 const Disease = () => {
@@ -14,19 +15,37 @@ const Disease = () => {
         // Get data from the EN version of database
         if (cookie.load("lang") === "en-US"){
             axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/items").then(res=>{
-                console.log(res.data)
+                // console.log(res.data)
                 setData(res.data.Items)
             })
         }
         // Get data from CN version of database
         else if (cookie.load("lang") === "zh-CN"){
             axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/zh-CN/items").then(res=>{
-                console.log(res.data)
+                // console.log(res.data)
                 setData(res.data.Items)
             })
         }
     },[])
 
+    const [tags, setTags] = useState([])
+    useEffect(()=>{
+        let tagTemp = tags;
+        for (let i in data){
+            for (let l in data[i].tag){
+                if ( !tagTemp.includes(data[i].tag[l]) ){
+                    tagTemp.push(data[i].tag[l])
+                }
+            }
+        }
+        setTags(tagTemp);
+        console.log(tags)
+    },[])
+
+
+    const handleChange = (value) => {
+      console.log(value);
+    }
 
     return (
         <Content
@@ -68,6 +87,30 @@ const Disease = () => {
                         </Card>
                     </Col>
                 </Row>
+
+
+                {/*
+                    Search by tag feature
+                */}
+
+                <Row>
+                    <Col span={3}></Col>
+                    <Col span={18}>
+                        <Select
+                            mode="multiple"
+                            placeholder="Please select"
+                            onChange={handleChange}
+                            style={{
+                                width: '100%',
+                            }}
+                        >
+                            {tags.map(item =>
+                                <Option key={item}> {item} </Option>
+                            )}
+                        </Select>
+                    </Col>
+                </Row>
+
 
                 {/*
                 This block is the body of the page.
