@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { Layout, Timeline, Card, Col, Row, Divider, Typography, Collapse } from 'antd';
+import { Layout, Timeline, Card, Col, Row, Divider, Typography, Collapse, BackTop } from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import './BirthToAges4.css'
 import axios from "axios";
 import intl from "react-intl-universal";
+import { VerticalAlignTopOutlined } from '@ant-design/icons';
 
 const { Content } = Layout;
 const { Panel } = Collapse;
 const { Title, Paragraph } = Typography;
+
+const style = {
+    height: 40,
+    width: 40,
+    lineHeight: '40px',
+    borderRadius: 4,
+    backgroundColor: '#1088e9',
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: 14,
+};
 
 const BirthToAges6 = () => {
     const [vaccines, getVaccines] = useState([]);
@@ -89,7 +101,7 @@ const BirthToAges6 = () => {
                             <div style={{ paddingTop: "30px" }}>
                                 {/* <h2>2-6 months</h2> */}
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
-                                    <Panel header=<h2>{intl.get("vaccineMonth",{month:"2-6"})}</h2> key="1">
+                                    <Panel header=<h2>{intl.get("vaccineMonth", { month: "2-6" })}</h2> key="1">
                                         <div className='grid-container'>
                                             {vaccines.map(item => item.childrenAge === '2 months' ? //<--HERE  
                                                 <Card
@@ -111,7 +123,7 @@ const BirthToAges6 = () => {
                             {/* vaccine data for children at 12 months */}
                             <div style={{ paddingTop: "30px" }}>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
-                                    <Panel header=<h2>{intl.get("vaccineMonth",{month:"12"})}</h2> key="1">
+                                    <Panel header=<h2>{intl.get("vaccineMonth", { month: "12" })}</h2> key="1">
                                         <div className='grid-container'>
                                             {vaccines.map(item => item.childrenAge === '12 months' ? //<--HERE  
                                                 <Card
@@ -133,7 +145,7 @@ const BirthToAges6 = () => {
                             {/* vaccine data for children at 18 months */}
                             <div style={{ paddingTop: "30px" }}>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
-                                    <Panel header=<h2>{intl.get("vaccineMonth",{month:"18"})}</h2> key="1">
+                                    <Panel header=<h2>{intl.get("vaccineMonth", { month: "18" })}</h2> key="1">
                                         <div className='grid-container'>
                                             {vaccines.map(item => item.childrenAge === '18 months' ? //<--HERE  
                                                 <Card
@@ -155,7 +167,7 @@ const BirthToAges6 = () => {
                             {/* vaccine data for children at 4 years */}
                             <div style={{ paddingTop: "30px" }}>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
-                                    <Panel header=<h2>{intl.get("vaccineYear",{year:"4"})}</h2> key="1">
+                                    <Panel header=<h2>{intl.get("vaccineYear", { year: "4" })}</h2> key="1">
                                         <p>All children should receive any missed routine childhood vaccinations. Children who missed their recommended vaccines in childhood can still receive them free under the National Immunisation Program up until they turn 20 years old.
                                         </p>
                                     </Panel>
@@ -170,17 +182,20 @@ const BirthToAges6 = () => {
                         >
                             <Timeline>
                                 <Timeline.Item>{intl.get("vaccineBirth")}</Timeline.Item>
-                                <Timeline.Item>{intl.get("vaccineMonth",{month:"2-6"})}</Timeline.Item>
-                                <Timeline.Item>{intl.get("vaccineMonth",{month:"12"})}</Timeline.Item>
-                                <Timeline.Item>{intl.get("vaccineMonth",{month:"18"})}</Timeline.Item>
-                                <Timeline.Item>{intl.get("vaccineYear",{year:"4"})}</Timeline.Item>
+                                <Timeline.Item>{intl.get("vaccineMonth", { month: "2-6" })}</Timeline.Item>
+                                <Timeline.Item>{intl.get("vaccineMonth", { month: "12" })}</Timeline.Item>
+                                <Timeline.Item>{intl.get("vaccineMonth", { month: "18" })}</Timeline.Item>
+                                <Timeline.Item>{intl.get("vaccineYear", { year: "4" })}</Timeline.Item>
                             </Timeline>
                         </div>
                     </div>
+
                 </div>
+                <BackTop>
+                    <div style={style}><VerticalAlignTopOutlined /></div>
+                </BackTop>
             </Content >
         </div>
-
     );
 };
 

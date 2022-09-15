@@ -23,7 +23,7 @@ const Outdoors = () => {
                             <Paragraph>
                                 <Title>Outdoor Activities</Title>
                                 <Divider />
-                                <blockquote style={{ fontSize: "16px" }}>asdasd</blockquote>
+                                <blockquote style={{ fontSize: "16px" }}>Outdoor activities may vary in countries. Meantime, connecting to the outside world is essential, but also becoming one of most common infectious spreaded transmission. Wanna know how to reduce the chances of infectious? Let's dig into this together!</blockquote>
                                 <Divider />
                             </Paragraph>
                         </Col>
@@ -35,22 +35,7 @@ const Outdoors = () => {
                             <Quiz />
                         </div>
 
-                        {/* introduce the potential gardening infections */}
-                        {/* <div className="content" style={{ display: 'flex-left' }}>
-                            <div style={{ paddingTop: "30px" }}>
-                                <Collapse bordered={false} defaultActiveKey={['1']}>
-                                    <Panel header=<h2>Legionella</h2> key="1">
-                                        <p>Some infections info
-                                        </p>
-                                    </Panel>
-                                </Collapse>
-                            </div>
-                        </div> */}
-
                     </div>
-
-                    {/* <h2>2. Swimming</h2>
-                    <h2>3. Sports</h2> */}
 
                 </div>
             </div>

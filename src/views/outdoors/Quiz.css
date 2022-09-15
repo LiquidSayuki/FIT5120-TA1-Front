@@ -1,6 +1,6 @@
 .quiz-container {
     background-color: whitesmoke;
-    width: 900px;
+    width: 960px;
     min-height: 200px;
     height: min-content;
     border-radius: 15px;
@@ -90,7 +90,7 @@
     margin-right: 5px;
 }
 
-.circle {
+.circle1 {
     width: 70px;
     height: 70px;
     border-radius: 70px;
@@ -105,3 +105,32 @@
     z-index: +1;
     /* opacity: 0.6; */
 }
+
+.circle2 {
+    width: 110px;
+    height: 95px;
+    border-radius: 70px;
+    color: red;
+    position: absolute;
+    background-color: lightcoral;
+    bottom: 135px;
+    left: 178px;
+    z-index: +1;
+}
+
+.circle3 {
+    width: 140px;
+    height: 125px;
+    border-radius: 70px;
+    color: red;
+    position: absolute;
+    background-color: lightcoral;
+    bottom: 50px;
+    left: 235px;
+    z-index: +1;
+}
+
+/* .text-correctness {
+    color: aqua;
+    size: 100rem;
+} */

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './Quiz.css'
-import { Collapse, Button } from 'antd';
+import { Collapse, Button, Tooltip, Progress, message, Steps } from 'antd';
 
 const { Panel } = Collapse;
+const { Step } = Steps;
 
 export default function Quiz() {
     const questions = [
@@ -57,18 +58,39 @@ export default function Quiz() {
         }
     ];
 
+    const steps = [
+        {
+            title: 'Happy Family Gardening Time',
+            content: 'First-content',
+        },
+        {
+            title: 'Swimming',
+            content: 'Second-content',
+        },
+        {
+            title: 'Outdoor Sports',
+            content: 'Last-content',
+        },
+    ];
+
+
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
     const [displayIfCorrect, setIfCorrect] = useState('Correct');
     const [displayInfectionInfo, setDisplayInfectionInfo] = useState('none');
     const [displayAnswerBtn, setDisplayAnswerBtn] = useState('block');
-    const [circleOpacity, setCircleOpacity] = useState(0);
+    const [circleOpacity1, setCircleOpacity1] = useState(0);
+    const [circleOpacity2, setCircleOpacity2] = useState(0);
+    const [circleOpacity3, setCircleOpacity3] = useState(0);
+    const [circleDisplay1, setCircleDisplay1] = useState('none');
+    const [circleDisplay2, setCircleDisplay2] = useState('none');
+    const [circleDisplay3, setCircleDisplay3] = useState('none');
+
 
     const handleAnswerButtonClick = (isCorrect) => {
         setDisplayInfectionInfo('block')
         setDisplayAnswerBtn('none');
-        setCircleOpacity(0.6);
         if (isCorrect === true) {
             setScore(score + 1);
             setIfCorrect('Correct');
@@ -76,12 +98,24 @@ export default function Quiz() {
         else {
             setIfCorrect('Incorrect');
         }
+
+        if (currentQuestion === 0) {
+            setCircleOpacity1(0.6);
+            setCircleDisplay1('block');
+        }
+        else if (currentQuestion === 1) {
+            setCircleOpacity2(0.6);
+            setCircleDisplay2('block');
+        }
+        else if (currentQuestion === 2) {
+            setCircleOpacity3(0.6);
+            setCircleDisplay3('block');
+        }
     }
 
     const handleClickToNextQuestion = () => {
         setDisplayInfectionInfo('none')
         setDisplayAnswerBtn('block');
-        setCircleOpacity(0);
         const nextQuestion = currentQuestion + 1;
         if (nextQuestion < questions.length) {
             setCurrentQuestion(nextQuestion);
@@ -89,54 +123,117 @@ export default function Quiz() {
         else {
             setShowScore(true);
         }
+
+        if (currentQuestion === 0) {
+            setCircleOpacity1(0);
+            setCircleDisplay1('none');
+        }
+        else if (currentQuestion === 1) {
+            setCircleOpacity2(0);
+            setCircleDisplay2('none');
+        }
+        else if (currentQuestion === 2) {
+            setCircleOpacity3(0);
+            setCircleDisplay3('none');
+        }
+    }
+
+    const handleClickToPrevQuestion = () => {
+        setDisplayInfectionInfo('none')
+        setDisplayAnswerBtn('block');
+        const prevQuestion = currentQuestion - 1;
+        if (0 < prevQuestion < questions.length) {
+            setCurrentQuestion(prevQuestion);
+        }
+
+        if (currentQuestion === 0) {
+            setCircleOpacity1(0);
+            setCircleDisplay1('none');
+        }
+        else if (currentQuestion === 1) {
+            setCircleOpacity2(0);
+            setCircleDisplay2('none');
+        }
+        else if (currentQuestion === 2) {
+            setCircleOpacity3(0);
+            setCircleDisplay3('none');
+        }
     }
 
 
 
     return (
-        <div className='quiz-container' style={{ position: 'relative' }}>
-            <div className='circle' style={{ opacity: circleOpacity }}></div>
+        <>
+            <Steps current={currentQuestion} style={{ marginTop: "40px" }}>
+                {steps.map((item) => (<Step key={item.title} title={item.title}></Step>))}
+            </Steps>
 
-            {/* HINT: replace "false" with logic to display the 
+
+            <div className='quiz-container' style={{ position: 'relative', marginTop: "40px" }}>
+                <div style={{ opacity: circleOpacity1, display: circleDisplay1, zIndex: "+1" }}>
+                    <Tooltip title="Golves! Physical isolation from planting bacteria!" placement="rightBottom" >
+                        <div className='circle1' ></div>
+                    </Tooltip>
+                </div>
+                <div style={{ opacity: circleOpacity2, display: circleDisplay2, zIndex: "+1" }}>
+                    <Tooltip title="Swim googgles! Stay away from red eyes!" placement="rightBottom">
+                        <div className='circle2' ></div>
+                    </Tooltip>
+                </div>
+                <div style={{ opacity: circleOpacity3, display: circleDisplay3, zIndex: "+1" }}>
+                    <Tooltip title="Did you know how many germs on ball? Always remember to wash hands after any games!" placement="rightBottom">
+                        <div className='circle3' ></div>
+                    </Tooltip>
+                </div>
+
+
+                {/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
-            {showScore ? (
-                <div className='score-section'>You scored {score} out of {questions.length}</div>
-            ) : (
-                <>
-                    <div className='question-section'>
-                        <div className='question-count'>
-                            <span>Question {currentQuestion + 1}</span>/{questions.length}
-                            {/* <span>{questions[currentQuestion].questionTitle}</span> */}
+                {showScore ? (
+                    <div className='score-section'>You scored {score} out of {questions.length}</div>
+                ) : (
+                    <>
+                        <div className='question-section'>
+                            <div className='question-count'>
+                                <span>Question {currentQuestion + 1}</span>/{questions.length}
+                                {/* <span>{questions[currentQuestion].questionTitle}</span> */}
+                            </div>
+                            <div className='question-text' style={{ position: 'relative' }}>
+                                {questions[currentQuestion].questionText}
+                                {questions[currentQuestion].questionImage}
+                            </div>
                         </div>
-                        <div className='question-text' style={{ position: 'relative' }}>
-                            {questions[currentQuestion].questionText}
-                            {questions[currentQuestion].questionImage}
+
+                        <div className='answer-section' style={{ display: displayAnswerBtn }}>
+                            {questions[currentQuestion].answerOptions.map((answerOptions) =>
+                                <button className='quizButton' onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>{answerOptions.answerText}</button>
+                            )}
                         </div>
-                    </div>
 
-                    <div className='answer-section' style={{ display: displayAnswerBtn }}>
-                        {questions[currentQuestion].answerOptions.map((answerOptions) =>
-                            <button className='quizButton' onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>{answerOptions.answerText}</button>
-                        )}
-                    </div>
-
-                    <div>
-                        <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '22rem' }}>
-                            <h2>{displayIfCorrect}</h2>
-                            <Collapse bordered={false} defaultActiveKey={['1']}>
-                                <Panel header=<h2>{questions[currentQuestion].infectionName}</h2> key="1">
-                                    <p>{questions[currentQuestion].infectionInfo}
-                                    </p>
-                                </Panel>
-                            </Collapse>
+                        <div>
+                            <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '22rem' }}>
+                                {/* <div className='text-correctness'> */}
+                                <h2>{displayIfCorrect}</h2>
+                                {/* </div> */}
+                                <Collapse bordered={false} defaultActiveKey={['1']}>
+                                    <Panel header=<h2>{questions[currentQuestion].infectionName}</h2> key="1">
+                                        <p>{questions[currentQuestion].infectionInfo}
+                                        </p>
+                                    </Panel>
+                                </Collapse>
+                            </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <Button className='nextQuestion' onClick={handleClickToNextQuestion}>Next Question</Button>
-                    </div>
-                </>
-            )}
-        </div>
+
+                        {currentQuestion < steps.length - 1 && (<Button className='nextQuestion' type="primary" onClick={handleClickToNextQuestion}>Next</Button>)}
+                        {currentQuestion > 0 && (<Button className='prevQuestion' onClick={handleClickToPrevQuestion}>Previous</Button>)}
+                        {currentQuestion === steps.length - 1 && (
+                            <Button type="primary" onClick={() => message.success('Processing complete!')}>
+                                Done
+                            </Button>)}
+                    </>
+                )}
+            </div>
+        </>
     );
 }
