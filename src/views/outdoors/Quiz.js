@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ReactDOM from "react-dom"
 import './Quiz.css'
-import { Collapse, Button, Tooltip, message, Steps } from 'antd';
+import './Popup.scss'
+import { Collapse, Button, Tooltip, Steps } from 'antd';
 import { CheckCircleTwoTone, SmileTwoTone } from '@ant-design/icons';
 
 const { Panel } = Collapse;
@@ -67,13 +67,17 @@ export default function Quiz() {
     const [circleDisplay1, setCircleDisplay1] = useState('none');
     const [circleDisplay2, setCircleDisplay2] = useState('none');
     const [circleDisplay3, setCircleDisplay3] = useState('none');
+    const [popUpDisplay, setPopupDisplay] = useState('none');
     const [correctnessAnalysis, setCorrectnessAnalysis] = useState([]);
-    const [query, setQuery] = useState('');
-
 
     const handleAnswerButtonClick = (isCorrect) => {
         setDisplayInfectionInfo('block')
         setDisplayAnswerBtn('none');
+
+        setCorrectnessAnalysis([...correctnessAnalysis, {
+            id: currentQuestion,
+            value: isCorrect
+        }]);
 
         if (isCorrect === true) {
             setScore(score + 1);
@@ -86,17 +90,14 @@ export default function Quiz() {
         if (currentQuestion === 0) {
             setCircleOpacity1(0.6);
             setCircleDisplay1('block');
-            // setCorrectnessAnalysis[correctnessAnalysis => correctnessAnalysis.concat(0, isCorrect)];
         }
         else if (currentQuestion === 1) {
             setCircleOpacity2(0.6);
             setCircleDisplay2('block');
-            // setCorrectnessAnalysis[correctnessAnalysis.concat(1, isCorrect)];
         }
         else if (currentQuestion === 2) {
             setCircleOpacity3(0.6);
             setCircleDisplay3('block');
-            // setCorrectnessAnalysis[correctnessAnalysis.concat(2, isCorrect)];
         }
     }
 
@@ -148,7 +149,15 @@ export default function Quiz() {
     }
 
     const handleAnalysis = () => {
-        alert(correctnessAnalysis);
+        console.log(correctnessAnalysis)
+    }
+
+    const openPopup = () => {
+        setPopupDisplay('block');
+    }
+
+    const closePopup = () => {
+        setPopupDisplay('none');
     }
 
 
@@ -182,7 +191,7 @@ export default function Quiz() {
                 {showScore ? (
                     <div className='score-section' style={{ display: 'flex', flexDirection: 'column', padding: '5%' }}>
                         <p>You scored {score} out of {questions.length}</p>
-                        <Button onClick={handleAnalysis}>Jump to my personal analysis</Button>
+                        <Button onClick={openPopup}>Jump to my personal analysis</Button>
                     </div>
 
                 ) : (
@@ -190,7 +199,6 @@ export default function Quiz() {
                         <div className='question-section'>
                             <div className='question-count'>
                                 <span>Question {currentQuestion + 1}</span>/{questions.length}
-                                {/* <span>{questions[currentQuestion].questionTitle}</span> */}
                             </div>
                             <div className='question-text' style={{ position: 'relative' }}>
                                 {questions[currentQuestion].questionText}
@@ -239,6 +247,15 @@ export default function Quiz() {
                     </>
                 )}
             </div>
+
+            <div class="popup" id="myPopup" style={{ display: popUpDisplay }} >
+                <div class="wrapper" >
+                    <h2 id="popupTitle" style={{ textAlign: 'center' }}>Personal Analysis</h2>
+                    <p id="popupText">Doughnut chart will display</p>
+                    <Button id="closePopup" onClick={closePopup}>Close</Button>
+                </div>
+            </div>
+
         </>
     );
 }
