@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import ReactDOM from "react-dom"
 import './Quiz.css'
-import { Collapse, Button, Tooltip, Progress, message, Steps } from 'antd';
+import { Collapse, Button, Tooltip, message, Steps } from 'antd';
+import { CheckCircleTwoTone, SmileTwoTone } from '@ant-design/icons';
 
 const { Panel } = Collapse;
 const { Step } = Steps;
@@ -65,11 +67,14 @@ export default function Quiz() {
     const [circleDisplay1, setCircleDisplay1] = useState('none');
     const [circleDisplay2, setCircleDisplay2] = useState('none');
     const [circleDisplay3, setCircleDisplay3] = useState('none');
+    const [correctnessAnalysis, setCorrectnessAnalysis] = useState([]);
+    const [query, setQuery] = useState('');
 
 
     const handleAnswerButtonClick = (isCorrect) => {
         setDisplayInfectionInfo('block')
         setDisplayAnswerBtn('none');
+
         if (isCorrect === true) {
             setScore(score + 1);
             setIfCorrect('Correct');
@@ -81,14 +86,17 @@ export default function Quiz() {
         if (currentQuestion === 0) {
             setCircleOpacity1(0.6);
             setCircleDisplay1('block');
+            // setCorrectnessAnalysis[correctnessAnalysis => correctnessAnalysis.concat(0, isCorrect)];
         }
         else if (currentQuestion === 1) {
             setCircleOpacity2(0.6);
             setCircleDisplay2('block');
+            // setCorrectnessAnalysis[correctnessAnalysis.concat(1, isCorrect)];
         }
         else if (currentQuestion === 2) {
             setCircleOpacity3(0.6);
             setCircleDisplay3('block');
+            // setCorrectnessAnalysis[correctnessAnalysis.concat(2, isCorrect)];
         }
     }
 
@@ -139,6 +147,9 @@ export default function Quiz() {
         }
     }
 
+    const handleAnalysis = () => {
+        alert(correctnessAnalysis);
+    }
 
 
     return (
@@ -169,7 +180,11 @@ export default function Quiz() {
                 {/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
                 {showScore ? (
-                    <div className='score-section'>You scored {score} out of {questions.length}</div>
+                    <div className='score-section' style={{ display: 'flex', flexDirection: 'column', padding: '5%' }}>
+                        <p>You scored {score} out of {questions.length}</p>
+                        <Button onClick={handleAnalysis}>Jump to my personal analysis</Button>
+                    </div>
+
                 ) : (
                     <>
                         <div className='question-section'>
@@ -192,6 +207,7 @@ export default function Quiz() {
                         <div>
                             <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '22rem' }}>
                                 <div style={{ marginTop: '35px' }}>
+                                    {displayIfCorrect === 'Correct' ? <CheckCircleTwoTone twoToneColor="#52c41a" /> : <SmileTwoTone />}
                                     <h2>{displayIfCorrect}</h2>
                                 </div>
                                 <div style={{ marginTop: '35px' }}>
@@ -210,12 +226,16 @@ export default function Quiz() {
                         </div>
 
 
-                        {currentQuestion < steps.length - 1 && (<Button className='nextQuestion' type="primary" onClick={handleClickToNextQuestion}>Next</Button>)}
+                        {/* {currentQuestion < steps.length - 1 && ( */}
+                        <Button className='nextQuestion' type="primary" onClick={handleClickToNextQuestion}>Next</Button>
+                        {/* // )} */}
+
                         {currentQuestion > 0 && (<Button className='prevQuestion' onClick={handleClickToPrevQuestion}>Previous</Button>)}
-                        {currentQuestion === steps.length - 1 && (
+
+                        {/* {currentQuestion === steps.length - 1 && (
                             <Button type="primary" onClick={() => message.success('Processing complete!')}>
                                 Done
-                            </Button>)}
+                            </Button>)} */}
                     </>
                 )}
             </div>
