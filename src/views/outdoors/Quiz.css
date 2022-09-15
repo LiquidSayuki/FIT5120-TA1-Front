@@ -100,8 +100,10 @@
     background-color: lightcoral;
     /* border-width: 50px;
     border-color: aqua; */
-    bottom: 13px;
-    left: 190px;
+    /* bottom: 13px; */
+    bottom: -320px;
+    /* left: 190px; */
+    left: -320px;
     z-index: +1;
     /* opacity: 0.6; */
 }
@@ -113,8 +115,10 @@
     color: red;
     position: absolute;
     background-color: lightcoral;
-    bottom: 135px;
-    left: 178px;
+    /* bottom: 135px;
+    left: 178px; */
+    bottom: -215px;
+    left: -330px;
     z-index: +1;
 }
 
@@ -125,8 +129,10 @@
     color: red;
     position: absolute;
     background-color: lightcoral;
-    bottom: 50px;
-    left: 235px;
+    /* bottom: 50px;
+    left: 235px; */
+    bottom: -290px;
+    left: -280px;
     z-index: +1;
 }
 

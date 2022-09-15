@@ -17,33 +17,22 @@ export default function Quiz() {
                 { answerText: 'Hands on planting', isCorrect: false }
             ],
             infectionName: 'Legionella',
-            infectionInfo: 'asd'
+            infectionInfo: 'While Legionella longbeachae is found in tiny quantities in the general environment (including soil), it is not normally a health hazard. However, the ingredients and dampness of potting mix make it the ideal breeding ground for the bacteria.',
+            preventions: 'Always wear a mask and gloves when handling soil, compost or potting mix! Wash hands carefully with soap and water after planting.'
         },
         {
             questionTitle: 'Swimming',
             questionText: 'Is there any preparation for swimming to against infections?',
             questionImage: <img src="https://s1.imagehub.cc/images/2022/09/10/girl-953414_1920.jpg" alt="girl-953414_1920.jpg" style={{ width: '20rem', height: 'auto' }} />,
-            // questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '20rem', height: 'auto' }}></img>,
             answerOptions: [
                 { answerText: 'A water-tight swim goggles', isCorrect: true },
                 { answerText: 'Swimming party', isCorrect: false },
                 { answerText: 'Happy mood!', isCorrect: false }
             ],
             infectionName: 'Diarrhea',
-            infectionInfo: ''
+            infectionInfo: 'The PH of pool matters. Chlorine only works when the PH with the right range (recommends between 7.2 and 7.8.) Otherwise, chlorine is much less effective at killing germs.',
+            preventions: 'Dry ears after swimming! Take a quick shower before swimming! Do not swim if sick!'
         },
-        // {
-        //     questionTitle: 'Swimming',
-        //     questionText: 'What should we NOT do after a nicely swimming?',
-        //     questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '20rem', height: 'auto' }}></img>,
-        //     answerOptions: [
-        //         { answerText: 'Directly go for a dinner!', isCorrect: false },
-        //         { answerText: 'Gently wipe water from eyes', isCorrect: true },
-        //         { answerText: 'Dry ears', isCorrect: false }
-        //     ],
-        //     infectionName: 'Diarrhea',
-        //     infectionInfo: ''
-        // },
         {
             questionTitle: 'Outdoor Sports',
             questionText: 'What is a MUST after outdoor sports?',
@@ -54,25 +43,15 @@ export default function Quiz() {
                 { answerText: 'Go dinner with friends', isCorrect: false }
             ],
             infectionName: 'Impetigo, HSV, Ringworm etc.',
-            infectionInfo: 'Such amount of infections can be caught by sports activities. Wash hands with soup is always a MUST. '
+            infectionInfo: 'Such amount of infections can be caught by sports activities: bacteria, viruses, fungi and even parasites. ',
+            preventions: 'Wash hands with soup is always a MUST. '
         }
     ];
 
     const steps = [
-        {
-            title: 'Happy Family Gardening Time',
-            content: 'First-content',
-        },
-        {
-            title: 'Swimming',
-            content: 'Second-content',
-        },
-        {
-            title: 'Outdoor Sports',
-            content: 'Last-content',
-        },
-    ];
-
+        { title: 'Happy Family Gardening Time' },
+        { title: 'Swimming' },
+        { title: 'Outdoor Sports' }];
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
@@ -170,17 +149,17 @@ export default function Quiz() {
 
 
             <div className='quiz-container' style={{ position: 'relative', marginTop: "40px" }}>
-                <div style={{ opacity: circleOpacity1, display: circleDisplay1, zIndex: "+1" }}>
+                <div style={{ opacity: circleOpacity1, display: circleDisplay1, zIndex: "+1", position: 'absolute' }}>
                     <Tooltip title="Golves! Physical isolation from planting bacteria!" placement="rightBottom" >
                         <div className='circle1' ></div>
                     </Tooltip>
                 </div>
-                <div style={{ opacity: circleOpacity2, display: circleDisplay2, zIndex: "+1" }}>
+                <div style={{ opacity: circleOpacity2, display: circleDisplay2, zIndex: "+1", position: 'absolute' }}>
                     <Tooltip title="Swim googgles! Stay away from red eyes!" placement="rightBottom">
                         <div className='circle2' ></div>
                     </Tooltip>
                 </div>
-                <div style={{ opacity: circleOpacity3, display: circleDisplay3, zIndex: "+1" }}>
+                <div style={{ opacity: circleOpacity3, display: circleDisplay3, zIndex: "+1", position: 'absolute' }}>
                     <Tooltip title="Did you know how many germs on ball? Always remember to wash hands after any games!" placement="rightBottom">
                         <div className='circle3' ></div>
                     </Tooltip>
@@ -212,15 +191,21 @@ export default function Quiz() {
 
                         <div>
                             <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '22rem' }}>
-                                {/* <div className='text-correctness'> */}
-                                <h2>{displayIfCorrect}</h2>
-                                {/* </div> */}
-                                <Collapse bordered={false} defaultActiveKey={['1']}>
-                                    <Panel header=<h2>{questions[currentQuestion].infectionName}</h2> key="1">
-                                        <p>{questions[currentQuestion].infectionInfo}
-                                        </p>
-                                    </Panel>
-                                </Collapse>
+                                <div style={{ marginTop: '35px' }}>
+                                    <h2>{displayIfCorrect}</h2>
+                                </div>
+                                <div style={{ marginTop: '35px' }}>
+                                    <Collapse bordered={false} defaultActiveKey={['1']}>
+                                        <Panel header=<h2>{questions[currentQuestion].infectionName}</h2> key="1">
+                                            <p>{questions[currentQuestion].infectionInfo}</p>
+                                        </Panel>
+                                    </Collapse>
+                                    <Collapse bordered={false} defaultActiveKey={['2']}>
+                                        <Panel header=<h2>Preventions</h2> key="2">
+                                            <p>{questions[currentQuestion].preventions}</p>
+                                        </Panel>
+                                    </Collapse>
+                                </div>
                             </div>
                         </div>
 
