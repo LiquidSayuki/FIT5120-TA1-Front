@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import style from "./Home.module.css";
-import {Card, Col, Image, Layout, Row, PageHeader, Divider} from 'antd';
+import { Card, Col, Image, Layout, Row, PageHeader, Divider } from 'antd';
 import { Typography, Button } from 'antd';
 import axios from "axios";
 import intl from "react-intl-universal";
@@ -16,31 +16,31 @@ const { Meta } = Card;
 const Home = (props) => {
 
     // get disease data from backend
-    const [disease,setDisease] = useState([]);
-    useEffect(()=>{
+    const [disease, setDisease] = useState([]);
+    useEffect(() => {
         // if the language setting is EN, read data from EN version of database
-        if (cookie.load("lang") === "en-US"){
+        if (cookie.load("lang") === "en-US") {
             axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/items").then(res => {
                 let data = res.data.Items;
                 // Only keep first three diseases
                 // Because we should not keep put much data on home page.
-                setDisease(data.slice(0,3));
+                setDisease(data.slice(0, 3));
             })
         }
         // if the language setting is CN, read data from CN version of database
-        else if (cookie.load("lang") === "zh-CN"){
+        else if (cookie.load("lang") === "zh-CN") {
             axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/zh-CN/items").then(res => {
                 let data = res.data.Items;
-                setDisease(data.slice(0,3));
+                setDisease(data.slice(0, 3));
             })
         }
 
-    },[])
+    }, [])
 
     // Handle the click event of buttons
     // Redirect to another address
     const redirect = (destination) => {
-      props.history.push(destination)
+        props.history.push(destination)
     }
 
     return (
@@ -69,8 +69,8 @@ const Home = (props) => {
                 </Row>
                 <Row className={style.button}>
                     <Button type="primary"
-                            style={{margin:"auto"}}
-                            onClick={()=>{redirect("/backgroundInfo")}}>
+                        style={{ margin: "auto" }}
+                        onClick={() => { redirect("/backgroundInfo") }}>
                         {intl.get("homeButtonMain")}
                     </Button>
                 </Row>
@@ -83,31 +83,31 @@ const Home = (props) => {
                 }}
             >
                 <div className="site-layout-content">
-                    <div style={{width:"80%", margin: "auto"}}>
+                    <div style={{ width: "80%", margin: "auto" }}>
 
                         {/*Title of diseases*/}
                         <PageHeader title={intl.get("homeSectionTitle_1")}
-                                    subTitle={intl.get("homeSectionSubtitle_1")}
-                                    extra={[<Button onClick={()=>{redirect("/diseases")}}>
-                                        {intl.get("homeButtonMore")}
-                                    </Button>]}
+                            subTitle={intl.get("homeSectionSubtitle_1")}
+                            extra={[<Button onClick={() => { redirect("/diseases") }}>
+                                {intl.get("homeButtonMore")}
+                            </Button>]}
                         />
-                        <Divider/>
+                        <Divider />
 
                         {/* Dynamic create the first three disease cards*/}
                         <Row gutter={30}>
                             {
-                                disease.map( item =>
+                                disease.map(item =>
                                     <Col span={8}>
                                         <Card hoverable={true}
-                                              cover={<Image height={180}
-                                                            alt="chicken pox"
-                                                            src={item.imgSrc}
-                                                    />}
+                                            cover={<Image height={180}
+                                                alt="chicken pox"
+                                                src={item.imgSrc}
+                                            />}
                                         >
                                             <Meta title={item.name}
-                                                  description={intl.get("homeClickToReadMore")}
-                                                  onClick={()=>{redirect("disease/"+item.id)}}
+                                                description={intl.get("homeClickToReadMore")}
+                                                onClick={() => { redirect("disease/" + item.id) }}
                                             />
                                         </Card>
                                     </Col>
@@ -117,13 +117,13 @@ const Home = (props) => {
 
                         {/*Title of Vaccines*/}
                         <PageHeader title={intl.get("homeSectionTitle_2")}
-                                    subTitle={intl.get("homeSectionSubtitle_2")}
-                                    style={{paddingTop:"80px"}}
-                                    extra={[<Button onClick={()=>{redirect("/BirthToAges6")}}>
-                                        {intl.get("homeButtonMore")}
-                                    </Button>]}
+                            subTitle={intl.get("homeSectionSubtitle_2")}
+                            style={{ paddingTop: "80px" }}
+                            extra={[<Button onClick={() => { redirect("/BirthToAges4") }}>
+                                {intl.get("homeButtonMore")}
+                            </Button>]}
                         />
-                        <Divider/>
+                        <Divider />
 
                         <Row gutter={30}>
                             {/*{*/}
