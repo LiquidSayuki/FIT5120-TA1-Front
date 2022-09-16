@@ -11,7 +11,7 @@ const DiseaseManage = () => {
     const onFinish = (values) => {
       console.log(values);
       console.log(html);
-        axios.put("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/zh-CN/items", {
+        axios.put("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/items", {
             id:values.id,
             name:values.name,
             imgSrc:values.imgSrc,

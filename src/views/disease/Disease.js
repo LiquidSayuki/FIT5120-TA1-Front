@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Col, Layout, Row, List, Button, Typography, Divider, Card, Select, Tag} from 'antd';
+import {Col, Layout, Row, List, Button, Typography, Divider, Card, Select, Tag, Form} from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import axios from "axios";
 import cookie from "react-cookies";
@@ -7,35 +7,47 @@ import intl from "react-intl-universal";
 
 const { Option } = Select;
 const { Content } = Layout;
-const { Title, Paragraph } = Typography;
+const { Title, Paragraph,Text } = Typography;
+
+function includes(arr1, arr2) {
+    return arr2.every(val => arr1.includes(val));
+}
 
 const Disease = () => {
+
+    const [originalData, setOriginalData] = useState([])
+
     const [data, setData] = useState([])
+
     useEffect(()=>{
         // Get data from the EN version of database
         if (cookie.load("lang") === "en-US"){
             axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/items").then(res=>{
                 // console.log(res.data)
-                setData(res.data.Items)
+                setOriginalData(res.data.Items);
+                setData(res.data.Items);
             })
         }
         // Get data from CN version of database
         else if (cookie.load("lang") === "zh-CN"){
             axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/zh-CN/items").then(res=>{
                 // console.log(res.data)
-                setData(res.data.Items)
+                setOriginalData(res.data.Items);
+                setData(res.data.Items);
             })
         }
     },[])
 
+
+    // Set the tags in the menu
     const [tags, setTags] = useState([])
     useEffect(()=>{
         let tagTemp = tags;
-        for (let i in data){
+        for (let i in originalData){
             //console.log(data[i].tag);
-            for (let l in data[i].tag){
-                if ( !tagTemp.includes(data[i].tag[l]) ){
-                    tagTemp.push(data[i].tag[l])
+            for (let l in originalData[i].tag){
+                if ( !tagTemp.includes(originalData[i].tag[l]) ){
+                    tagTemp.push(originalData[i].tag[l])
                 }
             }
         }
@@ -44,20 +56,62 @@ const Disease = () => {
     })
 
 
-    const handleChange = (value) => {
-      console.log(value);
-    }
+    // Search the items which have all the tags selected.
+    const onFinish = (value) => {
+        //console.log(value);
 
+        let severityFit = [];
+        if (value.severity !== undefined){
+            for (let i in originalData){
+                if (originalData[i].severity ===value.severity){
+                    severityFit.push(originalData[i]);
+                }
+            }
+        }else {
+            for (let i in originalData){
+                severityFit.push(originalData[i]);
+            }
+        }
+
+        //console.log(severityFit);
+
+
+        let bodyFit = [];
+        if (value.bodyPart !== undefined){
+            for (let i in originalData){
+                if (includes(originalData[i].tag,value.bodyPart)){
+                    bodyFit.push(originalData[i]);
+                }
+            }
+        }else {
+            for (let i in originalData){
+                bodyFit.push(originalData[i]);
+            }
+        }
+
+        //console.log(bodyFit);
+
+        let bothFit = severityFit.filter(i => bodyFit.includes(i));
+
+        setData(bothFit);
+
+    }
 
     // Handle the color of tags
     const handleColor = (value) => {
         switch (value) {
             case "Mild":
-                return "orange"
+                return "green"
             case "Can be dangerous":
                 return "volcano"
+            case "Serious":
+                return "volcano"
+            case "Critical":
+                return "red"
+            case "Moderate":
+                return "orange"
             default:
-                return "cyan"
+                return "geekblue"
         }
     }
 
@@ -107,21 +161,76 @@ const Disease = () => {
                     Search by tag feature
                 */}
 
-                <Row>
+                <Row style={{paddingTop:"15px"}}>
                     <Col span={3}></Col>
                     <Col span={18}>
-                        <Select
-                            mode="multiple"
-                            placeholder="Please select"
-                            onChange={handleChange}
-                            style={{
-                                width: '100%',
-                            }}
+                        <Card
+                            title={intl.get("diseaseSearchTitle")}
                         >
-                            {tags.map(item =>
-                                <Option key={item}> {item} </Option>
-                            )}
-                        </Select>
+                            <Form name="disease-tag"
+                                  onFinish={onFinish}>
+
+                                {/*
+                                    Search by severity
+                                */}
+                                <Text>{intl.get("diseaseSearchBySeverity")}</Text>
+                                <Form.Item
+                                    name="severity"
+                                >
+                                    <Select
+                                        allowClear={true}
+                                        placeholder={intl.get("diseaseSearchBySeverity")}
+                                        style={{
+                                            width: '60%',
+                                            paddingTop:"5px",
+                                            paddingBottom:"5px"
+                                        }}
+                                    >
+                                        <Option value={intl.get("diseaseTagMild")}> {intl.get("diseaseTagMild")} </Option>
+                                        <Option value={intl.get("diseaseTagModerate")}> {intl.get("diseaseTagModerate")} </Option>
+                                        <Option value={intl.get("diseaseTagSerious")}> {intl.get("diseaseTagSerious")} </Option>
+                                        <Option value={intl.get("diseaseTagCritical")}> {intl.get("diseaseTagCritical")} </Option>
+                                    </Select>
+                                </Form.Item>
+
+                                {/*
+                                    Search by body part
+                                */}
+                                <Text>{intl.get("diseaseSearchByBody")}</Text>
+                                <Form.Item
+                                    name="bodyPart"
+                                >
+                                    <Select
+                                        mode="multiple"
+                                        placeholder={intl.get("diseaseSearchByBody")}
+                                        style={{
+                                            width: '60%',
+                                            paddingTop:"5px",
+                                            paddingBottom:"5px"
+                                        }}
+                                    >
+                                        {tags.map(item =>
+                                            <Option value={item}> {item} </Option>
+                                        )}
+                                    </Select>
+                                </Form.Item>
+
+                                {/*
+                                    Submit button
+                                */}
+                                <Form.Item
+                                    wrapperCol={{
+                                        offset: 8,
+                                        span: 16,
+                                    }}
+                                >
+                                    <Button type="primary" htmlType="submit">
+                                        {intl.get("diseaseButtonSubmit")}
+                                    </Button>
+                                </Form.Item>
+                            </Form>
+
+                        </Card>
                     </Col>
                 </Row>
 
@@ -138,9 +247,9 @@ const Disease = () => {
                             itemLayout="vertical"
                             size="large"
                             pagination={{
-                                onChange: (page) => {
-                                    console.log(page);
-                                },
+                                // onChange: (page) => {
+                                //     console.log(page);
+                                // },
                                 pageSize: 6,
                             }}
                             dataSource={data}
@@ -148,7 +257,7 @@ const Disease = () => {
                             // Code below is generating the list from dataset.
                             renderItem={(item) => (
                                 <List.Item
-                                    key={item.name}
+                                    key={item.id}
 
                                     // This part is for Like, Favorites and Comments
                                     // actions={[
@@ -178,12 +287,15 @@ const Disease = () => {
                                         //description={item.description}
                                     />
                                     {item.description}
+
                                     <div style={{paddingTop:"15px"}}>
+                                        <Tag color={handleColor(item.severity)}>{item.severity}</Tag>
                                         {
                                             item.tag? (item.tag.map(i=>
                                                 <Tag
                                                     color={handleColor(i)}>{i}</Tag>)):(console.log("No tag"))
                                         }
+
                                         <div style={{paddingTop:"15px"}}>
                                             <Button href={'/disease/'+ item.id} type="primary" style={{float:"right"}}>
                                                 {intl.get("diseaseButtonMore")}
