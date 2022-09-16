@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Col, Layout, Row, List, Button, Typography, Divider, Card, Select} from 'antd';
+import {Col, Layout, Row, List, Button, Typography, Divider, Card, Select, Tag} from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import axios from "axios";
 import cookie from "react-cookies";
@@ -32,6 +32,7 @@ const Disease = () => {
     useEffect(()=>{
         let tagTemp = tags;
         for (let i in data){
+            //console.log(data[i].tag);
             for (let l in data[i].tag){
                 if ( !tagTemp.includes(data[i].tag[l]) ){
                     tagTemp.push(data[i].tag[l])
@@ -39,12 +40,25 @@ const Disease = () => {
             }
         }
         setTags(tagTemp);
-        console.log(tags)
-    },[])
+        //console.log(tags)
+    })
 
 
     const handleChange = (value) => {
       console.log(value);
+    }
+
+
+    // Handle the color of tags
+    const handleColor = (value) => {
+        switch (value) {
+            case "Mild":
+                return "orange"
+            case "Can be dangerous":
+                return "volcano"
+            default:
+                return "cyan"
+        }
     }
 
     return (
@@ -165,9 +179,16 @@ const Disease = () => {
                                     />
                                     {item.description}
                                     <div style={{paddingTop:"15px"}}>
-                                        <Button href={'/disease/'+ item.id} type="primary" style={{float:"right"}}>
-                                            {intl.get("diseaseButtonMore")}
-                                        </Button>
+                                        {
+                                            item.tag? (item.tag.map(i=>
+                                                <Tag
+                                                    color={handleColor(i)}>{i}</Tag>)):(console.log("No tag"))
+                                        }
+                                        <div style={{paddingTop:"15px"}}>
+                                            <Button href={'/disease/'+ item.id} type="primary" style={{float:"right"}}>
+                                                {intl.get("diseaseButtonMore")}
+                                            </Button>
+                                        </div>
                                     </div>
                                 </List.Item>
                             )}
