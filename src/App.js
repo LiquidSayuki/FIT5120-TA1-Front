@@ -19,7 +19,7 @@ function App() {
     const [localesInit,setLocaleInit] = useState(false);
 
     let currentLocale = intl.determineLocale({
-        // urlLocaleKey: "lang"
+        //urlLocaleKey: "lang"
         cookieLocaleKey: "lang",
     })
 
@@ -31,6 +31,7 @@ function App() {
             break
         default:
             cookie.save("lang","en-US",{ path: '/' })
+            window.location.reload();
     }
 
     // Initialize the multi-language package.
