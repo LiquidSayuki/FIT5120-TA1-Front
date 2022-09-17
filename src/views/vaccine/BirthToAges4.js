@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Layout, Timeline, Card, Col, Row, Divider, Typography, Collapse, BackTop } from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
-import './BirthToAges4.css'
+import './BirthToAges4.module.css'
 import axios from "axios";
 import intl from "react-intl-universal";
 import { VerticalAlignTopOutlined } from '@ant-design/icons';

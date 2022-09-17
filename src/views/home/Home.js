@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import style from "./Home.module.css";
-import { Card, Col, Image, Layout, Row, PageHeader, Divider } from 'antd';
+import { Card, Col, Image, Layout, Row, PageHeader, Divider, BackTop } from 'antd';
 import { Typography, Button } from 'antd';
 import axios from "axios";
 import intl from "react-intl-universal";
 import cookie from "react-cookies";
+import { VerticalAlignTopOutlined } from '@ant-design/icons';
 
 
 const { Text } = Typography;
@@ -153,6 +154,12 @@ const Home = (props) => {
 
                     </div>
                 </div>
+
+
+                <BackTop>
+                    <div style={style}><VerticalAlignTopOutlined /></div>
+                </BackTop>
+
 
             </Content>
         </div>

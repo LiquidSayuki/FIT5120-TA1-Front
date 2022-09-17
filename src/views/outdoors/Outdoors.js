@@ -1,7 +1,6 @@
 import React from 'react';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import { Layout, Col, Row, Divider, Typography, Collapse } from 'antd';
-import './Outdoors.css'
 import Quiz from './Quiz';
 import intl from "react-intl-universal";
 

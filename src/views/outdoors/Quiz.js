@@ -3,9 +3,12 @@ import './Quiz.css'
 import './Popup.scss'
 import { Collapse, Button, Tooltip, Steps } from 'antd';
 import { CheckCircleTwoTone, SmileTwoTone } from '@ant-design/icons';
+import { LineChart, Line, XAxis, YAxis, Legend } from "recharts";
+import { Tooltip as TP } from "recharts";
 
 const { Panel } = Collapse;
 const { Step } = Steps;
+
 
 export default function Quiz() {
     const questions = [
@@ -74,10 +77,6 @@ export default function Quiz() {
         setDisplayInfectionInfo('block')
         setDisplayAnswerBtn('none');
 
-        setCorrectnessAnalysis([...correctnessAnalysis, {
-            id: currentQuestion,
-            value: isCorrect
-        }]);
 
         if (isCorrect === true) {
             setScore(score + 1);
@@ -90,14 +89,65 @@ export default function Quiz() {
         if (currentQuestion === 0) {
             setCircleOpacity1(0.6);
             setCircleDisplay1('block');
+
+            if (isCorrect) {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Gardening",
+                    value: isCorrect,
+                    score: 1
+                }]);
+            }
+            else {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Gardening",
+                    value: isCorrect,
+                    score: 0
+                }]);
+            }
         }
         else if (currentQuestion === 1) {
             setCircleOpacity2(0.6);
             setCircleDisplay2('block');
+
+            if (isCorrect) {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Swimming",
+                    value: isCorrect,
+                    score: 1
+                }]);
+            }
+            else {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Swimming",
+                    value: isCorrect,
+                    score: 0
+                }]);
+            }
         }
         else if (currentQuestion === 2) {
             setCircleOpacity3(0.6);
             setCircleDisplay3('block');
+
+            if (isCorrect) {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Sports",
+                    value: isCorrect,
+                    score: 1
+                }]);
+            }
+            else {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Sports",
+                    value: isCorrect,
+                    score: 0
+                }]);
+            }
         }
     }
 
@@ -251,7 +301,24 @@ export default function Quiz() {
             <div class="popup" id="myPopup" style={{ display: popUpDisplay }} >
                 <div class="wrapper" >
                     <h2 id="popupTitle" style={{ textAlign: 'center' }}>Personal Analysis</h2>
-                    <p id="popupText">Doughnut chart will display</p>
+                    {/* <p id="popupText">Doughnut chart will display</p> */}
+
+
+                    <div>
+                        <LineChart width={300} height={300} data={correctnessAnalysis}>
+                            <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
+                            <YAxis />
+                            <TP />
+                            <Legend />
+                            <Line
+                                type="monotone"
+                                dataKey="score"
+                                activeDot={{ r: 8 }}
+                            />
+                        </LineChart>
+                    </div>
+
+
                     <Button id="closePopup" onClick={closePopup}>Close</Button>
                 </div>
             </div>
