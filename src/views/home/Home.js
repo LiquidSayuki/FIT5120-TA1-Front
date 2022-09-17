@@ -149,6 +149,30 @@ const Home = (props) => {
                             </Col>
                         </Row>
 
+
+                        {/*Title of Outdoor Activities*/}
+                        <PageHeader title={intl.get("homeSectionTitle_3")}
+                                    subTitle={intl.get("homeSectionSubtitle_3")}
+                                    style={{ paddingTop: "80px" }}
+                                    extra={[<Button onClick={() => { redirect("/Outdoors") }}>
+                                        {intl.get("homeButtonMore")}
+                                    </Button>]}
+                        />
+                        <Divider />
+
+                        <Row gutter={30}>
+                            <Col span={12}>
+                                <Card>
+                                    Description
+                                </Card>
+                            </Col>
+                            <Col span={12}>
+                                <Card>
+                                    Image
+                                </Card>
+                            </Col>
+                        </Row>
+
                     </div>
                 </div>
 
