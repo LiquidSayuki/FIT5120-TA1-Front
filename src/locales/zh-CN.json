@@ -1,8 +1,8 @@
 {
   "homeTitle": "Pediroo",
-  "homeSubtitle": "专为初人父母的你准备的儿童健康指南",
-  "homeSubtitle_2": "了解澳大利亚的儿童疾病与免疫基本情况",
-  "homeButtonMain": "单击此处",
+  "homeSubtitle": "专为初人父母的你准备的儿童传染病指南",
+  "homeSubtitle_2": "点击下方按钮，检验您自己的儿童传染病知识水平",
+  "homeButtonMain": "开始测验",
   "homeButtonMore": "更多",
   "homeSectionTitle_1": "传染性疾病",
   "homeSectionSubtitle_1": "一些在儿童中常见的传染性疾病",
@@ -35,5 +35,12 @@
   "vaccineMonth": "{month} 月龄",
   "vaccineYear": "{year} 岁",
   "outdoorTitle": "户外活动",
-  "outdoorSubtitle": "远离参与户外活动时的感染"
+  "outdoorSubtitle": "远离参与户外活动时的感染",
+  "quizTitle": "知识测验",
+  "quizSubtitle": "关于你对儿童传染病了解程度的小测验",
+  "quizSubtitle2": "The description of the quiz",
+  "quizRecommend": "推荐阅读",
+  "quizRecommendExtra": "For new to Australia",
+  "quizRecommendTab_1": "在线健康知识",
+  "quizRecommendTab_2": "预约医生服务"
 }
