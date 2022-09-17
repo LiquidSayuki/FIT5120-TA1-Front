@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import style from "./Home.module.css";
-import { Card, Col, Image, Layout, Row, PageHeader, Divider, BackTop } from 'antd';
+import { Card, Col, Image, Layout, Row, PageHeader, Divider, BackTop, Carousel } from 'antd';
 import { Typography, Button } from 'antd';
 import axios from "axios";
 import intl from "react-intl-universal";
@@ -11,14 +11,22 @@ import { VerticalAlignTopOutlined } from '@ant-design/icons';
 const { Text } = Typography;
 const { Content } = Layout;
 const { Meta } = Card;
+const contentStyle = {
+    height: '340px',
+    width: '200px',
+    color: 'black',
+    text: 'center',
+    lineHeight: '160px',
+    background: '#364d79',
+};
 
 // backgroundImageSrc: "https://s1.imagehub.cc/images/2022/09/05/pediroo-notext.jpg",
 
 const Home = (props) => {
 
     // get disease data from backend
-    const [disease,setDisease] = useState([]);
-    useEffect(()=>{
+    const [disease, setDisease] = useState([]);
+    useEffect(() => {
 
         switch (cookie.load("lang")) {
 
@@ -28,7 +36,7 @@ const Home = (props) => {
                     let data = res.data.Items;
                     // Only keep first three diseases
                     // Because we should not keep put much data on home page.
-                    setDisease(data.slice(0,3));
+                    setDisease(data.slice(0, 3));
                 })
                 break
 
@@ -36,7 +44,7 @@ const Home = (props) => {
                 // Get data from CN version of database
                 axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/zh-CN/items").then(res => {
                     let data = res.data.Items;
-                    setDisease(data.slice(0,3));
+                    setDisease(data.slice(0, 3));
                 })
                 break
 
@@ -45,10 +53,10 @@ const Home = (props) => {
                     let data = res.data.Items;
                     // Only keep first three diseases
                     // Because we should not keep put much data on home page.
-                    setDisease(data.slice(0,3));
+                    setDisease(data.slice(0, 3));
                 })
         }
-    },[])
+    }, [])
 
     // Handle the click event of buttons
     // Redirect to another address
@@ -82,8 +90,8 @@ const Home = (props) => {
                 </Row>
                 <Row className={style.button}>
                     <Button type="primary"
-                            style={{margin:"auto"}}
-                            onClick={()=>{redirect("/quiz")}}>
+                        style={{ margin: "auto" }}
+                        onClick={() => { redirect("/quiz") }}>
                         {intl.get("homeButtonMain")}
                     </Button>
                 </Row>
@@ -113,8 +121,8 @@ const Home = (props) => {
                                 disease.map(item =>
                                     <Col span={8}>
                                         <Card hoverable={true}
-                                              style={{width:"100%", height:"100%"}}
-                                              cover={<Image src={item.imgSrc}/>}
+                                            style={{ width: "100%", height: "100%" }}
+                                            cover={<Image src={item.imgSrc} />}
                                         >
                                             <Meta title={item.name}
                                                 description={intl.get("homeClickToReadMore")}
@@ -136,27 +144,34 @@ const Home = (props) => {
                         />
                         <Divider />
 
-                        <Row gutter={30}>
-                            <Col span={12}>
-                                <Card>
-                                    Image
-                                </Card>
-                            </Col>
-                            <Col span={12}>
-                                <Card>
-                                    Description
-                                </Card>
-                            </Col>
-                        </Row>
+
+                        <Carousel autoplay>
+                            <div>
+                                <div style={contentStyle} >
+                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-21.24.11.jpg" style={{ height: '340px', width: 'auto' }} />
+                                </div>
+                            </div>
+                            <div>
+                                <div style={contentStyle}>
+                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-21.19.52.jpg" style={{ height: '340px', width: 'auto' }} onClick={() => { redirect("/BirthToAges4") }} />
+                                </div>
+                            </div>
+                            <div>
+                                <div style={contentStyle}>
+                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-21.34.56-1.jpg" style={{ height: '340px', width: 'auto' }} />
+                                </div>
+                            </div>
+                        </Carousel>
+
 
 
                         {/*Title of Outdoor Activities*/}
                         <PageHeader title={intl.get("homeSectionTitle_3")}
-                                    subTitle={intl.get("homeSectionSubtitle_3")}
-                                    style={{ paddingTop: "80px" }}
-                                    extra={[<Button onClick={() => { redirect("/Outdoors") }}>
-                                        {intl.get("homeButtonMore")}
-                                    </Button>]}
+                            subTitle={intl.get("homeSectionSubtitle_3")}
+                            style={{ paddingTop: "80px" }}
+                            extra={[<Button onClick={() => { redirect("/Outdoors") }}>
+                                {intl.get("homeButtonMore")}
+                            </Button>]}
                         />
                         <Divider />
 
