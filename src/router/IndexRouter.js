@@ -6,7 +6,7 @@ import GlobalHeader from "../components/indexRouter/GlobalHeader";
 import Disease from "../views/disease/Disease";
 import BirthToAges4 from "../views/vaccine/BirthToAges4";
 import SingleDisease from "../views/disease/SingleDisease";
-import BackgroundInfo from "../views/backgroundInfo/BackgroundInfo";
+import Quiz from "../views/quiz/Quiz";
 import DiseaseManage from "../views/manage/DiseaseManage";
 import DataDisplay from "../views/dataDisplay/DataDisplay";
 import Outdoors from "../views/outdoors/Outdoors";
@@ -20,7 +20,7 @@ export default function IndexRouter() {
             <Switch>
                 <Route path="/manage/disease" component={DiseaseManage} />
                 <Route path="/BirthToAges4" component={BirthToAges4} />
-                <Route path="/BackgroundInfo" component={BackgroundInfo} />
+                <Route path="/quiz" component={Quiz} />
                 <Route path="/Outdoors" component={Outdoors} />
                 {/* <Route path="/Ages7ToAges18" component={Ages7ToAges18} /> */}
                 {/* <Route path="/vaccine/:id" component={BirthToAges6}></Route> */}
@@ -35,7 +35,7 @@ export default function IndexRouter() {
                     textAlign: 'center',
                 }}
             >
-                Hello
+                Copy Right... I don't know if reserved or not. Anyway.
             </Footer>
         </Layout>
     );

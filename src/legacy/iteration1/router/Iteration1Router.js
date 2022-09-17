@@ -19,7 +19,7 @@ export default function Iteration1Router() {
             <Switch>
                 <Route path="/iteration1/manage/disease" component={DiseaseManage} />
                 <Route path="/iteration1/BirthToAges4" component={BirthToAges4} />
-                <Route path="/iteration1/BackgroundInfo" component={BackgroundInfo} />
+                <Route path="/iteration1/Quiz" component={BackgroundInfo} />
                 {/* <Route path="/Ages7ToAges18" component={Ages7ToAges18} /> */}
                 {/* <Route path="/vaccine/:id" component={BirthToAges6}></Route> */}
                 <Route path="/iteration1/diseases" component={Disease} />

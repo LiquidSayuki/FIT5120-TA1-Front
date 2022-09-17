@@ -1,8 +1,8 @@
 {
   "homeTitle": "Pediroo",
-  "homeSubtitle": "An encyclopedia for new parents",
-  "homeSubtitle_2": "Learn more about childhood diseases and immunisations in Australia",
-  "homeButtonMain": "Click Here",
+  "homeSubtitle": "An infectious diseases A-Z for new parents",
+  "homeSubtitle_2": "Click the button below to find out the your knowledge level about children's health",
+  "homeButtonMain": "Start Quiz",
   "homeButtonMore": "Read More",
   "homeSectionTitle_1": "Infectious Diseases",
   "homeSectionSubtitle_1": "Some common infectious diseases spread among children",
@@ -35,5 +35,12 @@
   "vaccineMonth": "{month} months",
   "vaccineYear": "{year} years",
   "outdoorTitle": "Outdoor Activities",
-  "outdoorSubtitle": "Stay Safe from Outdoor Activities Infections"
+  "outdoorSubtitle": "Stay Safe from Outdoor Activities Infections",
+  "quizTitle": "Knowledge Quiz",
+  "quizSubtitle": "A small test about your knowledge of childhood infectious diseases",
+  "quizSubtitle2": "The description of the quiz",
+  "quizRecommend": "Recommended reading",
+  "quizRecommendExtra": "If you are new to Australia, here are some websites can help you about health issue",
+  "quizRecommendTab_1": "Online health website",
+  "quizRecommendTab_2": "Book appointment with doctors"
 }

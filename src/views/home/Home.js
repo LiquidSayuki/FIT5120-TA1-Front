@@ -82,7 +82,7 @@ const Home = (props) => {
                 <Row className={style.button}>
                     <Button type="primary"
                             style={{margin:"auto"}}
-                            onClick={()=>{redirect("/backgroundInfo")}}>
+                            onClick={()=>{redirect("/quiz")}}>
                         {intl.get("homeButtonMain")}
                     </Button>
                 </Row>
@@ -112,10 +112,8 @@ const Home = (props) => {
                                 disease.map( item =>
                                     <Col span={8}>
                                         <Card hoverable={true}
-                                              cover={<Image height={180}
-                                                            alt="chicken pox"
-                                                            src={item.imgSrc}
-                                                    />}
+                                              style={{width:"100%", height:"100%"}}
+                                              cover={<Image src={item.imgSrc}/>}
                                         >
                                             <Meta title={item.name}
                                                   description={intl.get("homeClickToReadMore")}
@@ -138,27 +136,14 @@ const Home = (props) => {
                         <Divider/>
 
                         <Row gutter={30}>
-                            {/*{*/}
-                            {/*    disease.map( item =>*/}
-                            {/*        <Col span={8}>*/}
-                            {/*            <Card hoverable={true}*/}
-                            {/*                  cover={<Image height={180}*/}
-                            {/*                                alt="chicken pox"*/}
-                            {/*                                src={item.imgSrc}*/}
-                            {/*                  />}*/}
-                            {/*            >*/}
-                            {/*                <Meta title={item.name}*/}
-                            {/*                      description="click to read more"*/}
-                            {/*                      onClick={()=>{redirect("disease/"+item.id)}}*/}
-                            {/*                />*/}
-                            {/*            </Card>*/}
-                            {/*        </Col>*/}
-                            {/*    )*/}
-                            {/*}*/}
-
-                            <Col>
+                            <Col span={12}>
                                 <Card>
-                                    Vaccine cards
+                                    Image
+                                </Card>
+                            </Col>
+                            <Col span={12}>
+                                <Card>
+                                    Description
                                 </Card>
                             </Col>
                         </Row>
