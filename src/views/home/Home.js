@@ -148,17 +148,17 @@ const Home = (props) => {
                         <Carousel autoplay>
                             <div>
                                 <div style={contentStyle} >
-                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-21.24.11.jpg" style={{ height: '340px', width: 'auto' }} />
+                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-23.06.44.jpg" style={{ height: '340px', width: 'auto' }} />
                                 </div>
                             </div>
                             <div>
                                 <div style={contentStyle}>
-                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-21.19.52.jpg" style={{ height: '340px', width: 'auto' }} onClick={() => { redirect("/BirthToAges4") }} />
+                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-23.06.51.jpg" style={{ height: '340px', width: 'auto' }} onClick={() => { redirect("/BirthToAges4") }} />
                                 </div>
                             </div>
                             <div>
                                 <div style={contentStyle}>
-                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-21.34.56-1.jpg" style={{ height: '340px', width: 'auto' }} />
+                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-23.06.58.jpg" style={{ height: '340px', width: 'auto' }} />
                                 </div>
                             </div>
                         </Carousel>
