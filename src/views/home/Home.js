@@ -176,30 +176,30 @@ const Home = (props) => {
                         <Divider />
 
                         <Row gutter={30}>
-                            <Col span={12}>
-                                <Card>
-                                    Description
-                                </Card>
-                            </Col>
-                            <Col span={12}>
-                                <Card>
-                                    Image
-                                </Card>
+                            <div style={{ height: 'auto', width: '30rem' }}>
+                                <Col span={20}>
+                                    <video autoPlay={true} muted loop playsInline>
+                                        <source src="https://images-videos-for-ie-shit.s3.ap-southeast-2.amazonaws.com/video.mp4" type='video/mp4' />
+                                    </video>
+                                </Col>
+                            </div>
+                            <Col span={10}>
+                                <br></br>
+                                <h2>Outdoor activities count for most of infections.</h2><br></br>
+                                <h3>Wanna know your outdoor hygiene scores? </h3><br></br>
+                                <Button style={{ marginLeft: '70px' }} onClick={() => { redirect("/Outdoors") }}>Let's find out!</Button>
                             </Col>
                         </Row>
 
                     </div>
                 </div>
 
-
                 <BackTop>
                     <div style={style}><VerticalAlignTopOutlined /></div>
                 </BackTop>
 
-
             </Content>
-        </div>
-
+        </div >
     );
 };
 
