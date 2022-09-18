@@ -21,15 +21,14 @@ const Outdoors = () => {
                             <Paragraph>
                                 <Title>Outdoor Activities</Title>
                                 <Divider />
-                                <blockquote style={{ fontSize: "16px" }}>Outdoor activities may vary in countries. Meantime, connecting to the outside world is essential, but also becoming one of most common infectious spreaded transmission. Wanna know how to reduce the chances of infectious? Let's dig into this together!</blockquote>
+                                <blockquote style={{ fontSize: "16px" }}>Outdoor activities may vary in countries. Meantime, connecting to the outside world is essential, but also becoming one of most common infectious spreaded transmission. Behaviours in a careful manner can largely reduce the chances of infectious in day to day life. Let's do a little test and check the hygiene scores! </blockquote>
                                 <Divider />
                             </Paragraph>
                         </Col>
                     </Row>
                     <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: "0.5rem" }}>
                         <div style={{ justifyContent: 'center' }}>
-                            {/* <h2>Happy Family Gardening Time</h2> */}
-                            {/* <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '50%', height: 'auto' }}></img> */}
+
                             <Quiz />
                         </div>
 

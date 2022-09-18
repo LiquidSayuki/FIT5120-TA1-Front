@@ -200,6 +200,12 @@ export default function Quiz() {
 
     const handleAnalysis = () => {
         console.log(correctnessAnalysis)
+        // if (correctnessAnalysis.id === 0 && correctnessAnalysis.isCorrect === true) {
+        //     return <span>Nice Gardening</span>
+        // }
+        // else if (correctnessAnalysis.id === 0 && correctnessAnalysis.isCorrect === false) {
+        //     return <span>Remember wear gloves when gardening</span>
+        // }
     }
 
     const openPopup = () => {
@@ -266,6 +272,7 @@ export default function Quiz() {
                             <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '22rem' }}>
                                 <div style={{ marginTop: '35px' }}>
                                     {displayIfCorrect === 'Correct' ? <CheckCircleTwoTone twoToneColor="#52c41a" /> : <SmileTwoTone />}
+                                    {/* className='text-animate-reveal' */}
                                     <h2>{displayIfCorrect}</h2>
                                 </div>
                                 <div style={{ marginTop: '35px' }}>
@@ -304,18 +311,40 @@ export default function Quiz() {
                     {/* <p id="popupText">Doughnut chart will display</p> */}
 
 
-                    <div>
-                        <LineChart width={300} height={300} data={correctnessAnalysis}>
-                            <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
-                            <YAxis />
-                            <TP />
-                            <Legend />
-                            <Line
-                                type="monotone"
-                                dataKey="score"
-                                activeDot={{ r: 8 }}
-                            />
-                        </LineChart>
+                    <div className='analysis-grid-container'>
+                        <div>
+                            <LineChart width={300} height={300} data={correctnessAnalysis}>
+                                <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
+                                <YAxis />
+                                <TP />
+                                <Legend />
+                                <Line
+                                    type="monotone"
+                                    dataKey="score"
+                                    activeDot={{ r: 8 }}
+                                />
+                            </LineChart>
+                        </div>
+
+                        <div>
+                            {correctnessAnalysis.map((analysisData) =>
+                                <>
+                                    <div style={{ marginTop: '30px' }}>
+                                        {analysisData.name === 'Gardening' && analysisData.value === true ? 'Congrats! A very nice gardening manner!' : null}
+                                        {analysisData.name === 'Gardening' && analysisData.value === false ? 'Remember wear golves to avoid any potential soil infections' : null}
+                                    </div>
+                                    <div style={{ marginTop: '20px' }}>
+                                        {analysisData.name === 'Swimming' && analysisData.value === true ? 'Indeed child can get infected in swimming' : null}
+                                        {analysisData.name === 'Swimming' && analysisData.value === false ? 'Wear swim googgles when swimming. Dry ears and eyes after swimming.' : null}
+                                    </div>
+                                    <div style={{ marginTop: '20px' }}>
+                                        {analysisData.name === 'Sports' && analysisData.value === true ? 'Nice sports hygiene habits!' : null}
+                                        {analysisData.name === 'Sports' && analysisData.value === false ? 'Always wash hands with soap after any sports' : null}
+                                    </div>
+                                </>
+                            )}
+
+                        </div>
                     </div>
 
 
