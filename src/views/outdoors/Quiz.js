@@ -343,16 +343,8 @@ export default function Quiz() {
                             </div>
 
 
-                            {/* {currentQuestion < steps.length - 1 && ( */}
                             <Button className='nextQuestion' type="primary" onClick={handleClickToNextQuestion}>Next</Button>
-                            {/* // )} */}
-
                             {currentQuestion > 0 && (<Button className='prevQuestion' onClick={handleClickToPrevQuestion}>Previous</Button>)}
-
-                            {/* {currentQuestion === steps.length - 1 && (
-                            <Button type="primary" onClick={() => message.success('Processing complete!')}>
-                                Done
-                            </Button>)} */}
                         </>
                     )}
                 </div>
