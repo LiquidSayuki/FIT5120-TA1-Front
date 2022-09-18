@@ -29,7 +29,7 @@ const Outdoors = () => {
                             <Paragraph>
                                 <Title>Outdoor Activities</Title>
                                 <Divider />
-                                <blockquote style={{ fontSize: "16px" }}>Outdoor activities may vary in countries. Meantime, connecting to the outside world is essential, but also becoming one of most common infectious spreaded transmission. Behaviours in a careful manner can largely reduce the chances of infectious in day to day life. Let's do a little test and check the hygiene scores! </blockquote>
+                                <blockquote style={{ fontSize: "16px" }}>Outdoor activities may vary in countries. Meantime, connecting to the outside world is essential, but also becoming one of most common infectious spreaded transmission.</blockquote>
                                 <Divider />
                             </Paragraph>
                         </Col>

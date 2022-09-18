@@ -177,7 +177,7 @@
 .wrap {
     width: 200px;
     margin: auto;
-    margin-left: 300px;
+    /* margin-left: 300px; */
     z-index: 1;
     height: 50vh;
 }

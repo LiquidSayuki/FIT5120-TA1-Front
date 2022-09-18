@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import './Quiz.css'
 import './Popup.scss'
-import { Collapse, Button, Tooltip, Steps } from 'antd';
+import { Collapse, Button, Tooltip, Steps, Col, Row } from 'antd';
 import { CheckCircleTwoTone, SmileTwoTone } from '@ant-design/icons';
 import { LineChart, Line, XAxis, YAxis, Legend } from "recharts";
 import { Tooltip as TP } from "recharts";
+
+
+// import Spline from '@splinetool/react-spline';
+
+
 
 const { Panel } = Collapse;
 const { Step } = Steps;
@@ -227,14 +232,31 @@ export default function Quiz() {
 
     return (
         <>
+            <div style={{ display: showStartQuizBtn }}>
+                <Row>
+                    <Col span={16}>
 
-            <div class="wrap" style={{ display: showStartQuizBtn }}>
-                <div class="sticker"></div>
-                <div class="msg">
-                    <p onClick={handleClickToShowQuiz}>  Start!</p>
-                </div>
+                        <div style={{ height: '30rem', width: '40rem' }}>
+                            {/* <iframe src='https://my.spline.design/roomgirlworkingcopy-d1f72c566ecf1f1d3cd5a2f0493e714b/' frameborder='0' width='100%' height='100%'></iframe> */}
+                            <iframe src='https://my.spline.design/platformerrabbitcopy-833efd14ec695daab43cc6dc1937d00b/' frameborder='0' width='100%' height='100%'></iframe>
+
+                        </div>
+
+
+                    </Col>
+                    <Col span={8}>
+                        <h2 style={{ marginTop: '50px' }}>
+                            Behaviours in a careful manner can largely reduce the chances of infectious in day to day life.  </h2>
+                        <h3 tyle={{ marginTop: '30px' }}>Let's do a little test and check the hygiene scores! </h3>
+                        <div class="wrap" style={{ marginTop: '50px' }} >
+                            <div class="sticker"></div>
+                            <div class="msg">
+                                <p onClick={handleClickToShowQuiz}>  Start!</p>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
             </div>
-
             <div className='show-quiz' style={{ display: showQuiz }}>
                 <Steps current={currentQuestion} style={{ marginTop: "40px" }}>
                     {steps.map((item) => (<Step key={item.title} title={item.title}></Step>))}
