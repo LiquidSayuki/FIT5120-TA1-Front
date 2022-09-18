@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Layout, Timeline, Card, Col, Row, Divider, Typography, Collapse, BackTop } from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import './BirthToAges4.module.css'
@@ -39,6 +39,33 @@ const BirthToAges6 = () => {
             .catch(error => console.error('Error:$(error)'));
     }
 
+
+    {/* for auto scrolling timelines */ }
+    const refBirth = useRef(null);
+    const handleTimelineBirthClick = () => {
+        refBirth.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const ref2Months = useRef(null);
+    const handleTimeline2MonthsClick = () => {
+        ref2Months.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const ref12Months = useRef(null);
+    const handleTimeline12MonthsClick = () => {
+        ref12Months.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const ref18Months = useRef(null);
+    const handleTimeline18MonthsClick = () => {
+        ref18Months.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const ref4Years = useRef(null);
+    const handleTimeline4YearsClick = () => {
+        ref4Years.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
     return (
         <div>
             <Content style={{ padding: '0 50px' }}>
@@ -76,20 +103,18 @@ const BirthToAges6 = () => {
 
 
                             {/* vaccine data for children once birth */}
-                            <div style={{ paddingTop: "30px" }}>
+                            <div style={{ paddingTop: "30px" }} ref={refBirth}>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
                                     <Panel header=<h2>{intl.get("vaccineBirth")}</h2> key="1">
                                         <div className='grid-container'>
-                                            {vaccines.map(item => item.childrenAge === 'Birth' ? //<--HERE  
+                                            {vaccines.map(item => item.childrenAge === 'Birth' ?
                                                 <Card
                                                     key={item.id}
                                                     title={item.name}
-                                                    // extra={<a href="#">More</a>}
                                                     style={{
                                                         width: 300,
                                                     }}>
                                                     <p>{item.content}</p>
-                                                    {/* <Checkbox onChange={onChange}>Inoculated</Checkbox> */}
                                                 </Card>
                                                 : null)}
                                         </div>
@@ -98,21 +123,18 @@ const BirthToAges6 = () => {
                             </div>
 
                             {/* vaccine data for children at 2-6 months */}
-                            <div style={{ paddingTop: "30px" }}>
-                                {/* <h2>2-6 months</h2> */}
+                            <div style={{ paddingTop: "30px" }} ref={ref2Months}>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
                                     <Panel header=<h2>{intl.get("vaccineMonth", { month: "2-6" })}</h2> key="1">
                                         <div className='grid-container'>
-                                            {vaccines.map(item => item.childrenAge === '2 months' ? //<--HERE  
+                                            {vaccines.map(item => item.childrenAge === '2 months' ?
                                                 <Card
                                                     key={item.id}
                                                     title={item.name}
-                                                    // extra={<a href="#">More</a>}
                                                     style={{
                                                         width: 300,
                                                     }}>
                                                     <p>{item.content}</p>
-                                                    {/* <Checkbox onChange={onChange}>Inoculated</Checkbox> */}
                                                 </Card>
                                                 : null)}
                                         </div>
@@ -121,20 +143,18 @@ const BirthToAges6 = () => {
                             </div>
 
                             {/* vaccine data for children at 12 months */}
-                            <div style={{ paddingTop: "30px" }}>
+                            <div style={{ paddingTop: "30px" }} ref={ref12Months}>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
                                     <Panel header=<h2>{intl.get("vaccineMonth", { month: "12" })}</h2> key="1">
                                         <div className='grid-container'>
-                                            {vaccines.map(item => item.childrenAge === '12 months' ? //<--HERE  
+                                            {vaccines.map(item => item.childrenAge === '12 months' ?
                                                 <Card
                                                     key={item.id}
                                                     title={item.name}
-                                                    // extra={<a href="#">More</a>}
                                                     style={{
                                                         width: 300,
                                                     }}>
                                                     <p>{item.content}</p>
-                                                    {/* <Checkbox onChange={onChange}>Inoculated</Checkbox> */}
                                                 </Card>
                                                 : null)}
                                         </div>
@@ -143,20 +163,18 @@ const BirthToAges6 = () => {
                             </div>
 
                             {/* vaccine data for children at 18 months */}
-                            <div style={{ paddingTop: "30px" }}>
+                            <div style={{ paddingTop: "30px" }} ref={ref18Months}>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
                                     <Panel header=<h2>{intl.get("vaccineMonth", { month: "18" })}</h2> key="1">
                                         <div className='grid-container'>
-                                            {vaccines.map(item => item.childrenAge === '18 months' ? //<--HERE  
+                                            {vaccines.map(item => item.childrenAge === '18 months' ?
                                                 <Card
                                                     key={item.id}
                                                     title={item.name}
-                                                    // extra={<a href="#">More</a>}
                                                     style={{
                                                         width: 300,
                                                     }}>
                                                     <p>{item.content}</p>
-                                                    {/* <Checkbox onChange={onChange}>Inoculated</Checkbox> */}
                                                 </Card>
                                                 : null)}
                                         </div>
@@ -165,7 +183,7 @@ const BirthToAges6 = () => {
                             </div>
 
                             {/* vaccine data for children at 4 years */}
-                            <div style={{ paddingTop: "30px" }}>
+                            <div style={{ paddingTop: "30px" }} ref={ref4Years}>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
                                     <Panel header=<h2>{intl.get("vaccineYear", { year: "4" })}</h2> key="1">
                                         <p>All children should receive any missed routine childhood vaccinations. Children who missed their recommended vaccines in childhood can still receive them free under the National Immunisation Program up until they turn 20 years old.
@@ -176,24 +194,23 @@ const BirthToAges6 = () => {
                         </div>
 
 
-                        <div
-                            className="timelines"
-                            style={{ display: 'flex', justifyContent: 'flex-end' }}
-                        >
+                        <div className="timelines" style={{ display: 'flex', justifyContent: 'flex-end' }}>
                             <Timeline>
-                                <Timeline.Item>{intl.get("vaccineBirth")}</Timeline.Item>
-                                <Timeline.Item>{intl.get("vaccineMonth", { month: "2-6" })}</Timeline.Item>
-                                <Timeline.Item>{intl.get("vaccineMonth", { month: "12" })}</Timeline.Item>
-                                <Timeline.Item>{intl.get("vaccineMonth", { month: "18" })}</Timeline.Item>
-                                <Timeline.Item>{intl.get("vaccineYear", { year: "4" })}</Timeline.Item>
+                                <Timeline.Item style={{ cursor: 'pointer' }} onClick={handleTimelineBirthClick}>{intl.get("vaccineBirth")}</Timeline.Item>
+                                <Timeline.Item style={{ cursor: 'pointer' }} conClick={handleTimeline2MonthsClick}>{intl.get("vaccineMonth", { month: "2-6" })}</Timeline.Item>
+                                <Timeline.Item style={{ cursor: 'pointer' }} onClick={handleTimeline12MonthsClick}>{intl.get("vaccineMonth", { month: "12" })}</Timeline.Item>
+                                <Timeline.Item style={{ cursor: 'pointer' }} onClick={handleTimeline18MonthsClick}>{intl.get("vaccineMonth", { month: "18" })}</Timeline.Item>
+                                <Timeline.Item style={{ cursor: 'pointer' }} onClick={handleTimeline4YearsClick}>{intl.get("vaccineYear", { year: "4" })}</Timeline.Item>
                             </Timeline>
                         </div>
                     </div>
 
                 </div>
+
                 <BackTop>
                     <div style={style}><VerticalAlignTopOutlined /></div>
                 </BackTop>
+
             </Content >
         </div>
     );
