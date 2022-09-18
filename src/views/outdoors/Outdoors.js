@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react'
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import { Layout, Col, Row, Divider, Typography, Collapse } from 'antd';
 import Quiz from './Quiz';
+import './Outdoors.css'
 import intl from "react-intl-universal";
 
 const { Content } = Layout;
@@ -10,6 +11,13 @@ const { Panel } = Collapse;
 
 
 const Outdoors = () => {
+
+    // const [click, setClick] = useState(false);
+
+    // // const handleClick = () => {
+    // //     click
+    // // }
+
     return (
         <Content style={{ padding: '0 50px' }}>
             <LocationIdentifier title={intl.get("outdoorTitle")} subtitle={intl.get("outdoorSubtitle")} />
@@ -28,7 +36,7 @@ const Outdoors = () => {
                     </Row>
                     <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: "0.5rem" }}>
                         <div style={{ justifyContent: 'center' }}>
-
+                            {/* {click ? <Quiz /> : null} */}
                             <Quiz />
                         </div>
 

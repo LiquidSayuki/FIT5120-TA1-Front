@@ -72,6 +72,14 @@ export default function Quiz() {
     const [circleDisplay3, setCircleDisplay3] = useState('none');
     const [popUpDisplay, setPopupDisplay] = useState('none');
     const [correctnessAnalysis, setCorrectnessAnalysis] = useState([]);
+    const [showQuiz, setShowQuiz] = useState('none');
+    const [showStartQuizBtn, setShowStartQuizBtn] = useState('block');
+
+    const handleClickToShowQuiz = () => {
+        setShowQuiz('block');
+        setShowStartQuizBtn('none');
+    }
+
 
     const handleAnswerButtonClick = (isCorrect) => {
         setDisplayInfectionInfo('block')
@@ -219,139 +227,148 @@ export default function Quiz() {
 
     return (
         <>
-            <Steps current={currentQuestion} style={{ marginTop: "40px" }}>
-                {steps.map((item) => (<Step key={item.title} title={item.title}></Step>))}
-            </Steps>
 
-
-            <div className='quiz-container' style={{ position: 'relative', marginTop: "40px" }}>
-                <div style={{ opacity: circleOpacity1, display: circleDisplay1, zIndex: "+1", position: 'absolute' }}>
-                    <Tooltip title="Golves! Physical isolation from planting bacteria!" placement="rightBottom" >
-                        <div className='circle1' ></div>
-                    </Tooltip>
+            <div class="wrap" style={{ display: showStartQuizBtn }}>
+                <div class="sticker"></div>
+                <div class="msg">
+                    <p onClick={handleClickToShowQuiz}>  Start!</p>
                 </div>
-                <div style={{ opacity: circleOpacity2, display: circleDisplay2, zIndex: "+1", position: 'absolute' }}>
-                    <Tooltip title="Swim googgles! Stay away from red eyes!" placement="rightBottom">
-                        <div className='circle2' ></div>
-                    </Tooltip>
-                </div>
-                <div style={{ opacity: circleOpacity3, display: circleDisplay3, zIndex: "+1", position: 'absolute' }}>
-                    <Tooltip title="Did you know how many germs on ball? Always remember to wash hands after any games!" placement="rightBottom">
-                        <div className='circle3' ></div>
-                    </Tooltip>
-                </div>
+            </div>
+
+            <div className='show-quiz' style={{ display: showQuiz }}>
+                <Steps current={currentQuestion} style={{ marginTop: "40px" }}>
+                    {steps.map((item) => (<Step key={item.title} title={item.title}></Step>))}
+                </Steps>
 
 
-                {/* HINT: replace "false" with logic to display the 
-      score when the user has answered all the questions */}
-                {showScore ? (
-                    <div className='score-section' style={{ display: 'flex', flexDirection: 'column', padding: '5%' }}>
-                        <p>You scored {score} out of {questions.length}</p>
-                        <Button onClick={openPopup}>Jump to my personal analysis</Button>
+                <div className='quiz-container' style={{ position: 'relative', marginTop: "40px" }}>
+                    <div style={{ opacity: circleOpacity1, display: circleDisplay1, zIndex: "+1", position: 'absolute' }}>
+                        <Tooltip title="Golves! Physical isolation from planting bacteria!" placement="rightBottom" >
+                            <div className='circle1' ></div>
+                        </Tooltip>
+                    </div>
+                    <div style={{ opacity: circleOpacity2, display: circleDisplay2, zIndex: "+1", position: 'absolute' }}>
+                        <Tooltip title="Swim googgles! Stay away from red eyes!" placement="rightBottom">
+                            <div className='circle2' ></div>
+                        </Tooltip>
+                    </div>
+                    <div style={{ opacity: circleOpacity3, display: circleDisplay3, zIndex: "+1", position: 'absolute' }}>
+                        <Tooltip title="Did you know how many germs on ball? Always remember to wash hands after any games!" placement="rightBottom">
+                            <div className='circle3' ></div>
+                        </Tooltip>
                     </div>
 
-                ) : (
-                    <>
-                        <div className='question-section'>
-                            <div className='question-count'>
-                                <span>Question {currentQuestion + 1}</span>/{questions.length}
-                            </div>
-                            <div className='question-text' style={{ position: 'relative' }}>
-                                {questions[currentQuestion].questionText}
-                                {questions[currentQuestion].questionImage}
-                            </div>
+
+                    {/* HINT: replace "false" with logic to display the 
+      score when the user has answered all the questions */}
+                    {showScore ? (
+                        <div className='score-section' style={{ display: 'flex', flexDirection: 'column', padding: '5%' }}>
+                            <p>You scored {score} out of {questions.length}</p>
+                            <Button onClick={openPopup}>Jump to my personal analysis</Button>
                         </div>
 
-                        <div className='answer-section' style={{ display: displayAnswerBtn }}>
-                            {questions[currentQuestion].answerOptions.map((answerOptions) =>
-                                <button className='quizButton' onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>{answerOptions.answerText}</button>
-                            )}
-                        </div>
-
-                        <div>
-                            <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '22rem' }}>
-                                <div style={{ marginTop: '35px' }}>
-                                    {displayIfCorrect === 'Correct' ? <CheckCircleTwoTone twoToneColor="#52c41a" /> : <SmileTwoTone />}
-                                    {/* className='text-animate-reveal' */}
-                                    <h2>{displayIfCorrect}</h2>
+                    ) : (
+                        <>
+                            <div className='question-section'>
+                                <div className='question-count'>
+                                    <span>Question {currentQuestion + 1}</span>/{questions.length}
                                 </div>
-                                <div style={{ marginTop: '35px' }}>
-                                    <Collapse bordered={false} defaultActiveKey={['1']}>
-                                        <Panel header=<h2>{questions[currentQuestion].infectionName}</h2> key="1">
-                                            <p>{questions[currentQuestion].infectionInfo}</p>
-                                        </Panel>
-                                    </Collapse>
-                                    <Collapse bordered={false} defaultActiveKey={['2']}>
-                                        <Panel header=<h2>Preventions</h2> key="2">
-                                            <p>{questions[currentQuestion].preventions}</p>
-                                        </Panel>
-                                    </Collapse>
+                                <div className='question-text' style={{ position: 'relative' }}>
+                                    {questions[currentQuestion].questionText}
+                                    {questions[currentQuestion].questionImage}
                                 </div>
                             </div>
-                        </div>
+
+                            <div className='answer-section' style={{ display: displayAnswerBtn }}>
+                                {questions[currentQuestion].answerOptions.map((answerOptions) =>
+                                    <button className='quizButton' onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>{answerOptions.answerText}</button>
+                                )}
+                            </div>
+
+                            <div>
+                                <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '22rem' }}>
+                                    <div style={{ marginTop: '35px' }}>
+                                        {displayIfCorrect === 'Correct' ? <CheckCircleTwoTone twoToneColor="#52c41a" /> : <SmileTwoTone />}
+                                        {/* className='text-animate-reveal' */}
+                                        <h2>{displayIfCorrect}</h2>
+                                    </div>
+                                    <div style={{ marginTop: '35px' }}>
+                                        <Collapse bordered={false} defaultActiveKey={['1']}>
+                                            <Panel header=<h2>{questions[currentQuestion].infectionName}</h2> key="1">
+                                                <p>{questions[currentQuestion].infectionInfo}</p>
+                                            </Panel>
+                                        </Collapse>
+                                        <Collapse bordered={false} defaultActiveKey={['2']}>
+                                            <Panel header=<h2>Preventions</h2> key="2">
+                                                <p>{questions[currentQuestion].preventions}</p>
+                                            </Panel>
+                                        </Collapse>
+                                    </div>
+                                </div>
+                            </div>
 
 
-                        {/* {currentQuestion < steps.length - 1 && ( */}
-                        <Button className='nextQuestion' type="primary" onClick={handleClickToNextQuestion}>Next</Button>
-                        {/* // )} */}
+                            {/* {currentQuestion < steps.length - 1 && ( */}
+                            <Button className='nextQuestion' type="primary" onClick={handleClickToNextQuestion}>Next</Button>
+                            {/* // )} */}
 
-                        {currentQuestion > 0 && (<Button className='prevQuestion' onClick={handleClickToPrevQuestion}>Previous</Button>)}
+                            {currentQuestion > 0 && (<Button className='prevQuestion' onClick={handleClickToPrevQuestion}>Previous</Button>)}
 
-                        {/* {currentQuestion === steps.length - 1 && (
+                            {/* {currentQuestion === steps.length - 1 && (
                             <Button type="primary" onClick={() => message.success('Processing complete!')}>
                                 Done
                             </Button>)} */}
-                    </>
-                )}
-            </div>
+                        </>
+                    )}
+                </div>
 
-            <div class="popup" id="myPopup" style={{ display: popUpDisplay }} >
-                <div class="wrapper" >
-                    <h2 id="popupTitle" style={{ textAlign: 'center' }}>Personal Analysis</h2>
-                    {/* <p id="popupText">Doughnut chart will display</p> */}
+                <div class="popup" id="myPopup" style={{ display: popUpDisplay }} >
+                    <div class="wrapper" >
+                        <h2 id="popupTitle" style={{ textAlign: 'center' }}>Personal Analysis</h2>
+                        {/* <p id="popupText">Doughnut chart will display</p> */}
 
 
-                    <div className='analysis-grid-container'>
-                        <div>
-                            <LineChart width={300} height={300} data={correctnessAnalysis}>
-                                <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
-                                <YAxis />
-                                <TP />
-                                <Legend />
-                                <Line
-                                    type="monotone"
-                                    dataKey="score"
-                                    activeDot={{ r: 8 }}
-                                />
-                            </LineChart>
+                        <div className='analysis-grid-container'>
+                            <div>
+                                <LineChart width={300} height={300} data={correctnessAnalysis}>
+                                    <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
+                                    <YAxis />
+                                    <TP />
+                                    <Legend />
+                                    <Line
+                                        type="monotone"
+                                        dataKey="score"
+                                        activeDot={{ r: 8 }}
+                                    />
+                                </LineChart>
+                            </div>
+
+                            <div>
+                                {correctnessAnalysis.map((analysisData) =>
+                                    <>
+                                        <div style={{ marginTop: '30px' }}>
+                                            {analysisData.name === 'Gardening' && analysisData.value === true ? 'Congrats! A very nice gardening manner!' : null}
+                                            {analysisData.name === 'Gardening' && analysisData.value === false ? 'Remember wear golves to avoid any potential soil infections' : null}
+                                        </div>
+                                        <div style={{ marginTop: '20px' }}>
+                                            {analysisData.name === 'Swimming' && analysisData.value === true ? 'Indeed child can get infected in swimming' : null}
+                                            {analysisData.name === 'Swimming' && analysisData.value === false ? 'Wear swim googgles when swimming. Dry ears and eyes after swimming.' : null}
+                                        </div>
+                                        <div style={{ marginTop: '20px' }}>
+                                            {analysisData.name === 'Sports' && analysisData.value === true ? 'Nice sports hygiene habits!' : null}
+                                            {analysisData.name === 'Sports' && analysisData.value === false ? 'Always wash hands with soap after any sports' : null}
+                                        </div>
+                                    </>
+                                )}
+
+                            </div>
                         </div>
 
-                        <div>
-                            {correctnessAnalysis.map((analysisData) =>
-                                <>
-                                    <div style={{ marginTop: '30px' }}>
-                                        {analysisData.name === 'Gardening' && analysisData.value === true ? 'Congrats! A very nice gardening manner!' : null}
-                                        {analysisData.name === 'Gardening' && analysisData.value === false ? 'Remember wear golves to avoid any potential soil infections' : null}
-                                    </div>
-                                    <div style={{ marginTop: '20px' }}>
-                                        {analysisData.name === 'Swimming' && analysisData.value === true ? 'Indeed child can get infected in swimming' : null}
-                                        {analysisData.name === 'Swimming' && analysisData.value === false ? 'Wear swim googgles when swimming. Dry ears and eyes after swimming.' : null}
-                                    </div>
-                                    <div style={{ marginTop: '20px' }}>
-                                        {analysisData.name === 'Sports' && analysisData.value === true ? 'Nice sports hygiene habits!' : null}
-                                        {analysisData.name === 'Sports' && analysisData.value === false ? 'Always wash hands with soap after any sports' : null}
-                                    </div>
-                                </>
-                            )}
 
-                        </div>
+                        <Button id="closePopup" onClick={closePopup}>Close</Button>
                     </div>
-
-
-                    <Button id="closePopup" onClick={closePopup}>Close</Button>
                 </div>
             </div>
-
         </>
     );
 }
