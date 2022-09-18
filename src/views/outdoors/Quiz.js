@@ -213,12 +213,6 @@ export default function Quiz() {
 
     const handleAnalysis = () => {
         console.log(correctnessAnalysis)
-        // if (correctnessAnalysis.id === 0 && correctnessAnalysis.isCorrect === true) {
-        //     return <span>Nice Gardening</span>
-        // }
-        // else if (correctnessAnalysis.id === 0 && correctnessAnalysis.isCorrect === false) {
-        //     return <span>Remember wear gloves when gardening</span>
-        // }
     }
 
     const openPopup = () => {
@@ -227,6 +221,24 @@ export default function Quiz() {
 
     const closePopup = () => {
         setPopupDisplay('none');
+    }
+
+    const handleRetry = () => {
+        setCurrentQuestion(0);
+        setShowScore(false);
+        setScore(0);
+        setIfCorrect('Correct');
+        setDisplayInfectionInfo('none');
+        setDisplayAnswerBtn('block');
+        setCircleOpacity1(0);
+        setCircleOpacity2(0);
+        setCircleOpacity3(0);
+        setCircleDisplay1('none');
+        setCircleDisplay2('none');
+        setCircleDisplay3('none');
+        setPopupDisplay('none');
+        setCorrectnessAnalysis([]);
+        setShowQuiz('block');
     }
 
 
@@ -259,7 +271,7 @@ export default function Quiz() {
             </div>
             <div className='show-quiz' style={{ display: showQuiz }}>
                 <Steps current={currentQuestion} style={{ marginTop: "40px" }}>
-                    {steps.map((item) => (<Step key={item.title} title={item.title}></Step>))}
+                    {steps.map((item) => (<Step key={item.title} title={item.title} ></Step>))}
                 </Steps>
 
 
@@ -287,6 +299,7 @@ export default function Quiz() {
                         <div className='score-section' style={{ display: 'flex', flexDirection: 'column', padding: '5%' }}>
                             <p>You scored {score} out of {questions.length}</p>
                             <Button onClick={openPopup}>Jump to my personal analysis</Button>
+                            <Button onClick={handleRetry} style={{ marginTop: '24px' }}>Retry</Button>
                         </div>
 
                     ) : (
@@ -347,7 +360,6 @@ export default function Quiz() {
                 <div class="popup" id="myPopup" style={{ display: popUpDisplay }} >
                     <div class="wrapper" >
                         <h2 id="popupTitle" style={{ textAlign: 'center' }}>Personal Analysis</h2>
-                        {/* <p id="popupText">Doughnut chart will display</p> */}
 
 
                         <div className='analysis-grid-container'>
