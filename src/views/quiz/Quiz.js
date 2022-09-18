@@ -77,7 +77,7 @@ const Quiz = () => {
                         <Col span={20}>
                             <Card>
                                 <TableauReport
-                                    url="http://reports.my-site.com/my-workbook/my-report"
+                                    url="https://public.tableau.com/views/DataAnalystQuiz_16634879357750/Results?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link"
                                 />
                             </Card>
                         </Col>
