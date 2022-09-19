@@ -5,6 +5,7 @@ import './BirthToAges4.module.css'
 import axios from "axios";
 import intl from "react-intl-universal";
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
+import cookie from "react-cookies";
 
 const { Content } = Layout;
 const { Panel } = Collapse;
@@ -29,14 +30,43 @@ const BirthToAges6 = () => {
     }, []);
 
     const getAllVaccines = () => {
-        axios.get('https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/vaccines'
-        )
-            .then((response) => {
-                const allVaccines = response.data.Items;
-                getVaccines(allVaccines);
-                console.log(response.data);
-            })
-            .catch(error => console.error('Error:$(error)'));
+        // axios.get('https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/vaccines'
+        // )
+        //     .then((response) => {
+        //         const allVaccines = response.data.Items;
+        //         getVaccines(allVaccines);
+        //         //console.log(response.data);
+        //     })
+        //     .catch(error => console.error('Error:$(error)'));
+
+        switch (cookie.load("lang")) {
+
+            case "en-US":
+                // Get data from the EN version of database
+                axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/vaccines").then(res => {
+                    let data = res.data.Items;
+                    // Only keep first three diseases
+                    // Because we should not keep put much data on home page.
+                    getVaccines(data);
+                })
+                break
+
+            case "zh-CN":
+                // Get data from CN version of database
+                axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/zh-CN/vaccines").then(res => {
+                    let data = res.data.Items;
+                    getVaccines(data);
+                })
+                break
+
+            default:
+                axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/vaccines").then(res => {
+                    let data = res.data.Items;
+                    // Only keep first three diseases
+                    // Because we should not keep put much data on home page.
+                    getVaccines(data);
+                })
+        }
     }
 
 

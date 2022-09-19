@@ -185,9 +185,9 @@ const Home = (props) => {
                             </div>
                             <Col span={10}>
                                 <br></br>
-                                <h2>Outdoor activities count for most of infections.</h2><br></br>
-                                <h3>Wanna know your outdoor hygiene scores? </h3><br></br>
-                                <Button style={{ marginLeft: '70px' }} onClick={() => { redirect("/Outdoors") }}>Let's find out!</Button>
+                                <h2>{intl.get("homeOutdoorContent_1")}</h2><br></br>
+                                <h3>{intl.get("homeOutdoorContent_2")}</h3><br></br>
+                                <Button style={{ marginLeft: '70px' }} onClick={() => { redirect("/Outdoors") }}>{intl.get("homeOutdoorButton_1")}</Button>
                             </Col>
                         </Row>
 
