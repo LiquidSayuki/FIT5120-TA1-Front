@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
 import './Quiz.css'
 import './Popup.scss'
-import { Collapse, Button, Tooltip, Steps, Col, Row } from 'antd';
-import { CheckCircleTwoTone, SmileTwoTone } from '@ant-design/icons';
+import { Collapse, Button, Tooltip, Steps, Col, Row, Avatar } from 'antd';
+import { CheckCircleTwoTone, BarChartOutlined, FrownOutlined, FileSearchOutlined, LikeOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { LineChart, Line, XAxis, YAxis, Legend } from "recharts";
 import { Tooltip as TP } from "recharts";
-
-
-// import Spline from '@splinetool/react-spline';
-
-
 
 const { Panel } = Collapse;
 const { Step } = Steps;
 
 
 export default function Quiz() {
+    // quiz questions
     const questions = [
         {
             questionTitle: 'Happy Family Gardening Time',
@@ -58,6 +54,7 @@ export default function Quiz() {
         }
     ];
 
+    // stepper title data
     const steps = [
         { title: 'Happy Family Gardening Time' },
         { title: 'Swimming' },
@@ -244,23 +241,28 @@ export default function Quiz() {
 
     return (
         <>
+            {/* start quiz section */}
             <div style={{ display: showStartQuizBtn }}>
                 <Row>
-                    <Col span={16}>
+                    <Col span={14}>
 
+                        {/* 3D animation */}
                         <div style={{ height: '30rem', width: '40rem' }}>
-                            {/* <iframe src='https://my.spline.design/roomgirlworkingcopy-d1f72c566ecf1f1d3cd5a2f0493e714b/' frameborder='0' width='100%' height='100%'></iframe> */}
-                            <iframe src='https://my.spline.design/platformerrabbitcopy-833efd14ec695daab43cc6dc1937d00b/' frameborder='0' width='100%' height='100%'></iframe>
+                            <iframe src='https://my.spline.design/roomgirlworkingcopy-d1f72c566ecf1f1d3cd5a2f0493e714b/' frameborder='0' width='100%' height='100%'></iframe>
+                            {/* <iframe src='https://my.spline.design/platformerrabbitcopy-833efd14ec695daab43cc6dc1937d00b/' frameborder='0' width='100%' height='100%'></iframe> */}
 
                         </div>
 
 
                     </Col>
-                    <Col span={8}>
-                        <h2 style={{ marginTop: '50px' }}>
+                    <Col span={10}>
+                        {/* intro to start quiz */}
+                        <h2 style={{ marginTop: '50px', fontFamily: 'sans-serif' }}>
                             Behaviours in a careful manner can largely reduce the chances of infectious in day to day life.  </h2>
-                        <h3 tyle={{ marginTop: '30px' }}>Let's do a little test and check the hygiene scores! </h3>
-                        <div class="wrap" style={{ marginTop: '50px' }} >
+                        <h3 tyle={{ marginTop: '50px', fontFamily: 'sans-serif' }}>Let's do a little test and check the hygiene scores! </h3>
+
+                        {/* spinning start quiz button */}
+                        <div class="wrap" style={{ marginTop: '50px' }}>
                             <div class="sticker"></div>
                             <div class="msg">
                                 <p onClick={handleClickToShowQuiz}>  Start!</p>
@@ -269,12 +271,14 @@ export default function Quiz() {
                     </Col>
                 </Row>
             </div>
+
+            {/* quiz stepper */}
             <div className='show-quiz' style={{ display: showQuiz }}>
                 <Steps current={currentQuestion} style={{ marginTop: "40px" }}>
                     {steps.map((item) => (<Step key={item.title} title={item.title} ></Step>))}
                 </Steps>
 
-
+                {/* check status if showing tooltip */}
                 <div className='quiz-container' style={{ position: 'relative', marginTop: "40px" }}>
                     <div style={{ opacity: circleOpacity1, display: circleDisplay1, zIndex: "+1", position: 'absolute' }}>
                         <Tooltip title="Golves! Physical isolation from planting bacteria!" placement="rightBottom" >
@@ -293,27 +297,35 @@ export default function Quiz() {
                     </div>
 
 
-                    {/* HINT: replace "false" with logic to display the 
-      score when the user has answered all the questions */}
+                    {/* count quiz score */}
                     {showScore ? (
                         <div className='score-section' style={{ display: 'flex', flexDirection: 'column', padding: '5%' }}>
+                            {/* showing quiz score */}
                             <p>You scored {score} out of {questions.length}</p>
-                            <Button onClick={openPopup}>Jump to my personal analysis</Button>
+
+                            {/* pop up window for personal analysis */}
+                            <Button onClick={openPopup}>Jump to my personal analysis  <BarChartOutlined /></Button>
+
+                            {/* button to retry the quiz */}
                             <Button onClick={handleRetry} style={{ marginTop: '24px' }}>Retry</Button>
                         </div>
 
                     ) : (
                         <>
+                            {/* quiz question section */}
                             <div className='question-section'>
                                 <div className='question-count'>
                                     <span>Question {currentQuestion + 1}</span>/{questions.length}
                                 </div>
+
+                                {/* logic of auto to next question after per answer */}
                                 <div className='question-text' style={{ position: 'relative' }}>
                                     {questions[currentQuestion].questionText}
                                     {questions[currentQuestion].questionImage}
                                 </div>
                             </div>
 
+                            {/* check if answer is correct or not and then call function to set scores */}
                             <div className='answer-section' style={{ display: displayAnswerBtn }}>
                                 {questions[currentQuestion].answerOptions.map((answerOptions) =>
                                     <button className='quizButton' onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>{answerOptions.answerText}</button>
@@ -321,12 +333,17 @@ export default function Quiz() {
                             </div>
 
                             <div>
+                                {/* showing quiz answer section */}
                                 <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '22rem' }}>
                                     <div style={{ marginTop: '35px' }}>
-                                        {displayIfCorrect === 'Correct' ? <CheckCircleTwoTone twoToneColor="#52c41a" /> : <SmileTwoTone />}
+
+                                        {/* showing if the answered question correct or not with a corespond icon */}
+                                        {displayIfCorrect === 'Correct' ? <CheckCircleTwoTone twoToneColor="#52c41a" /> : <FrownOutlined style={{ color: "#eb2f96" }} />}
                                         {/* className='text-animate-reveal' */}
                                         <h2>{displayIfCorrect}</h2>
                                     </div>
+
+                                    {/* Collapse component to show question related infections and preventions */}
                                     <div style={{ marginTop: '35px' }}>
                                         <Collapse bordered={false} defaultActiveKey={['1']}>
                                             <Panel header=<h2>{questions[currentQuestion].infectionName}</h2> key="1">
@@ -342,18 +359,19 @@ export default function Quiz() {
                                 </div>
                             </div>
 
-
+                            {/* logic of buttons handle jump to next question or previous question */}
                             <Button className='nextQuestion' type="primary" onClick={handleClickToNextQuestion}>Next</Button>
                             {currentQuestion > 0 && (<Button className='prevQuestion' onClick={handleClickToPrevQuestion}>Previous</Button>)}
                         </>
                     )}
                 </div>
 
+                {/* handle pop up analysis window section */}
                 <div class="popup" id="myPopup" style={{ display: popUpDisplay }} >
                     <div class="wrapper" >
-                        <h2 id="popupTitle" style={{ textAlign: 'center' }}>Personal Analysis</h2>
+                        <h2 id="popupTitle" style={{ textAlign: 'center' }}>Personal Analysis   <BarChartOutlined /> </h2>
 
-
+                        {/* pop up analysis line chart visulization */}
                         <div className='analysis-grid-container'>
                             <div>
                                 <LineChart width={300} height={300} data={correctnessAnalysis}>
@@ -369,20 +387,27 @@ export default function Quiz() {
                                 </LineChart>
                             </div>
 
+                            {/* logic of showing personalized feedback of user's answer */}
                             <div>
+                                <Avatar
+                                    style={{
+                                        backgroundColor: '#87d068',
+                                    }}
+                                    icon={<FileSearchOutlined />}
+                                />
                                 {correctnessAnalysis.map((analysisData) =>
                                     <>
                                         <div style={{ marginTop: '30px' }}>
-                                            {analysisData.name === 'Gardening' && analysisData.value === true ? 'Congrats! A very nice gardening manner!' : null}
-                                            {analysisData.name === 'Gardening' && analysisData.value === false ? 'Remember wear golves to avoid any potential soil infections' : null}
+                                            {analysisData.name === 'Gardening' && analysisData.value === true ? [<LikeOutlined style={{ color: "#52c41a" }} />, <br />, 'Q1: Congrats! A very nice gardening manner!'] : null}
+                                            {analysisData.name === 'Gardening' && analysisData.value === false ? [<CloseCircleOutlined style={{ color: "#eb2f96" }} />, <br />, 'Q1: Remember wear golves to avoid any potential soil infections'] : null}
                                         </div>
                                         <div style={{ marginTop: '20px' }}>
-                                            {analysisData.name === 'Swimming' && analysisData.value === true ? 'Indeed child can get infected in swimming' : null}
-                                            {analysisData.name === 'Swimming' && analysisData.value === false ? 'Wear swim googgles when swimming. Dry ears and eyes after swimming.' : null}
+                                            {analysisData.name === 'Swimming' && analysisData.value === true ? [<LikeOutlined style={{ color: "#52c41a" }} />, <br />, 'Q2: Indeed child can get infected in swimming'] : null}
+                                            {analysisData.name === 'Swimming' && analysisData.value === false ? [<CloseCircleOutlined style={{ color: "#eb2f96" }} />, <br />, 'Q2: Wear swim googgles when swimming. Dry ears and eyes after swimming.'] : null}
                                         </div>
                                         <div style={{ marginTop: '20px' }}>
-                                            {analysisData.name === 'Sports' && analysisData.value === true ? 'Nice sports hygiene habits!' : null}
-                                            {analysisData.name === 'Sports' && analysisData.value === false ? 'Always wash hands with soap after any sports' : null}
+                                            {analysisData.name === 'Sports' && analysisData.value === true ? [<LikeOutlined style={{ color: "#52c41a" }} />, <br />, 'Q3: Nice sports hygiene habits!'] : null}
+                                            {analysisData.name === 'Sports' && analysisData.value === false ? [<CloseCircleOutlined style={{ color: "#eb2f96" }} />, <br />, 'Q3: Always wash hands with soap after any sports'] : null}
                                         </div>
                                     </>
                                 )}
@@ -390,7 +415,7 @@ export default function Quiz() {
                             </div>
                         </div>
 
-
+                        {/* button for closing pop up window */}
                         <Button id="closePopup" onClick={closePopup}>Close</Button>
                     </div>
                 </div>
