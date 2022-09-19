@@ -40,9 +40,13 @@
   "outdoorSubtitle": "Stay Safe from Outdoor Activities Infections",
   "quizTitle": "Knowledge Quiz",
   "quizSubtitle": "A small test about your knowledge of childhood infectious diseases",
-  "quizSubtitle2": "The description of the quiz",
+  "quizSubtitle2": "Curious about how you're handling your first baby? If you want to know whether you are in the know about your first child, take this informative quiz!",
   "quizRecommend": "Recommended reading",
   "quizRecommendExtra": "If you are new to Australia, here are some websites can help you about health issue",
   "quizRecommendTab_1": "Online health website",
-  "quizRecommendTab_2": "Book appointment with doctors"
+  "quizRecommendTab_2": "Book appointment with doctors",
+  "quizTabContent_1": " American famous commercial health information source",
+  "quizTabContent_2": " The Australian government sponsored health information source",
+  "quizTabContent_3": " Commonly used websites in Victoria to make appointments for General Practitioner (GP) services",
+  "quizButton_1": "Back to home page"
 }
