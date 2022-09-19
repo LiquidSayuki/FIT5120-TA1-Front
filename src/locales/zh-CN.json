@@ -38,9 +38,13 @@
   "outdoorSubtitle": "远离参与户外活动时的感染",
   "quizTitle": "知识测验",
   "quizSubtitle": "关于你对儿童传染病了解程度的小测验",
-  "quizSubtitle2": "The description of the quiz",
+  "quizSubtitle2": "不了解如何照料的第一个孩子？如果您想知道您是否了解您的第一个孩子，请参加这个内容丰富的测验！",
   "quizRecommend": "推荐阅读",
-  "quizRecommendExtra": "For new to Australia",
+  "quizRecommendExtra": "如果你刚刚来到澳大利亚，这是一些有用的健康网站",
   "quizRecommendTab_1": "在线健康知识",
-  "quizRecommendTab_2": "预约医生服务"
+  "quizRecommendTab_2": "预约医生服务",
+  "quizTabContent_1": " 美国知名的商业化健康信息网站",
+  "quizTabContent_2": " 由澳洲政府资助的健康信息网站",
+  "quizTabContent_3": " 维多利亚州常用的预约全科医生（GP）诊疗服务的网站",
+  "quizButton_1": "返回首页"
 }

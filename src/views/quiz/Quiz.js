@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
-import {Col, Layout, Row, Typography, Divider, Card, Image} from 'antd';
+import {Col, Layout, Row, Typography, Divider, Card, Button} from 'antd';
 import TableauReport from "tableau-react";
 import intl from "react-intl-universal";
+import {Text} from "recharts";
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 
-const Quiz = () => {
+const Quiz = (props) => {
 
     const [activeTabKey, setActiveTabKey] = useState("01");
 
@@ -30,12 +31,21 @@ const Quiz = () => {
         "01":
             <div>
                 <a href="https://www.webmd.com/children/directory-index"> WebMD </a>
-                <a href="https://www.healthdirect.gov.au/"> health direct </a>
+                <Text> {intl.get("quizTabContent_1")} </Text>
+                <br/>
+                <a href="https://www.healthdirect.gov.au/"> Health direct </a>
+                <Text> {intl.get("quizTabContent_2")}</Text>
             </div>,
         "02":
             <div>
                 <a href="https://www.hotdoc.com.au/"> Hot Doc </a>
+                <Text> {intl.get("quizTabContent_3")}</Text>
             </div>
+    }
+
+    // the function control the redirect of button
+    const redirect = (destination) => {
+        props.history.push(destination)
     }
 
     return (
@@ -77,7 +87,7 @@ const Quiz = () => {
                         <Col span={20}>
                             <Card>
                                 <TableauReport
-                                    url="https://public.tableau.com/views/DataAnalystQuiz_16634879357750/Results?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link"
+                                    url="https://public.tableau.com/views/DataAnalystQuiz_16634879357750/Home?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link"
                                 />
                             </Card>
                         </Col>
@@ -104,9 +114,16 @@ const Quiz = () => {
                     </Row>
 
 
-                    <div>
-
-                    </div>
+                    <Row>
+                        <Col style={{margin:"auto",paddingTop:"50px"}}>
+                            <Button
+                                type="primary"
+                                onClick={() => redirect("/home")}
+                            >
+                                {intl.get("quizButton_1")}
+                            </Button>
+                        </Col>
+                    </Row>
 
                 </div>
             </div>
