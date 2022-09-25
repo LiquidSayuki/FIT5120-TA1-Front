@@ -3,7 +3,7 @@ import './Quiz.css'
 import './Popup.scss'
 import { Collapse, Button, Tooltip, Steps, Col, Row, Avatar } from 'antd';
 import { CheckCircleTwoTone, BarChartOutlined, FrownOutlined, FileSearchOutlined, LikeOutlined, CloseCircleOutlined } from '@ant-design/icons';
-import { LineChart, Line, XAxis, YAxis, Legend } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Legend } from "recharts";
 import { Tooltip as TP } from "recharts";
 
 const { Panel } = Collapse;
@@ -256,11 +256,12 @@ export default function Quiz() {
 
                     </Col>
                     <Col span={10}>
-                        {/* intro to start quiz */}
-                        <h2 style={{ marginTop: '50px', fontFamily: 'sans-serif' }}>
-                            Behaviours in a careful manner can largely reduce the chances of infectious in day to day life.  </h2>
-                        <h3 tyle={{ marginTop: '50px', fontFamily: 'sans-serif' }}>Let's do a little test and check the hygiene scores! </h3>
-
+                        <div style={{ marginTop: '50px', fontFamily: 'sans-serif' }}>
+                            {/* intro to start quiz */}
+                            <h2 >
+                                Behaviours in a careful manner can largely reduce the chances of infectious in day to day life.  </h2>
+                            <h3 >Let's do a little test and check the hygiene scores! </h3>
+                        </div>
                         {/* spinning start quiz button */}
                         <div class="wrap" style={{ marginTop: '50px' }}>
                             <div class="sticker"></div>
@@ -374,17 +375,17 @@ export default function Quiz() {
                         {/* pop up analysis line chart visulization */}
                         <div className='analysis-grid-container'>
                             <div>
-                                <LineChart width={300} height={300} data={correctnessAnalysis}>
+                                <BarChart width={300} height={300} data={correctnessAnalysis}>
                                     <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
                                     <YAxis />
                                     <TP />
                                     <Legend />
-                                    <Line
-                                        type="monotone"
+                                    <Bar
                                         dataKey="score"
-                                        activeDot={{ r: 8 }}
+                                        fill="#8884d8"
+                                        barSize={20}
                                     />
-                                </LineChart>
+                                </BarChart>
                             </div>
 
                             {/* logic of showing personalized feedback of user's answer */}

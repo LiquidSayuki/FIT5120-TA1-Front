@@ -224,7 +224,7 @@ const BirthToAges6 = () => {
                         </div>
 
 
-                        <div className="timelines" style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                        <div className="timelines" style={{ top: '38%', right: '5%', display: 'flex', position: 'fixed', justifyContent: 'flex-end' }}>
                             <Timeline>
                                 <Timeline.Item style={{ cursor: 'pointer' }} onClick={handleTimelineBirthClick}>{intl.get("vaccineBirth")}</Timeline.Item>
                                 <Timeline.Item style={{ cursor: 'pointer' }} conClick={handleTimeline2MonthsClick}>{intl.get("vaccineMonth", { month: "2-6" })}</Timeline.Item>
