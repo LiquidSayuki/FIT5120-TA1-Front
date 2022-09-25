@@ -7,6 +7,7 @@ import LoginSuccess from "./views/login/LoginSuccess";
 import Iteration1Router from "./legacy/iteration1/router/Iteration1Router";
 import intl from 'react-intl-universal';
 import cookie from "react-cookies";
+import Iteration2Router from "./legacy/iteration2/router/Iteration2Router";
 
 // Locale data
 const locales = {
@@ -53,6 +54,7 @@ function App() {
               <Route path="/loginSuccess" component={LoginSuccess} />
               <Route path="/login" component={Login} />
               <Route path="/iteration1" component={Iteration1Router}/>
+              <Route path="/iteration2" component={Iteration2Router}/>
               <Route path="/"
                      render={()=>
                          localStorage.getItem('access-token')?(<IndexRouter/>) : (<Redirect to="/login"/>)
