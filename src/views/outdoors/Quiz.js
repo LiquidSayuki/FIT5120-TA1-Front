@@ -5,6 +5,7 @@ import { Collapse, Button, Tooltip, Steps, Col, Row, Avatar } from 'antd';
 import { CheckCircleTwoTone, BarChartOutlined, FrownOutlined, FileSearchOutlined, LikeOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { BarChart, Bar, XAxis, YAxis, Legend } from "recharts";
 import { Tooltip as TP } from "recharts";
+import 'animate.css';
 
 const { Panel } = Collapse;
 const { Step } = Steps;
@@ -13,6 +14,22 @@ const { Step } = Steps;
 export default function Quiz() {
     // quiz questions
     const questions = [
+
+        // new Qs
+        {
+            questionTitle: 'Happy Family Gardening Time',
+            questionText: 'Did you know that we can get infected in gardening?',
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/26/child-planting.jpg" style={{ width: '20rem', height: 'auto' }} />,
+            answerOptions: [
+                { answerText: 'No', isCorrect: false },
+                { answerText: 'Yes', isCorrect: true }
+            ],
+            infectionName: 'YES We Can',
+            infectionInfo: 'It is common to neglect that there are actually spreaded bacterias in the soil and harmful to human.',
+            preventions: 'Wanna know how? Lets continue playing!'
+        },
+
+        // original Qs
         {
             questionTitle: 'Happy Family Gardening Time',
             questionText: 'Can you tell where the kids did right to avoid infections?',
@@ -26,10 +43,30 @@ export default function Quiz() {
             infectionInfo: 'While Legionella longbeachae is found in tiny quantities in the general environment (including soil), it is not normally a health hazard. However, the ingredients and dampness of potting mix make it the ideal breeding ground for the bacteria.',
             preventions: 'Always wear a mask and gloves when handling soil, compost or potting mix! Wash hands carefully with soap and water after planting.'
         },
+
+
+        // new Qs
+        {
+            questionTitle: 'Happy Family Gardening Time',
+            questionText: 'What is a MUST after gardening to against infections?',
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/26/planting3.jpg" style={{ width: '20rem', height: 'auto' }} />,
+            answerOptions: [
+                { answerText: 'Enjoy the happiness', isCorrect: false },
+                { answerText: 'Washing hands with soap immediately', isCorrect: true },
+                { answerText: 'Go to dinner once finish', isCorrect: false }
+            ],
+            // TODO
+            infectionName: 'Legionella',
+            infectionInfo: 'While Legionella longbeachae is found in tiny quantities in the general environment (including soil), it is not normally a health hazard. However, the ingredients and dampness of potting mix make it the ideal breeding ground for the bacteria.',
+            preventions: 'Always wear a mask and gloves when handling soil, compost or potting mix! Wash hands carefully with soap and water after planting.'
+        },
+
+
+        // original Qs
         {
             questionTitle: 'Swimming',
             questionText: 'Is there any preparation for swimming to against infections?',
-            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/10/girl-953414_1920.jpg" alt="girl-953414_1920.jpg" style={{ width: '20rem', height: 'auto' }} />,
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/10/girl-953414_1920.jpg" style={{ width: '20rem', height: 'auto' }} />,
             answerOptions: [
                 { answerText: 'A water-tight swim goggles', isCorrect: true },
                 { answerText: 'Swimming party', isCorrect: false },
@@ -39,10 +76,12 @@ export default function Quiz() {
             infectionInfo: 'The PH of pool matters. Chlorine only works when the PH with the right range (recommends between 7.2 and 7.8.) Otherwise, chlorine is much less effective at killing germs.',
             preventions: 'Dry ears after swimming! Take a quick shower before swimming! Do not swim if sick!'
         },
+
+        // original Qs
         {
             questionTitle: 'Outdoor Sports',
             questionText: 'What is a MUST after outdoor sports?',
-            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/10/sport-858206_1920.jpg" alt="sport-858206_1920.jpg" style={{ width: '20rem', height: 'auto' }} />,
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/10/sport-858206_1920.jpg" style={{ width: '20rem', height: 'auto' }} />,
             answerOptions: [
                 { answerText: 'Wash hands with soap', isCorrect: true },
                 { answerText: 'Nothing can compete games!', isCorrect: false },
@@ -275,9 +314,16 @@ export default function Quiz() {
 
             {/* quiz stepper */}
             <div className='show-quiz' style={{ display: showQuiz }}>
-                <Steps current={currentQuestion} style={{ marginTop: "40px" }}>
-                    {steps.map((item) => (<Step key={item.title} title={item.title} ></Step>))}
-                </Steps>
+
+
+                {/* <Steps current={currentQuestion} style={{ marginTop: "40px" }}>
+                    {steps.map((item) => (
+                        <Step key={item.title} title={item.title}></Step>))}
+                </Steps> */}
+
+
+                <div><h2 className='question-title-text'>{questions[currentQuestion].questionTitle}</h2></div>
+
 
                 {/* check status if showing tooltip */}
                 <div className='quiz-container' style={{ position: 'relative', marginTop: "40px" }}>
@@ -336,7 +382,7 @@ export default function Quiz() {
                             <div>
                                 {/* showing quiz answer section */}
                                 <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '22rem' }}>
-                                    <div style={{ marginTop: '35px' }}>
+                                    <div className="animate__animated animate__bounce" style={{ marginTop: '35px' }}>
 
                                         {/* showing if the answered question correct or not with a corespond icon */}
                                         {displayIfCorrect === 'Correct' ? <CheckCircleTwoTone twoToneColor="#52c41a" /> : <FrownOutlined style={{ color: "#eb2f96" }} />}
@@ -370,7 +416,7 @@ export default function Quiz() {
                 {/* handle pop up analysis window section */}
                 <div class="popup" id="myPopup" style={{ display: popUpDisplay }} >
                     <div class="wrapper" >
-                        <h2 id="popupTitle" style={{ textAlign: 'center' }}>Personal Analysis   <BarChartOutlined /> </h2>
+                        <h2 id="popupTitle" className="animate__animated animate__fadeInUp" style={{ textAlign: 'center' }}>Personal Analysis   <BarChartOutlined /> </h2>
 
                         {/* pop up analysis line chart visulization */}
                         <div className='analysis-grid-container'>

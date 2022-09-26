@@ -215,3 +215,11 @@
         transform: rotate(1turn);
     }
 }
+
+.question-title-text {
+    color: rgb(99, 189, 219);
+    margin-left: 7%;
+    font-family: 'Bree Serif', Courier, monospaced;
+    font-size: 1.5em;
+    animation: pulse;
+}
