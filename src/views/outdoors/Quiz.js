@@ -19,7 +19,7 @@ export default function Quiz() {
         {
             questionTitle: 'Happy Family Gardening Time',
             questionText: 'Did you know that we can get infected in gardening?',
-            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/26/child-planting.jpg" style={{ width: '20rem', height: 'auto' }} />,
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/26/child-planting.jpg" alt="planting1" style={{ width: '20rem', height: 'auto' }} />,
             answerOptions: [
                 { answerText: 'No', isCorrect: false },
                 { answerText: 'Yes', isCorrect: true }
@@ -33,7 +33,7 @@ export default function Quiz() {
         {
             questionTitle: 'Happy Family Gardening Time',
             questionText: 'Can you tell where the kids did right to avoid infections?',
-            questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' style={{ width: '20rem', height: 'auto' }}></img>,
+            questionImage: <img src='https://s1.imagehub.cc/images/2022/09/07/Family-Planting-in-Garden.jpg.webp' alt="planting2" style={{ width: '20rem', height: 'auto' }}></img>,
             answerOptions: [
                 { answerText: 'Smiling', isCorrect: false },
                 { answerText: 'Gloves', isCorrect: true },
@@ -41,7 +41,7 @@ export default function Quiz() {
             ],
             infectionName: 'Legionella',
             infectionInfo: 'While Legionella longbeachae is found in tiny quantities in the general environment (including soil), it is not normally a health hazard. However, the ingredients and dampness of potting mix make it the ideal breeding ground for the bacteria.',
-            preventions: 'Always wear a mask and gloves when handling soil, compost or potting mix! Wash hands carefully with soap and water after planting.'
+            preventions: 'Always wear a mask and gloves when handling soil, compost or potting mix!'
         },
 
 
@@ -49,7 +49,7 @@ export default function Quiz() {
         {
             questionTitle: 'Happy Family Gardening Time',
             questionText: 'What is a MUST after gardening to against infections?',
-            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/26/planting3.jpg" style={{ width: '20rem', height: 'auto' }} />,
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/26/planting3.jpg" alt="planting3" style={{ width: '20rem', height: 'auto' }} />,
             answerOptions: [
                 { answerText: 'Enjoy the happiness', isCorrect: false },
                 { answerText: 'Washing hands with soap immediately', isCorrect: true },
@@ -58,7 +58,7 @@ export default function Quiz() {
             // TODO
             infectionName: 'Legionella',
             infectionInfo: 'While Legionella longbeachae is found in tiny quantities in the general environment (including soil), it is not normally a health hazard. However, the ingredients and dampness of potting mix make it the ideal breeding ground for the bacteria.',
-            preventions: 'Always wear a mask and gloves when handling soil, compost or potting mix! Wash hands carefully with soap and water after planting.'
+            preventions: 'Always wash hands carefully with soap and water after planting.'
         },
 
 
@@ -66,22 +66,52 @@ export default function Quiz() {
         {
             questionTitle: 'Swimming',
             questionText: 'Is there any preparation for swimming to against infections?',
-            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/10/girl-953414_1920.jpg" style={{ width: '20rem', height: 'auto' }} />,
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/10/girl-953414_1920.jpg" alt="swimming1" style={{ width: '20rem', height: 'auto' }} />,
             answerOptions: [
                 { answerText: 'A water-tight swim goggles', isCorrect: true },
                 { answerText: 'Swimming party', isCorrect: false },
                 { answerText: 'Happy mood!', isCorrect: false }
             ],
-            infectionName: 'Diarrhea',
-            infectionInfo: 'The PH of pool matters. Chlorine only works when the PH with the right range (recommends between 7.2 and 7.8.) Otherwise, chlorine is much less effective at killing germs.',
-            preventions: 'Dry ears after swimming! Take a quick shower before swimming! Do not swim if sick!'
+            infectionName: 'Acanthamoeba keratitis',
+            infectionInfo: 'A parasite called Acanthamoeba found in rivers, lakes, marshes, and oceans and sometimes in pools and hot tubs can cause a devastating infection.',
+            preventions: 'Wear goggles during swimming. Gently wipe water from eyes after swimming!'
+        },
+
+        //new Qs
+        {
+            questionTitle: 'Swimming',
+            questionText: 'Which of the followling is a good habit?',
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/27/young-swimmer-2494906_1920.jpg" alt="swimming2" style={{ width: '20rem', height: 'auto' }} />,
+            answerOptions: [
+                { answerText: 'Take kids on bathroom breaks and check diapers every hour.', isCorrect: true },
+                { answerText: 'Wait till child wants to go to bathroom.', isCorrect: false }
+            ],
+            infectionName: 'Crypto causes diarrhea',
+            infectionInfo: 'Swallowing 10 or fewer germs can make people sick. Germs can also get in the water if swimmers have poop, even tiny amounts, on their bottoms.',
+            // infectionInfo: 'The PH of pool matters. Chlorine only works when the PH with the right range (recommends between 7.2 and 7.8.) Otherwise, chlorine is much less effective at killing germs.',
+            preventions: 'Change diapers away from the water’s edge to keep germs from getting in the water. Wash your hands after.'
+            // preventions: 'Dry ears after swimming! Take a quick shower before swimming! Do not swim if sick!'
+        },
+
+        //new Qs
+        {
+            questionTitle: 'Outdoor Sports',
+            questionText: 'Exercise and changes in immunity have a proven relationship. But did you know very heavy sports may increase risk of infections? ',
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/27/soccer-7392844_1920.jpg" alt="sports1" style={{ width: '20rem', height: 'auto' }} />,
+            answerOptions: [
+                { answerText: 'Yes, very heavy sports may get respiratory tract infections.', isCorrect: true },
+                { answerText: 'No, we can only get stronger.', isCorrect: false }
+            ],
+            infectionName: 'Respiratory tract infections',
+            infectionInfo: 'Risks are high especially during 1-2 weeks after heavy training. In a marathon, 33.3% of athletes who ended the marathon got an upper respiratory tract infection (URI) during the first two weeks.',
+            preventions: 'Stay hydrated and stay hygiene. Due to immune system function is suppressed for at least several hours after intensive exercise, this time is an “open window” and the risk of infections may be increased in this period.'
         },
 
         // original Qs
         {
             questionTitle: 'Outdoor Sports',
             questionText: 'What is a MUST after outdoor sports?',
-            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/10/sport-858206_1920.jpg" style={{ width: '20rem', height: 'auto' }} />,
+            questionImage: <img src="https://s1.imagehub.cc/images/2022/09/10/sport-858206_1920.jpg" alt="sports2" style={{ width: '20rem', height: 'auto' }} />,
             answerOptions: [
                 { answerText: 'Wash hands with soap', isCorrect: true },
                 { answerText: 'Nothing can compete games!', isCorrect: false },
@@ -136,6 +166,24 @@ export default function Quiz() {
         }
 
         if (currentQuestion === 0) {
+            if (isCorrect) {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Gardening",
+                    value: isCorrect,
+                    score: 1
+                }]);
+            }
+            else {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Gardening",
+                    value: isCorrect,
+                    score: 0
+                }]);
+            }
+        }
+        else if (currentQuestion === 1) {
             setCircleOpacity1(0.6);
             setCircleDisplay1('block');
 
@@ -156,7 +204,25 @@ export default function Quiz() {
                 }]);
             }
         }
-        else if (currentQuestion === 1) {
+        else if (currentQuestion === 2) {
+            if (isCorrect) {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Gardening",
+                    value: isCorrect,
+                    score: 1
+                }]);
+            }
+            else {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Gardening",
+                    value: isCorrect,
+                    score: 0
+                }]);
+            }
+        }
+        else if (currentQuestion === 3) {
             setCircleOpacity2(0.6);
             setCircleDisplay2('block');
 
@@ -177,7 +243,43 @@ export default function Quiz() {
                 }]);
             }
         }
-        else if (currentQuestion === 2) {
+        else if (currentQuestion === 4) {
+            if (isCorrect) {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Swimming",
+                    value: isCorrect,
+                    score: 1
+                }]);
+            }
+            else {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Swimming",
+                    value: isCorrect,
+                    score: 0
+                }]);
+            }
+        }
+        else if (currentQuestion === 5) {
+            if (isCorrect) {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Sports",
+                    value: isCorrect,
+                    score: 1
+                }]);
+            }
+            else {
+                setCorrectnessAnalysis([...correctnessAnalysis, {
+                    id: currentQuestion,
+                    name: "Sports",
+                    value: isCorrect,
+                    score: 0
+                }]);
+            }
+        }
+        else if (currentQuestion === 6) {
             setCircleOpacity3(0.6);
             setCircleDisplay3('block');
 
@@ -211,18 +313,9 @@ export default function Quiz() {
             setShowScore(true);
         }
 
-        if (currentQuestion === 0) {
-            setCircleOpacity1(0);
-            setCircleDisplay1('none');
-        }
-        else if (currentQuestion === 1) {
-            setCircleOpacity2(0);
-            setCircleDisplay2('none');
-        }
-        else if (currentQuestion === 2) {
-            setCircleOpacity3(0);
-            setCircleDisplay3('none');
-        }
+        setCircleOpacity1(0);
+        setCircleOpacity2(0);
+        setCircleOpacity3(0);
     }
 
     const handleClickToPrevQuestion = () => {
@@ -233,18 +326,9 @@ export default function Quiz() {
             setCurrentQuestion(prevQuestion);
         }
 
-        if (currentQuestion === 0) {
-            setCircleOpacity1(0);
-            setCircleDisplay1('none');
-        }
-        else if (currentQuestion === 1) {
-            setCircleOpacity2(0);
-            setCircleDisplay2('none');
-        }
-        else if (currentQuestion === 2) {
-            setCircleOpacity3(0);
-            setCircleDisplay3('none');
-        }
+        setCircleOpacity1(0);
+        setCircleOpacity2(0);
+        setCircleOpacity3(0);
     }
 
     const handleAnalysis = () => {
@@ -384,7 +468,7 @@ export default function Quiz() {
                                 <div className='infection-info-section' style={{ display: displayInfectionInfo, right: '2%', top: '20%', width: '22rem' }}>
                                     <div className="animate__animated animate__bounce" style={{ marginTop: '35px' }}>
 
-                                        {/* showing if the answered question correct or not with a corespond icon */}
+                                        {/* showing if the answered question correct or not with a correspond icon */}
                                         {displayIfCorrect === 'Correct' ? <CheckCircleTwoTone twoToneColor="#52c41a" /> : <FrownOutlined style={{ color: "#eb2f96" }} />}
                                         {/* className='text-animate-reveal' */}
                                         <h2>{displayIfCorrect}</h2>
@@ -442,7 +526,11 @@ export default function Quiz() {
                                     }}
                                     icon={<FileSearchOutlined />}
                                 />
-                                {correctnessAnalysis.map((analysisData) =>
+
+
+                                {/* personal result feedback */}
+
+                                {/* {correctnessAnalysis.map((analysisData) =>
                                     <>
                                         <div style={{ marginTop: '30px' }}>
                                             {analysisData.name === 'Gardening' && analysisData.value === true ? [<LikeOutlined style={{ color: "#52c41a" }} />, <br />, 'Q1: Congrats! A very nice gardening manner!'] : null}
@@ -457,7 +545,9 @@ export default function Quiz() {
                                             {analysisData.name === 'Sports' && analysisData.value === false ? [<CloseCircleOutlined style={{ color: "#eb2f96" }} />, <br />, 'Q3: Always wash hands with soap after any sports'] : null}
                                         </div>
                                     </>
-                                )}
+                                )} */}
+
+
 
                             </div>
                         </div>
