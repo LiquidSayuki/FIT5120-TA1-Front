@@ -235,6 +235,10 @@ export default function Quiz() {
         setCircleOpacity1(0);
         setCircleOpacity2(0);
         setCircleOpacity3(0);
+        setCircleDisplay1('none');
+        setCircleDisplay2('none');
+        setCircleDisplay3('none');
+        setPopupDisplay('none');
     }
 
     const handleClickToPrevQuestion = () => {
@@ -248,6 +252,10 @@ export default function Quiz() {
         setCircleOpacity1(0);
         setCircleOpacity2(0);
         setCircleOpacity3(0);
+        setCircleDisplay1('none');
+        setCircleDisplay2('none');
+        setCircleDisplay3('none');
+        setPopupDisplay('none');
     }
 
     const handleAnalysis = () => {
@@ -476,23 +484,22 @@ export default function Quiz() {
 
 
                                 {/* personal result feedback */}
-
-                                {/* {correctnessAnalysis.map((analysisData) =>
+                                {correctnessAnalysis.map((analysisData) =>
                                     <>
                                         <div style={{ marginTop: '30px' }}>
-                                            {analysisData.name === 'Gardening' && analysisData.value === true ? [<LikeOutlined style={{ color: "#52c41a" }} />, <br />, 'Q1: Congrats! A very nice gardening manner!'] : null}
-                                            {analysisData.name === 'Gardening' && analysisData.value === false ? [<CloseCircleOutlined style={{ color: "#eb2f96" }} />, <br />, 'Q1: Remember wear golves to avoid any potential soil infections'] : null}
+                                            {analysisData.name === 'Gardening' && analysisData.score === 3 ? [<LikeOutlined style={{ color: "#52c41a" }} />, <br />, 'Gardening: Congrats! A very nice gardening manner!'] : null}
+                                            {analysisData.name === 'Gardening' && analysisData.score < 3 ? [<CloseCircleOutlined style={{ color: "#eb2f96" }} />, <br />, 'Gardening: Remember wear golves to avoid any potential soil infections'] : null}
                                         </div>
                                         <div style={{ marginTop: '20px' }}>
-                                            {analysisData.name === 'Swimming' && analysisData.value === true ? [<LikeOutlined style={{ color: "#52c41a" }} />, <br />, 'Q2: Indeed child can get infected in swimming'] : null}
-                                            {analysisData.name === 'Swimming' && analysisData.value === false ? [<CloseCircleOutlined style={{ color: "#eb2f96" }} />, <br />, 'Q2: Wear swim googgles when swimming. Dry ears and eyes after swimming.'] : null}
+                                            {analysisData.name === 'Swimming' && analysisData.score === 2 ? [<LikeOutlined style={{ color: "#52c41a" }} />, <br />, 'Swimming: Indeed child can get infected in swimming'] : null}
+                                            {analysisData.name === 'Swimming' && analysisData.score < 2 ? [<CloseCircleOutlined style={{ color: "#eb2f96" }} />, <br />, 'Swimming: Wear swim googgles when swimming. Dry ears and eyes after swimming.'] : null}
                                         </div>
                                         <div style={{ marginTop: '20px' }}>
-                                            {analysisData.name === 'Sports' && analysisData.value === true ? [<LikeOutlined style={{ color: "#52c41a" }} />, <br />, 'Q3: Nice sports hygiene habits!'] : null}
-                                            {analysisData.name === 'Sports' && analysisData.value === false ? [<CloseCircleOutlined style={{ color: "#eb2f96" }} />, <br />, 'Q3: Always wash hands with soap after any sports'] : null}
+                                            {analysisData.name === 'Sports' && analysisData.score === 2 ? [<LikeOutlined style={{ color: "#52c41a" }} />, <br />, 'Sports: Nice sports hygiene habits!'] : null}
+                                            {analysisData.name === 'Sports' && analysisData.score < 2 ? [<CloseCircleOutlined style={{ color: "#eb2f96" }} />, <br />, 'Sports: Always wash hands with soap after any sports'] : null}
                                         </div>
                                     </>
-                                )} */}
+                                )}
 
 
 
