@@ -8,7 +8,7 @@ import { Tooltip as TP } from "recharts";
 import 'animate.css';
 
 const { Panel } = Collapse;
-const { Step } = Steps;
+// const { Step } = Steps;
 
 
 export default function Quiz() {
@@ -124,10 +124,10 @@ export default function Quiz() {
     ];
 
     // stepper title data
-    const steps = [
-        { title: 'Happy Family Gardening Time' },
-        { title: 'Swimming' },
-        { title: 'Outdoor Sports' }];
+    // const steps = [
+    //     { title: 'Happy Family Gardening Time' },
+    //     { title: 'Swimming' },
+    //     { title: 'Outdoor Sports' }];
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
@@ -145,6 +145,10 @@ export default function Quiz() {
     const [correctnessAnalysis, setCorrectnessAnalysis] = useState([]);
     const [showQuiz, setShowQuiz] = useState('none');
     const [showStartQuizBtn, setShowStartQuizBtn] = useState('block');
+
+    const [gardeningScore, setGardeningScore] = useState(0);
+    const [swimmingScore, setSwimmingScore] = useState(0);
+    const [sportsScore, setSportsScore] = useState(0);
 
     const handleClickToShowQuiz = () => {
         setShowQuiz('block');
@@ -167,20 +171,13 @@ export default function Quiz() {
 
         if (currentQuestion === 0) {
             if (isCorrect) {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Gardening",
-                    value: isCorrect,
-                    score: 1
-                }]);
-            }
-            else {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Gardening",
-                    value: isCorrect,
-                    score: 0
-                }]);
+                // setCorrectnessAnalysis([...correctnessAnalysis, {
+                //     id: currentQuestion,
+                //     name: "Gardening",
+                //     value: isCorrect,
+                //     score: 1
+                // }]);
+                setGardeningScore(gardeningScore + 1);
             }
         }
         else if (currentQuestion === 1) {
@@ -188,38 +185,12 @@ export default function Quiz() {
             setCircleDisplay1('block');
 
             if (isCorrect) {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Gardening",
-                    value: isCorrect,
-                    score: 1
-                }]);
-            }
-            else {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Gardening",
-                    value: isCorrect,
-                    score: 0
-                }]);
+                setGardeningScore(gardeningScore + 1);
             }
         }
         else if (currentQuestion === 2) {
             if (isCorrect) {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Gardening",
-                    value: isCorrect,
-                    score: 1
-                }]);
-            }
-            else {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Gardening",
-                    value: isCorrect,
-                    score: 0
-                }]);
+                setGardeningScore(gardeningScore + 1);
             }
         }
         else if (currentQuestion === 3) {
@@ -227,56 +198,17 @@ export default function Quiz() {
             setCircleDisplay2('block');
 
             if (isCorrect) {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Swimming",
-                    value: isCorrect,
-                    score: 1
-                }]);
-            }
-            else {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Swimming",
-                    value: isCorrect,
-                    score: 0
-                }]);
+                setSwimmingScore(swimmingScore + 1);
             }
         }
         else if (currentQuestion === 4) {
             if (isCorrect) {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Swimming",
-                    value: isCorrect,
-                    score: 1
-                }]);
-            }
-            else {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Swimming",
-                    value: isCorrect,
-                    score: 0
-                }]);
+                setSwimmingScore(swimmingScore + 1);
             }
         }
         else if (currentQuestion === 5) {
             if (isCorrect) {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Sports",
-                    value: isCorrect,
-                    score: 1
-                }]);
-            }
-            else {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Sports",
-                    value: isCorrect,
-                    score: 0
-                }]);
+                setSportsScore(sportsScore + 1);
             }
         }
         else if (currentQuestion === 6) {
@@ -284,20 +216,7 @@ export default function Quiz() {
             setCircleDisplay3('block');
 
             if (isCorrect) {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Sports",
-                    value: isCorrect,
-                    score: 1
-                }]);
-            }
-            else {
-                setCorrectnessAnalysis([...correctnessAnalysis, {
-                    id: currentQuestion,
-                    name: "Sports",
-                    value: isCorrect,
-                    score: 0
-                }]);
+                setSportsScore(sportsScore + 1);
             }
         }
     }
@@ -337,6 +256,31 @@ export default function Quiz() {
 
     const openPopup = () => {
         setPopupDisplay('block');
+
+        // setCorrectnessAnalysis([...correctnessAnalysis, {
+        //     id: currentQuestion,
+        //     name: "Sports",
+        //     value: isCorrect,
+        //     score: 0
+        // }]);
+
+        setCorrectnessAnalysis([
+            {
+                id: 1,
+                name: "Gardening",
+                score: gardeningScore
+            },
+            {
+                id: 2,
+                name: "Swimming",
+                score: swimmingScore
+            },
+            {
+                id: 3,
+                name: "Sports",
+                score: sportsScore
+            }
+        ]);
     }
 
     const closePopup = () => {
@@ -359,6 +303,9 @@ export default function Quiz() {
         setPopupDisplay('none');
         setCorrectnessAnalysis([]);
         setShowQuiz('block');
+        setGardeningScore(0);
+        setSwimmingScore(0);
+        setSportsScore(0);
     }
 
 
