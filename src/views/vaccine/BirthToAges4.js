@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Layout, Timeline, Card, Col, Row, Divider, Typography, Collapse, BackTop } from 'antd';
+import { Layout, Timeline, Card, Col, Row, Divider, Typography, Collapse, BackTop, Button } from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import './BirthToAges4.module.css'
 import axios from "axios";
@@ -234,6 +234,14 @@ const BirthToAges6 = () => {
                             </Timeline>
                         </div>
                     </div>
+
+
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                        <a href="https://images-videos-for-ie-shit.s3.ap-southeast-2.amazonaws.com/download+vaccine.pdf" download title='Vaccination Schedules'>
+                            <Button>Download the Vaccination Schedules</Button>
+                        </a>
+                    </div>
+
 
                 </div>
 
