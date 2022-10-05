@@ -50,6 +50,9 @@ export default function Quiz() {
             questionTitle: 'Happy Family Gardening Time',
             questionText: 'What is a MUST after gardening to against infections?',
             questionImage: <img src="https://s1.imagehub.cc/images/2022/09/26/planting3.jpg" alt="planting3" style={{ width: '20rem', height: 'auto' }} />,
+            questionVideo: <video autoPlay={true} muted loop playsInline style={{ width: '20rem', height: 'auto' }}>
+                <source src="https://images-videos-for-ie-shit.s3.ap-southeast-2.amazonaws.com/wash+hands.mp4" type='video/mp4' />
+            </video>,
             answerOptions: [
                 { answerText: 'Enjoy the happiness', isCorrect: false },
                 { answerText: 'Washing hands with soap immediately', isCorrect: true },
@@ -82,6 +85,9 @@ export default function Quiz() {
             questionTitle: 'Swimming',
             questionText: 'Which of the followling is a good habit?',
             questionImage: <img src="https://s1.imagehub.cc/images/2022/09/27/young-swimmer-2494906_1920.jpg" alt="swimming2" style={{ width: '20rem', height: 'auto' }} />,
+            questionVideo: <video autoPlay={true} muted loop playsInline style={{ width: '20rem', height: 'auto' }}>
+                <source src="https://images-videos-for-ie-shit.s3.ap-southeast-2.amazonaws.com/change+diaper.mp4" type='video/mp4' />
+            </video>,
             answerOptions: [
                 { answerText: 'Take kids on bathroom breaks and check diapers every hour.', isCorrect: true },
                 { answerText: 'Wait till child wants to go to bathroom.', isCorrect: false }
@@ -145,6 +151,7 @@ export default function Quiz() {
     const [correctnessAnalysis, setCorrectnessAnalysis] = useState([]);
     const [showQuiz, setShowQuiz] = useState('none');
     const [showStartQuizBtn, setShowStartQuizBtn] = useState('block');
+    const [showVideo, setIfShowVideo] = useState(true);
 
     const [gardeningScore, setGardeningScore] = useState(0);
     const [swimmingScore, setSwimmingScore] = useState(0);
@@ -192,6 +199,9 @@ export default function Quiz() {
             if (isCorrect) {
                 setGardeningScore(gardeningScore + 1);
             }
+
+            setIfShowVideo(!setIfShowVideo);
+
         }
         else if (currentQuestion === 3) {
             setCircleOpacity2(0.6);
@@ -205,6 +215,8 @@ export default function Quiz() {
             if (isCorrect) {
                 setSwimmingScore(swimmingScore + 1);
             }
+
+            setIfShowVideo(!setIfShowVideo);
         }
         else if (currentQuestion === 5) {
             if (isCorrect) {
@@ -239,6 +251,7 @@ export default function Quiz() {
         setCircleDisplay2('none');
         setCircleDisplay3('none');
         setPopupDisplay('none');
+        setIfShowVideo(true);
     }
 
     const handleClickToPrevQuestion = () => {
@@ -256,6 +269,7 @@ export default function Quiz() {
         setCircleDisplay2('none');
         setCircleDisplay3('none');
         setPopupDisplay('none');
+        setIfShowVideo(true);
     }
 
     const handleAnalysis = () => {
@@ -410,7 +424,9 @@ export default function Quiz() {
                                 {/* logic of auto to next question after per answer */}
                                 <div className='question-text' style={{ position: 'relative' }}>
                                     {questions[currentQuestion].questionText}
-                                    {questions[currentQuestion].questionImage}
+                                    {showVideo ? questions[currentQuestion].questionImage :
+                                        questions[currentQuestion].questionVideo
+                                    }
                                 </div>
                             </div>
 
@@ -503,8 +519,6 @@ export default function Quiz() {
                                         </div>
                                     </>
                                 )}
-
-
 
                             </div>
                         </div>

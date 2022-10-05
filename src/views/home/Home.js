@@ -179,32 +179,6 @@ const Home = (props) => {
                                     <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-23.06.58.jpg" style={{ height: '340px', width: 'auto' }} />
                                 </div>
                             </div>
-
-                            {/* <div>
-                                <div style={{ display: 'flex', backgroundColor: 'yellow', height: '340px' }}>
-                                    <p>aaaaa</p>
-                                    <p>test</p>
-                                </div>
-                            </div>
-                            <div>
-                                <div style={{ display: 'flex', backgroundColor: 'red', height: '340px' }}>
-                                    <p>llll</p>
-                                    <p>test</p>
-                                </div>
-                            </div>
-                            <div>
-                                <div style={{ display: 'flex', backgroundColor: 'blue', height: '340px' }}>
-                                    <p>jjjj</p>
-                                    <p>test</p>
-                                </div>
-                            </div>
-                            <div>
-                                <div style={{ display: 'flex', backgroundColor: 'pink', height: '340px' }}>
-                                    <p>llll</p>
-                                    <p>test</p>
-                                </div>
-                            </div> */}
-
                         </Carousel>
 
 
