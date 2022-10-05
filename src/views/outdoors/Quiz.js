@@ -326,7 +326,9 @@ export default function Quiz() {
 
                         {/* 3D animation */}
                         <div style={{ height: '30rem', width: '40rem' }}>
-                            <iframe src='https://my.spline.design/roomgirlworkingcopy-d1f72c566ecf1f1d3cd5a2f0493e714b/' frameborder='0' width='100%' height='100%'></iframe>
+                            <iframe src='https://my.spline.design/adventuretimecopy-1c03fa7cd4e1a29316312ae531377df1/' frameborder='0' width='100%' height='100%'></iframe>
+                            {/* <iframe src='https://my.spline.design/adventuretimecopy-1c03fa7cd4e1a29316312ae531377df1/' frameborder='0' width='100%' height='100%'></iframe> */}
+                            {/* <iframe src='https://my.spline.design/roomgirlworkingcopy-d1f72c566ecf1f1d3cd5a2f0493e714b/' frameborder='0' width='100%' height='100%'></iframe> */}
                             {/* <iframe src='https://my.spline.design/platformerrabbitcopy-833efd14ec695daab43cc6dc1937d00b/' frameborder='0' width='100%' height='100%'></iframe> */}
 
                         </div>
@@ -334,7 +336,7 @@ export default function Quiz() {
 
                     </Col>
                     <Col span={10}>
-                        <div style={{ marginTop: '50px', fontFamily: 'sans-serif' }}>
+                        <div style={{ marginTop: '50px', marginLeft: '70px', fontFamily: 'sans-serif' }}>
                             {/* intro to start quiz */}
                             <h2 >
                                 Behaviours in a careful manner can largely reduce the chances of infectious in day to day life.  </h2>
@@ -388,6 +390,7 @@ export default function Quiz() {
                         <div className='score-section' style={{ display: 'flex', flexDirection: 'column', padding: '5%' }}>
                             {/* showing quiz score */}
                             <p>You scored {score} out of {questions.length}</p>
+                            {/* <iframe src='https://my.spline.design/platformerrabbitcopy-833efd14ec695daab43cc6dc1937d00b/' frameborder='0' width='100%' height='100%'></iframe> */}
 
                             {/* pop up window for personal analysis */}
                             <Button onClick={openPopup}>Jump to my personal analysis  <BarChartOutlined /></Button>
