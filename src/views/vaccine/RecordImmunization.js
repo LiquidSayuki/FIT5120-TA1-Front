@@ -7,7 +7,7 @@ const { Title, Text } = Typography;
 
 const RecordImmunization = () => {
     return (
-        <div style={{ padding: "5%", height: '27rem', width: '100%', backgroundColor: "#FAFAFA" }}>
+        <div style={{ padding: "6%", height: '27rem', width: '100%', backgroundColor: "#FAFAFA" }}>
 
             <Row>
                 <Col span={6}>

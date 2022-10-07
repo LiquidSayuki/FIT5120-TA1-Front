@@ -6,7 +6,7 @@ const VaccineScheduleIntroSection = () => {
     return (
         <div>
 
-
+            <h2>Recommend Vaccination Schedule</h2>
             <Link to='/vaccineSchedule'>
                 <Button>Vaccine Schedules</Button>
             </Link>
