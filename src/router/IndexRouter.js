@@ -10,6 +10,7 @@ import Quiz from "../views/quiz/Quiz";
 import DiseaseManage from "../views/manage/DiseaseManage";
 import DataDisplay from "../views/dataDisplay/DataDisplay";
 import Outdoors from "../views/outdoors/Outdoors";
+import VaccineSchedule from "../views/vaccine/VaccineSchedule";
 
 const { Footer } = Layout;
 
@@ -22,12 +23,12 @@ export default function IndexRouter() {
                 <Route path="/BirthToAges4" component={BirthToAges4} />
                 <Route path="/quiz" component={Quiz} />
                 <Route path="/Outdoors" component={Outdoors} />
-                {/* <Route path="/Ages7ToAges18" component={Ages7ToAges18} /> */}
                 {/* <Route path="/vaccine/:id" component={BirthToAges6}></Route> */}
                 <Route path="/diseases" component={Disease} />
                 <Route path="/disease/:id" component={SingleDisease}></Route>
                 <Route path="/home" component={Home} />
                 <Route path="/data" component={DataDisplay} />
+                <Route path="/vaccineSchedule" component={VaccineSchedule} />
                 <Redirect from="/" to="/home" />
             </Switch>
             <Footer
