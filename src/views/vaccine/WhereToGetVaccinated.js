@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Typography } from 'antd';
 import './WhereToGetVaccinated.css'
+import { PhoneOutlined } from '@ant-design/icons';
 
 const { Title, Text } = Typography;
 
@@ -10,8 +11,8 @@ const WhereToGetVaccinated = () => {
             <Row>
 
                 <div style={{ position: 'absolute', width: '30rem', height: 'auto' }}>
-                    <Title level={2} style={{ paddingTop: '2rem' }}>Where to Get Vaccinated?</Title>
-                    <Title level={5} style={{ color: 'cadetblue', paddingTop: '5%' }} >Book an Appointment at</Title>
+                    <Title level={2} style={{ paddingTop: '2rem' }}>Where to Get Vaccinated ?</Title>
+                    <Title level={5} style={{ color: 'cadetblue', paddingTop: '5%' }} >Book an Appointment at  <PhoneOutlined /></Title>
                     <div className='grid-container'>
                         <div className='grid-item'>
                             <Title level={2} style={{ color: 'cadetblue' }}>01</Title>
