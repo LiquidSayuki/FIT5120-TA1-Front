@@ -1,16 +1,40 @@
 import React from 'react';
-import { Layout, Button } from 'antd';
+import { Row, Typography, Button, Tooltip } from 'antd';
 import { Link } from 'react-router-dom';
+
+const { Title } = Typography;
 
 const VaccineScheduleIntroSection = () => {
     return (
-        <div>
+        // backgroundColor: '#e8f4f8'
+        <div style={{ padding: "6%", height: '30rem', width: '100%', position: 'relative' }}>
+            <Row>
 
-            <h2>Recommend Vaccination Schedule</h2>
-            <Link to='/vaccineSchedule'>
-                <Button>Vaccine Schedules</Button>
-            </Link>
+                <div style={{ position: 'absolute', zIndex: '+1' }}>
+                    <Title level={2}>Recommend Vaccination Schedule</Title>
 
+                    <div style={{ width: '25rem', height: 'auto', marginTop: '10%' }}>
+                        <ul>
+                            <li>The timing of each dose of every vaccine given to babies and children is carefully chosen.</li><br />
+                            <li>Experts consider which diseases Australian children are likely to be exposed to; how serious the diseases can be for children at different ages to give the best protection.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style={{ position: 'absolute', marginTop: '5%' }}>
+                        <Link to='/vaccineSchedule'>
+                            <Tooltip placement="bottomRight" title='Download Available' color='gold' key='gold'>
+                                <Button>Vaccine Schedule</Button>
+                            </Tooltip>
+
+                        </Link>
+                    </div>
+                </div>
+
+                <div style={{ position: 'absolute', right: '10%' }}>
+                    <img src="https://s1.imagehub.cc/images/2022/10/08/immunisation-register.jpg" alt="immunisation-register.jpg" style={{ height: '18rem', width: 'auto' }} />
+                </div>
+            </Row>
         </div>
     );
 };

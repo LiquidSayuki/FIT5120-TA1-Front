@@ -1,15 +1,16 @@
-.grid-container {
+.grid-container-where-get-vaccination {
     display: grid;
     background-color: white;
-    column-gap: 70px;
+    column-gap: 50px;
     top: 1.7rem;
     position: relative;
     width: 30.5rem;
     height: auto;
     z-index: +1;
+    grid-template-columns: auto auto;
 }
 
-.grid-item {
+.grid-item-where-get-vaccination {
     display: inline-grid;
     width: 15rem;
     height: auto;

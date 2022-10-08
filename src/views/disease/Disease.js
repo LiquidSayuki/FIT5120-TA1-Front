@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Col, Layout, Row, List, Button, Typography, Divider, Card, Select, Tag, Form} from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Col, Layout, Row, List, Button, Typography, Divider, Card, Select, Tag, Form } from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import axios from "axios";
 import cookie from "react-cookies";
@@ -7,7 +7,7 @@ import intl from "react-intl-universal";
 
 const { Option } = Select;
 const { Content } = Layout;
-const { Title, Paragraph,Text } = Typography;
+const { Title, Paragraph, Text } = Typography;
 
 function includes(arr1, arr2) {
     return arr2.every(val => arr1.includes(val));
@@ -19,11 +19,11 @@ const Disease = () => {
 
     const [data, setData] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         switch (cookie.load("lang")) {
             case "en-US":
                 // Get data from the EN version of database
-                axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/items").then(res=>{
+                axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/items").then(res => {
                     // console.log(res.data)
                     setOriginalData(res.data.Items);
                     setData(res.data.Items);
@@ -32,7 +32,7 @@ const Disease = () => {
 
             case "zh-CN":
                 // Get data from CN version of database
-                axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/zh-CN/items").then(res=>{
+                axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/zh-CN/items").then(res => {
                     // console.log(res.data)
                     setOriginalData(res.data.Items);
                     setData(res.data.Items);
@@ -40,23 +40,23 @@ const Disease = () => {
                 break
 
             default:
-                axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/items").then(res=>{
+                axios.get("https://edg53vnmmh.execute-api.us-east-1.amazonaws.com/dev/items").then(res => {
                     // console.log(res.data)
                     setOriginalData(res.data.Items);
                     setData(res.data.Items);
                 })
         }
-    },[])
+    }, [])
 
 
     // Set the tags in the menu
     const [tags, setTags] = useState([])
-    useEffect(()=>{
+    useEffect(() => {
         let tagTemp = tags;
-        for (let i in originalData){
+        for (let i in originalData) {
             //console.log(data[i].tag);
-            for (let l in originalData[i].tag){
-                if ( !tagTemp.includes(originalData[i].tag[l]) ){
+            for (let l in originalData[i].tag) {
+                if (!tagTemp.includes(originalData[i].tag[l])) {
                     tagTemp.push(originalData[i].tag[l])
                 }
             }
@@ -71,14 +71,14 @@ const Disease = () => {
         //console.log(value);
 
         let severityFit = [];
-        if (value.severity !== undefined){
-            for (let i in originalData){
-                if (originalData[i].severity ===value.severity){
+        if (value.severity !== undefined) {
+            for (let i in originalData) {
+                if (originalData[i].severity === value.severity) {
                     severityFit.push(originalData[i]);
                 }
             }
-        }else {
-            for (let i in originalData){
+        } else {
+            for (let i in originalData) {
                 severityFit.push(originalData[i]);
             }
         }
@@ -87,14 +87,14 @@ const Disease = () => {
 
 
         let bodyFit = [];
-        if (value.bodyPart !== undefined){
-            for (let i in originalData){
-                if (includes(originalData[i].tag,value.bodyPart)){
+        if (value.bodyPart !== undefined) {
+            for (let i in originalData) {
+                if (includes(originalData[i].tag, value.bodyPart)) {
                     bodyFit.push(originalData[i]);
                 }
             }
-        }else {
-            for (let i in originalData){
+        } else {
+            for (let i in originalData) {
                 bodyFit.push(originalData[i]);
             }
         }
@@ -157,14 +157,14 @@ const Disease = () => {
                 {/*
                 This block is the title and subtitle of the page.
                 */}
-                <Row style={{paddingTop:"30px"}}>
+                <Row style={{ paddingTop: "30px" }}>
                     <Col span={3}></Col>
                     <Col span={18}>
                         <Card>
                             <Paragraph>
                                 <Title>{intl.get("diseaseTitle")}</Title>
-                                <Divider/>
-                                <blockquote style={{fontSize:"16px"}}>
+                                <Divider />
+                                <blockquote style={{ fontSize: "16px" }}>
                                     {intl.get("diseaseSubtitle")}
                                 </blockquote>
                             </Paragraph>
@@ -177,14 +177,14 @@ const Disease = () => {
                     Search by tag feature
                 */}
 
-                <Row style={{paddingTop:"15px"}}>
+                <Row style={{ paddingTop: "15px" }}>
                     <Col span={3}></Col>
                     <Col span={18}>
                         <Card
                             title={intl.get("diseaseSearchTitle")}
                         >
                             <Form name="disease-tag"
-                                  onFinish={onFinish}>
+                                onFinish={onFinish}>
 
                                 {/*
                                     Search by severity
@@ -198,8 +198,8 @@ const Disease = () => {
                                         placeholder={intl.get("diseaseSearchBySeverity")}
                                         style={{
                                             width: '60%',
-                                            paddingTop:"5px",
-                                            paddingBottom:"5px"
+                                            paddingTop: "5px",
+                                            paddingBottom: "5px"
                                         }}
                                     >
                                         <Option value={intl.get("diseaseTagMild")}> {intl.get("diseaseTagMild")} </Option>
@@ -221,8 +221,8 @@ const Disease = () => {
                                         placeholder={intl.get("diseaseSearchByBody")}
                                         style={{
                                             width: '60%',
-                                            paddingTop:"5px",
-                                            paddingBottom:"5px"
+                                            paddingTop: "5px",
+                                            paddingBottom: "5px"
                                         }}
                                     >
                                         {tags.map(item =>
@@ -255,7 +255,7 @@ const Disease = () => {
                 This block is the body of the page.
                 It's a list component with multiple items.
                 */}
-                <Row style={{padding:"20px"}}>
+                <Row style={{ padding: "20px" }}>
                     <Col span={3}></Col>
                     <Col span={18}>
                         <List
@@ -291,29 +291,29 @@ const Disease = () => {
                                             />
                                         </div>
                                     }
-                                    style={{fontSize:"16px"}}
+                                    style={{ fontSize: "16px" }}
                                 >
                                     <List.Item.Meta
                                         // This part is for add an avatar
                                         // avatar={<Avatar src={item.avatar} />}
 
                                         // The item title
-                                        title={<a href={'/disease/'+ item.id}>{item.name}</a>}
+                                        title={<a href={'/disease/' + item.id}>{item.name}</a>}
 
-                                        //description={item.description}
+                                    //description={item.description}
                                     />
                                     {item.description}
 
-                                    <div style={{paddingTop:"15px"}}>
+                                    <div style={{ paddingTop: "15px" }}>
                                         <Tag color={handleColor(item.severity)}>{item.severity}</Tag>
                                         {
-                                            item.tag? (item.tag.map(i=>
+                                            item.tag ? (item.tag.map(i =>
                                                 <Tag
-                                                    color={handleColor(i)}>{i}</Tag>)):(console.log("No tag"))
+                                                    color={handleColor(i)}>{i}</Tag>)) : (console.log("No tag"))
                                         }
 
-                                        <div style={{paddingTop:"15px"}}>
-                                            <Button href={'/disease/'+ item.id} type="primary" style={{float:"right"}}>
+                                        <div style={{ paddingTop: "15px" }}>
+                                            <Button href={'/disease/' + item.id} type="primary" style={{ float: "right" }}>
                                                 {intl.get("diseaseButtonMore")}
                                             </Button>
                                         </div>

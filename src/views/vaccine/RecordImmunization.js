@@ -10,20 +10,21 @@ const RecordImmunization = () => {
         <div style={{ padding: "6%", height: '27rem', width: '100%', backgroundColor: "#FAFAFA" }}>
 
             <Row>
+
                 <Col span={6}>
-                    <div style={{ position: 'absolute' }}>
-                        <img src="https://s1.imagehub.cc/images/2022/10/07/medical-gc044d0589_1920.jpg" alt="medical-gc044d0589_1920.jpg" style={{ height: '9rem', width: '9rem', borderRadius: "50%" }} />
+                    <div style={{ position: 'absolute', right: '15%', borderRadius: "50%", overflow: 'hidden' }}>
+                        <img src="https://s1.imagehub.cc/images/2022/10/08/medical-gce6002e1e_1920.png" alt="medical-gce6002e1e_1920.png" style={{ height: '11rem', width: '11rem' }} />
                     </div>
                 </Col>
 
                 <Col span={6}>
-                    <div style={{ position: 'absolute', top: '5rem', right: '15%', borderRadius: "50%", overflow: 'hidden' }}>
-                        <img src="https://s1.imagehub.cc/images/2022/10/07/Report-to-the-Australian-Immunisation-register.jpg" alt="Report-to-the-Australian-Immunisation-register.jpg" style={{ height: '15rem', width: '15rem' }} />
+                    <div style={{ position: 'absolute' }}>
+                        <img src="https://s1.imagehub.cc/images/2022/10/08/doctor-ga6ccdb3fa_1920.jpg" alt="doctor-ga6ccdb3fa_1920.jpg" style={{ height: '20rem', width: 'auto', borderRadius: "50%" }} />
                     </div>
                 </Col>
 
                 <Col span={12}>
-                    <div style={{ position: 'absolute', left: '15%', top: '6rem' }}>
+                    <div style={{ position: 'absolute', left: '15%', top: '4rem' }}>
                         <Title level={2}>Recording Immunisation</Title>
                         <Text type="secondary" style={{ position: 'absolute' }}>Note that you may need to notify vaccine provider to record the child vaccination into the Australian Immunization Register.</Text>
                     </div>

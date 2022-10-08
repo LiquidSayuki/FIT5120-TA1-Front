@@ -1,10 +1,9 @@
-import React from 'react';
-import { Layout, Col, Row, Divider, Typography, BackTop, Button } from 'antd';
+import React, { useEffect, useRef } from 'react';
+import { Layout, Col, Row, Divider, Typography, BackTop } from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
-import './BirthToAges4.module.css'
+import './BirthToAges4.css'
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import WhereToGetVaccinated from './WhereToGetVaccinated';
-import VaccineSchedule from './VaccineSchedule';
 import WhyNeedVaccinated from './WhyNeedVaccinated';
 import RecordImmunization from './RecordImmunization';
 import VaccineScheduleIntroSection from './VaccineScheduleIntroSection';
@@ -25,7 +24,38 @@ const style = {
     fontSize: 14,
 };
 
+
 const BirthToAges6 = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+
+    {/* for auto scrolling section */ }
+    const refWhy = useRef(null);
+    const handleWhyGetVaccineClick = () => {
+        refWhy.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const refWhere = useRef(null);
+    const handleWhereToGetVaccineClick = () => {
+        refWhere.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const refCharges = useRef(null);
+    const handleChargesClick = () => {
+        refCharges.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const refSchedule = useRef(null);
+    const handleScheduleClick = () => {
+        refSchedule.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const refRecording = useRef(null);
+    const handleRecordingClick = () => {
+        refRecording.current?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     return (
         <div>
@@ -61,11 +91,36 @@ const BirthToAges6 = () => {
                         </Col>
                     </Row>
 
-                    <WhyNeedVaccinated />
-                    <WhereToGetVaccinated />
-                    <IfVaccinationFree />
-                    <VaccineScheduleIntroSection />
-                    <RecordImmunization />
+                    <div style={{ paddingLeft: '10%', paddingTop: '3%' }}>
+                        <Title level={4} >On this page</Title><br />
+                        <ul>
+                            <li style={{ cursor: 'pointer' }} onClick={handleWhyGetVaccineClick}><a>Why Child Needs to be Vaccinated</a></li>
+                            <li style={{ cursor: 'pointer' }} onClick={handleWhereToGetVaccineClick}><a>Where to Get Vaccinations</a></li>
+                            <li style={{ cursor: 'pointer' }} onClick={handleChargesClick}><a>Charge of Vaccinations</a></li>
+                            <li style={{ cursor: 'pointer' }} onClick={handleScheduleClick}><a>Recommend Vaccination Schedule - Download Available</a></li>
+                            <li style={{ cursor: 'pointer' }} onClick={handleRecordingClick}><a>Recording Immunisation</a></li>
+                        </ul>
+                    </div>
+
+                    <div ref={refWhy}>
+                        <WhyNeedVaccinated />
+                    </div>
+
+                    <div ref={refWhere}>
+                        <WhereToGetVaccinated />
+                    </div>
+
+                    <div ref={refCharges}>
+                        <IfVaccinationFree />
+                    </div>
+
+                    <div ref={refSchedule}>
+                        <VaccineScheduleIntroSection />
+                    </div>
+
+                    <div ref={refRecording}>
+                        <RecordImmunization />
+                    </div>
 
                 </div>
 

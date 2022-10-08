@@ -64,6 +64,10 @@ const Home = (props) => {
         props.history.push(destination)
     }
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div>
             <div className={style.background}>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import { Layout, Col, Row, Divider, Typography, Collapse } from 'antd';
 import Quiz from './Quiz';
@@ -17,6 +17,10 @@ const Outdoors = () => {
     // // const handleClick = () => {
     // //     click
     // // }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <Content style={{ padding: '0 50px' }}>

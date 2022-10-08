@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Layout, Timeline, Card, Col, Row, Divider, Typography, Collapse, BackTop, Button } from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
-import './BirthToAges4.module.css'
+import './BirthToAges4.css'
 import axios from "axios";
 import intl from "react-intl-universal";
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
@@ -27,6 +27,10 @@ const VaccineSchedule = () => {
 
     useEffect(() => {
         getAllVaccines();
+    }, []);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
     }, []);
 
     const getAllVaccines = () => {
@@ -136,7 +140,7 @@ const VaccineSchedule = () => {
                             <div style={{ paddingTop: "30px" }} ref={refBirth}>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
                                     <Panel header=<h2>{intl.get("vaccineBirth")}</h2> key="1">
-                                        <div className='grid-container'>
+                                        <div className='grid-container-schedule'>
                                             {vaccines.map(item => item.childrenAge === 'Birth' ?
                                                 <Card
                                                     key={item.id}
@@ -156,7 +160,7 @@ const VaccineSchedule = () => {
                             <div style={{ paddingTop: "30px" }} ref={ref2Months}>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
                                     <Panel header=<h2>{intl.get("vaccineMonth", { month: "2-6" })}</h2> key="1">
-                                        <div className='grid-container'>
+                                        <div className='grid-container-schedule'>
                                             {vaccines.map(item => item.childrenAge === '2 months' ?
                                                 <Card
                                                     key={item.id}
@@ -176,7 +180,7 @@ const VaccineSchedule = () => {
                             <div style={{ paddingTop: "30px" }} ref={ref12Months}>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
                                     <Panel header=<h2>{intl.get("vaccineMonth", { month: "12" })}</h2> key="1">
-                                        <div className='grid-container'>
+                                        <div className='grid-container-schedule'>
                                             {vaccines.map(item => item.childrenAge === '12 months' ?
                                                 <Card
                                                     key={item.id}
@@ -196,7 +200,7 @@ const VaccineSchedule = () => {
                             <div style={{ paddingTop: "30px" }} ref={ref18Months}>
                                 <Collapse bordered={false} defaultActiveKey={['1']}>
                                     <Panel header=<h2>{intl.get("vaccineMonth", { month: "18" })}</h2> key="1">
-                                        <div className='grid-container'>
+                                        <div className='grid-container-schedule'>
                                             {vaccines.map(item => item.childrenAge === '18 months' ?
                                                 <Card
                                                     key={item.id}

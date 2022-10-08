@@ -11,15 +11,15 @@ const WhereToGetVaccinated = () => {
             <Row>
 
                 <div style={{ position: 'absolute', width: '30rem', height: 'auto' }}>
-                    <Title level={2} style={{ paddingTop: '2rem' }}>Where to Get Vaccinated ?</Title>
+                    <Title level={2} style={{ paddingTop: '2rem' }}>Where to Get Vaccinations ?</Title>
                     <Title level={5} style={{ color: 'cadetblue', paddingTop: '5%' }} >Book an Appointment at  <PhoneOutlined /></Title>
-                    <div className='grid-container'>
-                        <div className='grid-item'>
+                    <div className='grid-container-where-get-vaccination'>
+                        <div className='grid-item-where-get-vaccination'>
                             <Title level={2} style={{ color: 'cadetblue' }}>01</Title>
                             <Title level={5} style={{ marginTop: '15%' }}>Local City Council</Title>
                             <Text style={{ marginTop: '5%' }}>Head to your local city council vaccination program</Text>
                         </div>
-                        <div className='grid-item'>
+                        <div className='grid-item-where-get-vaccination'>
                             <Title level={2} style={{ color: 'cadetblue' }}>02</Title>
                             <Title level={5}>GP</Title>
                             <Text>Find a GP close to you</Text>

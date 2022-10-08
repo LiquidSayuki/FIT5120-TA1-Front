@@ -12,12 +12,12 @@
     width: 10rem
 }
 
-.grid-container {
+.grid-container-schedule {
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 1rem;
 }
 
-.grid-container>div {
+.grid-container-schedule>div {
     text-align: left;
 }
