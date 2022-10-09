@@ -143,7 +143,6 @@ const Disease = () => {
             The main usage is tell user where he/she is and give a chance to ge back.
             */}
             <Row>
-                <Col span={3}></Col>
                 <Col>
                     <LocationIdentifier
                         title={intl.get("diseaseTitle")}
