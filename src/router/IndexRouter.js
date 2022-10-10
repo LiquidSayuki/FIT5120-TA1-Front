@@ -11,6 +11,7 @@ import DiseaseManage from "../views/manage/DiseaseManage";
 import DataDisplay from "../views/dataDisplay/DataDisplay";
 import Outdoors from "../views/outdoors/Outdoors";
 import VaccineSchedule from "../views/vaccine/VaccineSchedule";
+import Map from "../views/map/Map";
 
 const { Footer } = Layout;
 
@@ -19,6 +20,7 @@ export default function IndexRouter() {
         <Layout className="layout">
             <GlobalHeader />
             <Switch>
+                <Route path="/map" component={Map}/>
                 <Route path="/manage/disease" component={DiseaseManage} />
                 <Route path="/BirthToAges4" component={BirthToAges4} />
                 <Route path="/quiz" component={Quiz} />
@@ -36,7 +38,7 @@ export default function IndexRouter() {
                     textAlign: 'center',
                 }}
             >
-                Copy Right... I don't know if reserved or not. Anyway.
+                Copy right reserved by FIT 5120 TA1 Team.
             </Footer>
         </Layout>
     );

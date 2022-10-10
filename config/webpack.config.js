@@ -339,6 +339,10 @@ module.exports = function (webpackEnv) {
     module: {
       strictExportPresence: true,
       rules: [
+          {
+            test: /\.html$/i,
+            loader: "html-loader",
+          },
         // Handle node_modules packages that contain sourcemaps
         shouldUseSourceMap && {
           enforce: 'pre',
