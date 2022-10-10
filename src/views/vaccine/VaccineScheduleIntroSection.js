@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Typography, Button, Tooltip } from 'antd';
 import { Link } from 'react-router-dom';
+import './VaccineScheduleIntroSection.css';
 
 const { Title } = Typography;
 
@@ -24,7 +25,7 @@ const VaccineScheduleIntroSection = () => {
                     <div style={{ position: 'absolute', marginTop: '5%' }}>
                         <Link to='/vaccineSchedule'>
                             <Tooltip placement="bottomRight" title='Download Available' color='gold' key='gold'>
-                                <Button>Vaccine Schedule</Button>
+                                <Button className='vaccine-schedule-button bounce-1'>Vaccine Schedule</Button>
                             </Tooltip>
 
                         </Link>

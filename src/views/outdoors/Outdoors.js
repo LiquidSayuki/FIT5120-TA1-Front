@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import { Layout, Col, Row, Divider, Typography, Collapse } from 'antd';
 import Quiz from './Quiz';
@@ -31,7 +31,7 @@ const Outdoors = () => {
                         <Col span={3}></Col>
                         <Col span={18}>
                             <Paragraph>
-                                <Title>Outdoor Activities</Title>
+                                <Title className='animate__animated animate__slideInDown'>Outdoor Activities</Title>
                                 <Divider />
                                 <blockquote style={{ fontSize: "16px" }}>Outdoor activities may vary in countries. Meantime, connecting to the outside world is essential, but also becoming one of most common infectious spreaded transmission.</blockquote>
                                 <Divider />

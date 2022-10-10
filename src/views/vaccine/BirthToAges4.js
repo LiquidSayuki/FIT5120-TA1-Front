@@ -77,7 +77,7 @@ const BirthToAges6 = () => {
                         <Col span={3}></Col>
                         <Col span={18}>
                             <Paragraph>
-                                <Title>
+                                <Title className='animate__animated animate__slideInDown'>
                                     {/* {intl.get("vaccineTitle2")} */}
                                     Vaccination Information
                                 </Title>
