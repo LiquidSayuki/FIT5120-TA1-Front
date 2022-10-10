@@ -9,6 +9,18 @@
   "homeClickToReadMore": "点击阅读更多内容",
   "homeSectionTitle_2": "疫苗",
   "homeSectionSubtitle_2": "一些你应该给你的孩子接种的疫苗",
+  "homeSectionTitle_3": "户外活动",
+  "homeSectionSubtitle_3": "关注户外活动中的潜在感染风险",
+  "homeSectionTitle_4": "方便链接",
+  "homeSectionSubtitle_4": "一些对您照顾您的孩子的健康有益的外部链接",
+  "homeTitleOfChildHospital": "Monash Children's Hospital",
+  "homeTitleOfChemistWarehouse": "Chemist Warehouse",
+  "homeTitleOfMapFeature": "定位附近的医疗服务",
+  "homeDescriptionOfChemistWarehouse": "您可以从药剂师处得到专业的用药建议",
+  "homeDescriptionOfChemistWarehouse2": "也可以网上购买药品，以及购买医生处方中的药品",
+  "homeDescriptionOfChildHospital": "如果您的孩子遇到健康的问题，您应该寻求专业医生的帮助",
+  "homeDescriptionOfChildHospital2": "",
+  "homeDescriptionOfMapFeature": "定位附近的医疗服务提供者，包括药房，全科医生和专科医生",
   "homeOutdoorContent_1": "大多数的感染都发生在户外活动当中",
   "homeOutdoorContent_2": "想知道您的户外卫生分数吗？",
   "homeOutdoorButton_1": "让我们开始吧",
@@ -49,5 +61,8 @@
   "quizTabContent_1": " 美国知名的商业化健康信息网站",
   "quizTabContent_2": " 由澳洲政府资助的健康信息网站",
   "quizTabContent_3": " 维多利亚州常用的预约全科医生（GP）诊疗服务的网站",
-  "quizButton_1": "返回首页"
+  "quizButton_1": "返回首页",
+  "mapTitle": "医疗服务地图",
+  "mapSubtitle": "您附近的医疗服务",
+  "mapDescription": "找到您附近的医疗服务商。 包括药店,全科医生,专科医生和医院。以最快的速度找到离您最近的医疗服务。"
 }
