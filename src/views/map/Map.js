@@ -1,7 +1,7 @@
 import React from 'react';
 import map from "./Map.html";
 import {Content} from "antd/es/layout/layout";
-import { Col, Layout, Row, List, Button, Typography, Divider, Card, Select, Tag, Form } from 'antd';
+import { Col, Row, Typography, Divider, Card} from 'antd';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import intl from "react-intl-universal";
 

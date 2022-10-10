@@ -8,7 +8,6 @@ import BirthToAges4 from "../views/vaccine/BirthToAges4";
 import SingleDisease from "../views/disease/SingleDisease";
 import BackgroundInfo from "../views/backgroundInfo/BackgroundInfo";
 import DiseaseManage from "../views/manage/DiseaseManage";
-import DataDisplay from "../views/dataDisplay/DataDisplay";
 
 const { Footer } = Layout;
 
@@ -25,7 +24,6 @@ export default function Iteration1Router() {
                 <Route path="/iteration1/diseases" component={Disease} />
                 <Route path="/iteration1/disease/:id" component={SingleDisease}></Route>
                 <Route path="/iteration1/home" component={Home} />
-                <Route path="/iteration1/data" component={DataDisplay} />
                 <Redirect from="/iteration1" to="/iteration1/home" />
             </Switch>
             <Footer

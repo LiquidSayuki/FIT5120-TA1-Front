@@ -8,7 +8,6 @@ import BirthToAges4 from "../views/vaccine/BirthToAges4";
 import SingleDisease from "../views/disease/SingleDisease";
 import Quiz from "../views/quiz/Quiz";
 import DiseaseManage from "../views/manage/DiseaseManage";
-import DataDisplay from "../views/dataDisplay/DataDisplay";
 import Outdoors from "../views/outdoors/Outdoors";
 import VaccineSchedule from "../views/vaccine/VaccineSchedule";
 import Map from "../views/map/Map";
@@ -29,7 +28,6 @@ export default function IndexRouter() {
                 <Route path="/diseases" component={Disease} />
                 <Route path="/disease/:id" component={SingleDisease}></Route>
                 <Route path="/home" component={Home} />
-                <Route path="/data" component={DataDisplay} />
                 <Route path="/vaccineSchedule" component={VaccineSchedule} />
                 <Redirect from="/" to="/home" />
             </Switch>

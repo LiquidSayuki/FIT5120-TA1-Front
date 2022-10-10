@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import {Col, Layout, Row, Typography, Divider, Card, Button} from 'antd';
-import TableauReport from "tableau-react";
 import intl from "react-intl-universal";
 import {Text} from "recharts";
+import quiz from "./Quiz.html";
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -86,8 +86,13 @@ const Quiz = (props) => {
                         <Col span={2}></Col>
                         <Col span={20}>
                             <Card>
-                                <TableauReport
-                                    url="https://public.tableau.com/views/DataAnalystQuiz_16634879357750/Home?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link"
+                                {/*"https://public.tableau.com/views/DataAnalystQuiz_16634879357750/Home?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link"*/}
+
+                                <iframe title="quiz"
+                                        srcDoc={quiz}
+                                        style={{width:"100%",border:"0px",height:"800px", paddingTop:"50px"}}
+                                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                                        scrolling="auto"
                                 />
                             </Card>
                         </Col>

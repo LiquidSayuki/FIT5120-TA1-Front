@@ -1,7 +1,7 @@
 import React from 'react';
 import LocationIdentifier from "../../components/basicPageFrame/LocationIdentifier";
 import {Col, Layout, Row, List, Button, Typography, Divider, Card, Image} from 'antd';
-import TableauReport from "tableau-react";
+import quiz from "../../../../views/quiz/Quiz.html";
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -49,14 +49,22 @@ const BackgroundInfo = () => {
                     <Row gutter={[35,35]}>
                         <Col span={24}>
                             <Card>
-                                <TableauReport
-                                    url="https://public.tableau.com/views/Story_16623690891440/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link"
-                                    // options={{
-                                    //     height: 400,
-                                    //     width:800,
-                                    //     hideToolbar:true,
-                                    //     hideTabs:true}}
+                                {/*<TableauReport*/}
+                                {/*    url="https://public.tableau.com/views/Story_16623690891440/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link"*/}
+                                {/*    // options={{*/}
+                                {/*    //     height: 400,*/}
+                                {/*    //     width:800,*/}
+                                {/*    //     hideToolbar:true,*/}
+                                {/*    //     hideTabs:true}}*/}
+                                {/*/>*/}
+
+                                <iframe title="quiz"
+                                        srcDoc={quiz}
+                                        style={{width:"100%",border:"0px",height:"800px", paddingTop:"50px"}}
+                                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                                        scrolling="auto"
                                 />
+
                             </Card>
                         </Col>
                         <Col span={24}>

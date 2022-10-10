@@ -342,6 +342,10 @@ module.exports = function (webpackEnv) {
           {
             test: /\.html$/i,
             loader: "html-loader",
+            options: {
+              // Disables attributes processing
+              sources: false,
+            },
           },
         // Handle node_modules packages that contain sourcemaps
         shouldUseSourceMap && {
