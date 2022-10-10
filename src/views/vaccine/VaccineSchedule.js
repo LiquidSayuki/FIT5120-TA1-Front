@@ -119,7 +119,7 @@ const VaccineSchedule = () => {
                         <Col span={3}></Col>
                         <Col span={18}>
                             <Paragraph>
-                                <Title>
+                                <Title className='animate__animated animate__slideInDown'>
                                     {intl.get("vaccineTitle2")}
                                 </Title>
                                 <Divider />
@@ -242,7 +242,7 @@ const VaccineSchedule = () => {
                     {/* download schedule */}
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                         <a href="https://images-videos-for-ie-shit.s3.ap-southeast-2.amazonaws.com/download+vaccine.pdf" download title='Vaccination Schedules'>
-                            <Button>Download the Vaccination Schedules</Button>
+                            <Button className='download-vaccine-button bounce-1'>Download the Vaccination Schedules</Button>
                         </a>
                     </div>
 

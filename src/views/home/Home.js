@@ -177,12 +177,6 @@ const Home = (props) => {
 
                                 </div>
                             </div>
-
-                            <div>
-                                <div style={contentStyle}>
-                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-23.06.58.jpg" style={{ height: '340px', width: 'auto' }} />
-                                </div>
-                            </div>
                         </Carousel>
 
 
@@ -209,7 +203,7 @@ const Home = (props) => {
                                 <br></br>
                                 <h2>{intl.get("homeOutdoorContent_1")}</h2><br></br>
                                 <h3>{intl.get("homeOutdoorContent_2")}</h3><br></br>
-                                <Button style={{ marginLeft: '70px' }} onClick={() => { redirect("/Outdoors") }}>{intl.get("homeOutdoorButton_1")}</Button>
+                                <Button className='redirect-to-outdoor-button bounce-1' style={{ marginLeft: '70px' }} onClick={() => { redirect("/Outdoors") }}>{intl.get("homeOutdoorButton_1")}</Button>
                             </Col>
                         </Row>
 

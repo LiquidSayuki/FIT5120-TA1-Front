@@ -272,9 +272,9 @@ export default function Quiz() {
         setIfShowVideo(true);
     }
 
-    const handleAnalysis = () => {
-        console.log(correctnessAnalysis)
-    }
+    // const handleAnalysis = () => {
+    //     console.log(correctnessAnalysis)
+    // }
 
     const openPopup = () => {
         setPopupDisplay('block');
