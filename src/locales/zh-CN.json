@@ -12,7 +12,7 @@
   "homeOutdoorContent_1": "大多数的感染都发生在户外活动当中",
   "homeOutdoorContent_2": "想知道您的户外卫生分数吗？",
   "homeOutdoorButton_1": "让我们开始吧",
-  "globalHeaderHome":"首页",
+  "globalHeaderHome": "首页",
   "globalHeaderBackground": "背景信息",
   "globalHeaderDiseases": "疾病信息",
   "globalHeaderVaccines": "疫苗信息",
@@ -49,5 +49,8 @@
   "quizTabContent_1": " 美国知名的商业化健康信息网站",
   "quizTabContent_2": " 由澳洲政府资助的健康信息网站",
   "quizTabContent_3": " 维多利亚州常用的预约全科医生（GP）诊疗服务的网站",
-  "quizButton_1": "返回首页"
+  "quizButton_1": "返回首页",
+  "homeVaccineSection1": "https://s1.imagehub.cc/images/2022/09/25/Screen-Shot-2022-09-25-at-17.41.30.jpg",
+  "homeVaccineSection2": "https://s1.imagehub.cc/images/2022/09/25/Screen-Shot-2022-09-25-at-17.41.37.jpg",
+  "homeVaccineSection3": "https://s1.imagehub.cc/images/2022/09/25/Screen-Shot-2022-09-25-at-17.41.41.jpg"
 }

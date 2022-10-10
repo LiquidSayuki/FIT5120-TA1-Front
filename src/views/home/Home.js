@@ -152,29 +152,17 @@ const Home = (props) => {
                         <Carousel autoplay >
                             <div>
                                 <div style={contentStyle} >
-                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-23.06.44.jpg" style={{ height: '340px', width: 'auto' }} />
-
-                                    {/* translate to Chinese version  */}
-                                    {/* <img src="https://s1.imagehub.cc/images/2022/09/25/Screen-Shot-2022-09-25-at-17.41.30.jpg" style={{ height: '340px', width: 'auto' }}  /> */}
-
+                                    <img src={intl.get("homeVaccineSection1")} style={{ height: '340px', width: 'auto' }} />
                                 </div>
                             </div>
                             <div>
                                 <div style={contentStyle}>
-                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-23.06.51.jpg" style={{ height: '340px', width: 'auto' }} onClick={() => { redirect("/BirthToAges4") }} />
-
-                                    {/* translate to Chinese version  */}
-                                    {/* <img src="https://s1.imagehub.cc/images/2022/09/25/Screen-Shot-2022-09-25-at-17.41.37.jpg" style={{ height: '340px', width: 'auto' }} onClick={() => { redirect("/BirthToAges4") }} /> */}
-
+                                    <img src={intl.get("homeVaccineSection2")} style={{ height: '340px', width: 'auto' }} />
                                 </div>
                             </div>
                             <div>
                                 <div style={contentStyle}>
-                                    <img src="https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-23.06.58.jpg" style={{ height: '340px', width: 'auto' }} />
-
-                                    {/* translate to Chinese version  */}
-                                    {/* <img src="https://s1.imagehub.cc/images/2022/09/25/Screen-Shot-2022-09-25-at-17.41.41.jpg" style={{ height: '340px', width: 'auto' }} /> */}
-
+                                    <img src={intl.get("homeVaccineSection3")} style={{ height: '340px', width: 'auto' }} />
                                 </div>
                             </div>
                         </Carousel>
