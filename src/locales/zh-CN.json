@@ -67,5 +67,19 @@
   "mapDescription": "找到您附近的医疗服务商。 包括药店,全科医生,专科医生和医院。以最快的速度找到离您最近的医疗服务。",
   "homeVaccineSection1": "https://s1.imagehub.cc/images/2022/09/25/Screen-Shot-2022-09-25-at-17.41.30.jpg",
   "homeVaccineSection2": "https://s1.imagehub.cc/images/2022/09/25/Screen-Shot-2022-09-25-at-17.41.37.jpg",
-  "homeVaccineSection3": "https://s1.imagehub.cc/images/2022/09/25/Screen-Shot-2022-09-25-at-17.41.41.jpg"
+  "homeVaccineSection3": "https://s1.imagehub.cc/images/2022/09/25/Screen-Shot-2022-09-25-at-17.41.41.jpg",
+  "tagAllergic": "过敏",
+  "tagBirthDefects": "出生缺陷",
+  "tagBlood": "血液",
+  "tagBone": "骨骼",
+  "tagBrain": "大脑",
+  "tagDigestive": "消化系统",
+  "tagEyes": "眼部",
+  "tagGlands": "腺体",
+  "tagInfectious": "传染性",
+  "tagInjury": "外伤",
+  "tagLiver": "肝脏",
+  "tagNeuromuscular": "神经肌肉系统",
+  "tagRespiratory": "呼吸道",
+  "tagSkin": "皮肤"
 }

@@ -50,20 +50,20 @@ const Disease = () => {
 
 
     // Set the tags in the menu
-    const [tags, setTags] = useState([])
-    useEffect(() => {
-        let tagTemp = tags;
-        for (let i in originalData) {
-            //console.log(data[i].tag);
-            for (let l in originalData[i].tag) {
-                if (!tagTemp.includes(originalData[i].tag[l])) {
-                    tagTemp.push(originalData[i].tag[l])
-                }
-            }
-        }
-        setTags(tagTemp);
-        //console.log(tags)
-    })
+    // const [tags, setTags] = useState([])
+    // useEffect(() => {
+    //     let tagTemp = tags;
+    //     for (let i in originalData) {
+    //         //console.log(data[i].tag);
+    //         for (let l in originalData[i].tag) {
+    //             if (!tagTemp.includes(originalData[i].tag[l])) {
+    //                 tagTemp.push(originalData[i].tag[l])
+    //             }
+    //         }
+    //     }
+    //     setTags(tagTemp);
+    //     //console.log(tags)
+    // })
 
 
     // Search the items which have all the tags selected.
@@ -224,9 +224,25 @@ const Disease = () => {
                                             paddingBottom: "5px"
                                         }}
                                     >
-                                        {tags.map(item =>
-                                            <Option value={item}> {item} </Option>
-                                        )}
+                                        {/*{tags.map(item =>*/}
+                                        {/*    <Option value={item}> {item} </Option>*/}
+                                        {/*)}*/}
+
+                                    {/*    Hard coded version of tag Display*/}
+                                        <Option value={intl.get("tagAllergic")}>{intl.get("tagAllergic")}</Option>
+                                        <Option value={intl.get("tagBirthDefects")}>{intl.get("tagBirthDefects")}</Option>
+                                        <Option value={intl.get("tagBlood")}>{intl.get("tagBlood")}</Option>
+                                        <Option value={intl.get("tagBone")}>{intl.get("tagBone")}</Option>
+                                        <Option value={intl.get("tagBrain")}>{intl.get("tagBrain")}</Option>
+                                        <Option value={intl.get("tagDigestive")}>{intl.get("tagDigestive")}</Option>
+                                        <Option value={intl.get("tagEyes")}>{intl.get("tagEyes")}</Option>
+                                        <Option value={intl.get("tagGlands")}>{intl.get("tagGlands")}</Option>
+                                        <Option value={intl.get("tagInfectious")}>{intl.get("tagInfectious")}</Option>
+                                        <Option value={intl.get("tagInjury")}>{intl.get("tagInjury")}</Option>
+                                        <Option value={intl.get("tagLiver")}>{intl.get("tagLiver")}</Option>
+                                        <Option value={intl.get("tagNeuromuscular")}>{intl.get("tagNeuromuscular")}</Option>
+                                        <Option value={intl.get("tagRespiratory")}>{intl.get("tagRespiratory")}</Option>
+                                        <Option value={intl.get("tagSkin")}>{intl.get("tagSkin")}</Option>
                                     </Select>
                                 </Form.Item>
 

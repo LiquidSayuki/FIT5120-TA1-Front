@@ -67,5 +67,19 @@
   "mapDescription": "Show you nearby healthcare providers. Including pharmacies, GPs, specialists and hospitals.Find a nearby location that can provide you with medical services quickly.",
   "homeVaccineSection1": "https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-23.06.44.jpg",
   "homeVaccineSection2": "https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-23.06.51.jpg",
-  "homeVaccineSection3": "https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-23.06.58.jpg"
+  "homeVaccineSection3": "https://s1.imagehub.cc/images/2022/09/17/Screen-Shot-2022-09-17-at-23.06.58.jpg",
+  "tagAllergic": "Allergic",
+  "tagBirthDefects": "Birth defects",
+  "tagBlood": "Blood",
+  "tagBone": "Bone",
+  "tagBrain": "Brain",
+  "tagDigestive": "Digestive",
+  "tagEyes": "Eyes",
+  "tagGlands": "Glands",
+  "tagInfectious": "Infectious",
+  "tagInjury": "Injury",
+  "tagLiver": "liver",
+  "tagNeuromuscular": "Neuromuscular",
+  "tagRespiratory": "Respiratory",
+  "tagSkin": "Skin"
 }
