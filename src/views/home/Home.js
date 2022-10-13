@@ -157,7 +157,7 @@ const Home = (props) => {
                             </div>
                             <div>
                                 <div style={contentStyle}>
-                                    <img src={intl.get("homeVaccineSection2")} style={{ height: '340px', width: 'auto' }} />
+                                    <img src={intl.get("homeVaccineSection2")} style={{ height: '340px', width: 'auto' }} onClick={() => { redirect("/vaccineSchedule") }} />
                                 </div>
                             </div>
                             <div>
@@ -199,38 +199,38 @@ const Home = (props) => {
 
                         {/*Section of extra*/}
                         <PageHeader title={intl.get("homeSectionTitle_4")}
-                                    subTitle={intl.get("homeSectionSubtitle_4")}
-                                    style={{paddingTop:"50px"}}
+                            subTitle={intl.get("homeSectionSubtitle_4")}
+                            style={{ paddingTop: "50px" }}
                         />
                         <Divider />
 
-                        <Row gutter={[5,5]}>
+                        <Row gutter={[5, 5]}>
                             {/*card [1,1]*/}
                             <Col span={8}>
                                 <Card hoverable
-                                      bordered={false}
-                                      onClick={() => {window.location.href="https://www.chemistwarehouse.com.au/"}}
-                                      style={{height:"100%"}}
+                                    bordered={false}
+                                    onClick={() => { window.location.href = "https://www.chemistwarehouse.com.au/" }}
+                                    style={{ height: "100%" }}
                                 >
                                     <img src="https://s1.imagehub.cc/images/2022/10/09/chemist.png"
-                                         alt="chemist warehouse"
-                                         style={{width:"100%"}}/>
+                                        alt="chemist warehouse"
+                                        style={{ width: "100%" }} />
                                 </Card>
                             </Col>
 
                             {/*card [1,2]*/}
                             <Col span={8}>
                                 <Card hoverable
-                                      bordered={false}
-                                      onClick={() => {window.location.href="https://monashchildrenshospital.org/"}}
-                                      style={{height:"100%"}}
-                                      bodyStyle={{height:"100%"}}
+                                    bordered={false}
+                                    onClick={() => { window.location.href = "https://monashchildrenshospital.org/" }}
+                                    style={{ height: "100%" }}
+                                    bodyStyle={{ height: "100%" }}
                                 >
-                                    <div style={{margin:"auto",textAlign:"center",position:"relative",top:"50%",transform:"translateY(-50%)"}}>
-                                        <h1 style={{fontFamily:"Arial Black"}}>
+                                    <div style={{ margin: "auto", textAlign: "center", position: "relative", top: "50%", transform: "translateY(-50%)" }}>
+                                        <h1 style={{ fontFamily: "Arial Black" }}>
                                             {intl.get("homeTitleOfChildHospital")}
                                         </h1>
-                                        <div style={{fontSize:"16px",fontFamily:"Verdana"}}>
+                                        <div style={{ fontSize: "16px", fontFamily: "Verdana" }}>
                                             <p>
                                                 {intl.get("homeDescriptionOfChildHospital")}
                                             </p>
@@ -245,29 +245,29 @@ const Home = (props) => {
                             {/*card [1,3]*/}
                             <Col span={8}>
                                 <Card hoverable
-                                      bordered={false}
-                                      onClick={() => {redirect("/map")}}
-                                      style={{height:"100%"}}
+                                    bordered={false}
+                                    onClick={() => { redirect("/map") }}
+                                    style={{ height: "100%" }}
                                 >
                                     <img src="https://s1.imagehub.cc/images/2022/10/09/map.png"
-                                         alt="map image"
-                                         style={{width:"100%"}}/>
+                                        alt="map image"
+                                        style={{ width: "100%" }} />
                                 </Card>
                             </Col>
 
                             {/*card [2,1]*/}
                             <Col span={8}>
                                 <Card hoverable
-                                      bordered={false}
-                                      onClick={() => {window.location.href="https://monashchildrenshospital.org/"}}
-                                      style={{height:"100%",display:"flex"}}
-                                      bodyStyle={{height:"100%"}}
+                                    bordered={false}
+                                    onClick={() => { window.location.href = "https://monashchildrenshospital.org/" }}
+                                    style={{ height: "100%", display: "flex" }}
+                                    bodyStyle={{ height: "100%" }}
                                 >
-                                    <div style={{margin:"auto",textAlign:"center",position:"relative",top:"50%",transform:"translateY(-50%)"}}>
-                                        <h1 style={{fontFamily:"Arial Black"}}>
+                                    <div style={{ margin: "auto", textAlign: "center", position: "relative", top: "50%", transform: "translateY(-50%)" }}>
+                                        <h1 style={{ fontFamily: "Arial Black" }}>
                                             {intl.get("homeTitleOfChemistWarehouse")}
                                         </h1>
-                                        <div style={{fontSize:"16px",fontFamily:"Verdana"}}>
+                                        <div style={{ fontSize: "16px", fontFamily: "Verdana" }}>
                                             <p>
                                                 {intl.get("homeDescriptionOfChemistWarehouse")}
                                             </p>
@@ -281,29 +281,29 @@ const Home = (props) => {
 
                             <Col span={8}>
                                 <Card hoverable
-                                      bordered={false}
-                                      onClick={() => {window.location.href="https://monashchildrenshospital.org/"}}
-                                      style={{height:"100%"}}
+                                    bordered={false}
+                                    onClick={() => { window.location.href = "https://monashchildrenshospital.org/" }}
+                                    style={{ height: "100%" }}
                                 >
                                     <img src="https://s1.imagehub.cc/images/2022/10/09/monashHospital.png"
-                                         alt="child hospital"
-                                         style={{width:"100%"}}/>
+                                        alt="child hospital"
+                                        style={{ width: "100%" }} />
                                 </Card>
                             </Col>
 
                             {/*card [2,3]*/}
                             <Col span={8}>
                                 <Card hoverable
-                                      bordered={false}
-                                      onClick={()=>{redirect("/map")}}
-                                      style={{height:"100%"}}
-                                      bodyStyle={{height:"100%"}}
+                                    bordered={false}
+                                    onClick={() => { redirect("/map") }}
+                                    style={{ height: "100%" }}
+                                    bodyStyle={{ height: "100%" }}
                                 >
-                                    <div style={{margin:"auto",textAlign:"center",position:"relative",top:"50%",transform:"translateY(-50%)"}}>
-                                        <h1 style={{fontFamily:"Arial Black"}}>
+                                    <div style={{ margin: "auto", textAlign: "center", position: "relative", top: "50%", transform: "translateY(-50%)" }}>
+                                        <h1 style={{ fontFamily: "Arial Black" }}>
                                             {intl.get("homeTitleOfMapFeature")}
                                         </h1>
-                                        <div style={{fontSize:"16px",fontFamily:"Verdana"}}>
+                                        <div style={{ fontSize: "16px", fontFamily: "Verdana" }}>
                                             <p>
                                                 {intl.get("homeDescriptionOfMapFeature")}
                                             </p>
