@@ -80,14 +80,14 @@ const Home = (props) => {
                 </Row>
 
                 {/*Subtitle of the page*/}
-                <Row className={style.text}>
+                <Row style={{fontSize:"22px",fontFamily:"Verdana",textAlign:"center"}}>
                     <Col span={4}></Col>
                     <Col span={16}><Text>{intl.get("homeSubtitle")}</Text></Col>
                     <Col span={4}></Col>
                 </Row>
 
                 {/*Two buttons*/}
-                <Row className={style.text}>
+                <Row className={style.text} style={{paddingTop:"50px"}}>
                     <Col span={4}></Col>
                     <Col span={16}><Text>{intl.get("homeSubtitle_2")}</Text></Col>
                     <Col span={4}></Col>
@@ -212,7 +212,7 @@ const Home = (props) => {
                                       onClick={() => {window.location.href="https://www.chemistwarehouse.com.au/"}}
                                       style={{height:"100%"}}
                                 >
-                                    <img src="https://s1.imagehub.cc/images/2022/10/09/chemist.png"
+                                    <img src="https://s1.imagehub.cc/images/2022/10/13/pharmacy.png"
                                          alt="chemist warehouse"
                                          style={{width:"100%"}}/>
                                 </Card>
@@ -279,13 +279,14 @@ const Home = (props) => {
                                 </Card>
                             </Col>
 
+                            {/*Card [2,2]*/}
                             <Col span={8}>
                                 <Card hoverable
                                       bordered={false}
                                       onClick={() => {window.location.href="https://monashchildrenshospital.org/"}}
                                       style={{height:"100%"}}
                                 >
-                                    <img src="https://s1.imagehub.cc/images/2022/10/09/monashHospital.png"
+                                    <img src="https://s1.imagehub.cc/images/2022/10/13/ChildrenHospital.png"
                                          alt="child hospital"
                                          style={{width:"100%"}}/>
                                 </Card>
